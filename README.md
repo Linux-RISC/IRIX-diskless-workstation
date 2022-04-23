@@ -29,15 +29,13 @@ c3. The path changes depending on your drive device and mounting point, let's su
 % chmod 777 diskless
 
 ```
-<br>
-<h3>2. Preparing IRIX server to generate the diskless tree</h3>
+<h3>2. Preparing the IRIX server to generate the diskless tree</h3>
 - verify it has installed the diskless server subsystem<br>
 
 ```
 % versions nfs
 
 ```
-<br>
 If the subsystem is not installed, you can install it from the media "ONC3/NFS Version 3 for IRIX 6.2, 6.3, 6.4, and 6.5".<br>
 Download this media on Reanimator(2. Download menu --> 7. Download IRIX 6.5.x) and proceed:<br>
 
@@ -50,4 +48,55 @@ Type irix@rbpi:i/IRIX/irix65x/nfs/dist
 keep *
 install nfs.sw.dskless_server
 go
+```
+<h3>Run share_setup to create a share tree configuration file (share.dat).</h3>
+
+```
+% ./share_setup
+----------
+This program will help you create a share tree configuration file for a 
+single IRIX version.  Create a separate share tree configuration file for
+a 32-bit and a 64-bit version of the same IRIX release.
+
+Retrieving system information...
+
+Hostname is octane2
+If you wish to use a different interface name for this host, enter it now
+(Press return if octane2 is ok): 
+
+Do you want client boot information stored on octane2 (y/n)? y --> SERVER_NIS="no"
+----------
+if "no":
+Make sure octane2 is listed in the NIS server's /etc/updaters file.
+----------
+Enter the root directory of the diskless tree 
+(e.g. /diskless) : /diskless
+
+Enter the name of the share tree (e.g. IRIX65): 6.5.30
+
+Share tree will be installed at /diskless/share/6.5.30
+
+Enter the name of the share tree configuration file (no extension please): 6.5.30
+
+Share tree configuration file will be written at /var/boot/6.5.30.dat
+Press [Enter] to continue
+----------
+***CLIENT ARCHITECTURE INFORMATION***
+
+
+*** PLEASE READ CAREFULLY ***
+If you are using a 32 bit machine as your diskless server, you can only
+install share trees for 32 bit platforms.  If you have a 64 bit server,
+you can install either a 32 or a 64 bit share tree.
+
+Do you want to install a share tree for all client platforms (y or n): y
+Which version would you like:
+        1. 32bit
+        2. 64bit
+Choose one (1 or 2): 2
+Storing share tree configuration file at /var/boot/6.5.30.dat
+
+/var/boot/6.5.30.dat
+SERVER_NIS="yes" --> SERVER_NIS="no"
+
 ```
