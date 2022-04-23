@@ -1,9 +1,7 @@
 # IRIX diskless workstation using Reanimator
-<br>
-<b>Purpose</b><br>
 The purpose of this guide is to show how to boot an IRIX diskless workstation using Reanimator http://irix.mersisl.com/<br>
 <br>
-<b>Requeriments</b><br>
+<h2>Requeriments</h2>
 <ul>
   <li>Read the guide "Diskless Workstation Administration Guide" https://irix7.com/techpubs/007-0855-080.pdf and understand the complete process. This guide has too much literature and it is not very concrete, you can explain the same in 10 pages.</li>
   <li>1. sgi computer to generate diskless tree.</li>
@@ -18,8 +16,8 @@ c3. RBPi working as bootp server and using a separated NAS as storage. I have us
 <br>
 You can use any of the three configurations, the procedure is the same, you only need to modify the directory paths.<br>
 <br>
-<b>Procedure</b><br>
-1. Creating a directory to store the diskless tree<br>
+<h2>Procedure</h2>
+<h3>1. Creating a directory to store the diskless tree</h3>
 c1. Create a directory on /home/irix/i named diskless<br>
 c2. The path changes depending on your usb device and mounting point, if you use Reanimator's menus the path is /home/iris/i/sda1. Create there a directory named diskless.<br>
 c3. The path changes depending on your drive device and mounting point, let's suppose the drive is mounted on /media/sda1. Create there a directory named diskless.<br>
@@ -27,10 +25,9 @@ c3. The path changes depending on your drive device and mounting point, let's su
 - Modify directory permissions:<br>
 % chmod 777 diskless<br>
 <br>
-2. Preparing IRIX server to generate the diskless tree<br>
+<h3>2. Preparing IRIX server to generate the diskless tree</h3>
 - verify it has installed the diskless server subsystem<br>
 % versions nfs<br>
-I  nfs.sw.dskless_server  04/20/2022  Diskless Server Support<br>
 <br>
 If the subsystem is not installed, you can install it from the media "ONC3/NFS Version 3 for IRIX 6.2, 6.3, 6.4, and 6.5".<br>
 Download this media on Reanimator(2. Download menu --> 7. Download IRIX 6.5.x) and proceed:<br>
@@ -42,3 +39,4 @@ Type irix@rbpi:i/IRIX/irix65x/nfs/dist<br>
 keep *<br>
 install nfs.sw.dskless_server<br>
 go<br>
+
