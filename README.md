@@ -18,11 +18,11 @@ c3. RBPi working as bootp server and using a separated NAS as storage. I have us
 <br>
 You can use any of the three configurations, the procedure is the same, you only need to modify the directory paths.<br>
 <br>
-<br>
-1. Create a directory to store the diskless tree<br>
+<b>Procedure</b><br>
+1. Creating a directory to store the diskless tree<br>
 c1. Create a directory on /home/irix/i named diskless<br>
 c2. The path changes depending on your usb device and mounting point, if you use Reanimator's menus the path is /home/iris/i/sda1. Create there a directony named diskless.
-c3. The path changes depending on your drive device and mounting point, let's suppose the drive is mounted on /media/sda1. Create there a directony named diskless.
+c3. The path changes depending on your drive device and mounting point, let's suppose the drive is mounted on /media/sda1. Create there a directony named diskless.<br>
 <br>
-2. Modify directory permissions: chmod 777 diskless<br>
+- Modify directory permissions: chmod 777 diskless<br>
 
