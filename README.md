@@ -12,9 +12,8 @@ The purpose of this guide is to show how to boot an IRIX diskless workstation us
 </ul>
 <br>
 I have tested three configurations:<br>
-1. RBPi working as bootp server and NAS. This is the easiest configuration to test a diskless workstation, keep in mind that the SD card will reduce its expected life time, due to the excess of write cycles.
+1. RBPi working as bootp server and NAS. This is the easiest configuration to test a diskless workstation, keep in mind that the SD card will reduce its expected life time, due to the excess of write cycles.<br>
 2. To avoid this problem, you can connect an external hard disk to an USB port on RBPi and use it as storage instead the SD card.<br>
-3. RBPi working as bootp server and using a separated NAS as storage. This is the easiest configuration to test a diskless workstation, keep in mind that the SD card will reduce the expected life time, due to the excess of write cycles.<br>
+3. RBPi working as bootp server and using a separated NAS as storage. I have used as NAS (Network-attached storage https://en.wikipedia.org/wiki/Network-attached_storage) a think client with Debian GNU/Linux and NFS, you don't need a professional solution.<br>
 <br>
-I have used as NAS (Network-attached storage https://en.wikipedia.org/wiki/Network-attached_storage) a think client with Debian GNU/Linux, it's not necessary a professioal solution.<br>
-
+You can use any of the three configuration, the procedure is the same, you only need to modify the directory paths.
