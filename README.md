@@ -1,4 +1,11 @@
 # IRIX diskless workstation using Reanimator
+
+```
+function test() {
+  console.log("notice the blank line before this function?");
+}
+```
+
 The purpose of this guide is to show how to boot an IRIX diskless workstation using Reanimator http://irix.mersisl.com/<br>
 <br>
 <h2>Requeriments</h2>
@@ -23,7 +30,21 @@ c2. The path changes depending on your usb device and mounting point, if you use
 c3. The path changes depending on your drive device and mounting point, let's suppose the drive is mounted on /media/sda1. Create there a directory named diskless.<br>
 <br>
 - Modify directory permissions:<br>
-% chmod 777 diskless<br>
+
+```
+function test() {
+  console.log("notice the blank line before this function?");
+}
+```
+
+```
+% chmod 777 diskless
+```
+```
+function test() {
+  console.log("notice the blank line before this function?");
+}
+```
 <br>
 <h3>2. Preparing IRIX server to generate the diskless tree</h3>
 - verify it has installed the diskless server subsystem<br>
