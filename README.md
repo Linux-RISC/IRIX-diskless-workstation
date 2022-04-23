@@ -1,11 +1,5 @@
 # IRIX diskless workstation using Reanimator
-
-```
-function test() {
-  console.log("notice the blank line before this function?");
-}
-```
-
+<br>
 The purpose of this guide is to show how to boot an IRIX diskless workstation using Reanimator http://irix.mersisl.com/<br>
 <br>
 <h2>Requeriments</h2>
@@ -32,32 +26,28 @@ c3. The path changes depending on your drive device and mounting point, let's su
 - Modify directory permissions:<br>
 
 ```
-function test() {
-  console.log("notice the blank line before this function?");
-}
-```
-
-```
 % chmod 777 diskless
-```
-```
-function test() {
-  console.log("notice the blank line before this function?");
-}
+
 ```
 <br>
 <h3>2. Preparing IRIX server to generate the diskless tree</h3>
 - verify it has installed the diskless server subsystem<br>
-% versions nfs<br>
+
+```
+% versions nfs
+
+```
 <br>
 If the subsystem is not installed, you can install it from the media "ONC3/NFS Version 3 for IRIX 6.2, 6.3, 6.4, and 6.5".<br>
 Download this media on Reanimator(2. Download menu --> 7. Download IRIX 6.5.x) and proceed:<br>
-% inst<br>
-1. open<br>
-Type irix@rbpi:i/IRIX/irix65x/nfs/dist<br>
-11. done<br>
-..<br>
-keep *<br>
-install nfs.sw.dskless_server<br>
-go<br>
 
+```
+% inst
+1. open
+Type irix@rbpi:i/IRIX/irix65x/nfs/dist
+11. done
+..
+keep *
+install nfs.sw.dskless_server
+go
+```
