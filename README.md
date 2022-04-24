@@ -16,7 +16,7 @@ C2. To avoid the SD problem and increase the throughput, you can connect an exte
 C3. RBPi working as bootp server and using a separated NAS as storage. I have used as NAS (Network-attached storage https://en.wikipedia.org/wiki/Network-attached_storage) a think client with Debian GNU/Linux and NFS, you don't need to use a professional solution.<br>
 <br>
 You can use any of the three configurations, the procedure is the same, you only need to modify the directory paths.<br>
-According to my experience, shared tree generation over network is much slower using C2 or C3 configurations. It's faster to backup the diskless directory with tar and restore it on the destination machine.<br>
+According to my experience, shared tree generation over network is much slower, it's faster to backup the diskless directory with tar and restore it on the destination machine. Please, try both methods and decide yourself.<br>
 <br>
 <h2>Procedure</h2>
 <h3>1. Creating a directory to store the diskless tree</h3>
@@ -24,17 +24,18 @@ C1. Create a directory on /home/irix/i named diskless.<br>
 
 ```mermaid
 graph TD;
-    Octane2--shared tree generation-->B[local /diskless directory]--Octane2: # tar cvf diskless.tar /diskless-->diskless.tar;
-    diskless.tar--copy to RBPi using scp or mounting RBPi:/home/irix/i on local /mnt-->RBPi:/home/irix/i--RBPi: # tar xvf diskless.tar-->/home/irix/i/diskless;
-   Octane2--shared tree generation-->B[local /diskless directory];
+    Octane2--Option 1: local shared tree generation-->B[local /diskless directory]--Octane2: # tar cvf diskless.tar /diskless-->diskless.tar;
+    diskless.tar--copy to RBPi using scp or mounting RBPi:/home/irix/i on local /mnt-->RBPi:/home/irix/i--# tar xvf diskless.tar-->RBPi:/home/irix/i/diskless;
+   Octane2--Option 2: shared tree generation over network-->J[mount RBPi:/home/irix/i/diskless on /diskless]-->RBPi:/home/irix/i/diskless;
 ```
 
 C2. The path changes depending on your usb device and mounting point, if you use Reanimator's menus the path is /home/iris/i/sda1. Create there a directory named diskless.<br>
 
 ```mermaid
 graph TD;
-    Octane2--mount RBPi:/home/iris/i/sda1/diskless on /diskless-->B[local /diskless directory];
-    Octane2--shared tree generation-->B[local /diskless directory];
+    Octane2--Option 1: local shared tree generation-->B[local /diskless directory]--Octane2: # tar cvf diskless.tar /diskless-->diskless.tar;
+    diskless.tar--copy to RBPi using scp or mounting RBPi:/home/irix/i on local /mnt-->RBPi:/home/irix/i/sda1--# tar xvf diskless.tar-->RBPi:/home/irix/i/diskless;
+   Octane2--Option 2: shared tree generation over network-->RBPi:/home/irix/i/sda1/diskless;
 ```
 
 C3. The path changes depending on your drive device and mounting point, let's suppose the drive is mounted on /media/sda1. Create there a directory named diskless.<br>
