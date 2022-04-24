@@ -5,14 +5,14 @@ The purpose of this guide is to show how to boot an IRIX diskless workstation us
 <h2>Requeriments</h2>
 <ul>
   <li>1. Read the guide "Diskless Workstation Administration Guide" https://irix7.com/techpubs/007-0855-080.pdf and understand the complete process. This guide contains too much literature and it is not very concrete, you can explain the same in 10 pages.</li>
-  <li>2. sgi computer to work as <b>diskless server</b>, it will <b>generate</b> the diskless tree.</li>
-  <li>3. sgi computer to work as <b>diskless workstation</b>, it could be the same than (2).</li>
-  <li>4. Raspberry Pi+Reanimator to work as <b>diskless server</b>. Reanimator on VirtualBox should work too. It will work as <b>bootp and NFS server</b>.</li>
+  <li>2. sgi computer to work as <b>diskless server</b>, it will <b>generate</b> the diskless tree. I will use an Octane2.</li>
+  <li>3. sgi computer to work as <b>diskless workstation</b>, it could be the same than (2). I will use an Indy.</li>
+  <li>4. Raspberry Pi+Reanimator to work as <b>diskless server</b>. It will work as <b>bootp and NFS server</b>. Reanimator on VirtualBox should work too. I will use a Raspberry Pi.</li>
 </ul>
 <br>
 I have tested three configurations:<br>
 C1. RBPi working as bootp server and NAS. This is the easiest configuration to test a diskless workstation, keep in mind that the SD card will reduce its expected life time, due to the excess of write cycles.<br>
-C2. To avoid this problem, you can connect an external hard disk to an USB port on RBPi and use it as storage instead the SD card.<br>
+C2. To avoid the SD problem and increase the throughput, you can connect an external hard disk to an USB port on RBPi and use it as storage instead the SD card.<br>
 C3. RBPi working as bootp server and using a separated NAS as storage. I have used as NAS (Network-attached storage https://en.wikipedia.org/wiki/Network-attached_storage) a think client with Debian GNU/Linux and NFS, you don't need to use a professional solution.<br>
 <br>
 You can use any of the three configurations, the procedure is the same, you only need to modify the directory paths.<br>
@@ -51,7 +51,7 @@ graph TD;
 
 ```
 <h3>2. Preparing the IRIX server to generate the diskless tree</h3>
-- verify it has installed the diskless server subsystem<br>
+Verify the diskless server subsystem is installed:<br>
 
 ```
 % versions nfs
@@ -70,7 +70,7 @@ keep *
 install nfs.sw.dskless_server
 go
 ```
-<h3>3. Run share_setup to create a share tree configuration file (share.dat).</h3>
+<h3>3. Run share_setup to create a share tree configuration file (share.dat):</h3>
 
 ```
 % ./share_setup
@@ -118,7 +118,7 @@ Choose one (1 or 2): 1
 Storing share tree configuration file at /var/boot/6.5.22.dat
 
 ```
-<h3>4. Run share_inst to install the share tree.</h3>
+<h3>4. Run share_inst to install the share tree:</h3>
 
 ```
 ./share_inst -r 6.5.22
