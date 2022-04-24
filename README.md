@@ -26,6 +26,7 @@ C1. Create a directory on /home/irix/i named diskless.<br>
 graph TD;
     Octane2--shared tree generation-->B[local /diskless directory]--Octane2: # tar cvf diskless.tar /diskless-->diskless.tar;
     diskless.tar--copy to RBPi using scp or mounting RBPi:/home/irix/i on local /mnt-->RBPi:/home/irix/i--RBPi: # tar xvf diskless.tar-->/home/irix/i/diskless;
+   Octane2--shared tree generation-->B[local /diskless directory];
 ```
 
 C2. The path changes depending on your usb device and mounting point, if you use Reanimator's menus the path is /home/iris/i/sda1. Create there a directory named diskless.<br>
