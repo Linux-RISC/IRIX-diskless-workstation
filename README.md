@@ -4,10 +4,10 @@ The purpose of this guide is to show how to boot an IRIX diskless workstation us
 <br>
 <h2>Requeriments</h2>
 <ul>
-  <li>Read the guide "Diskless Workstation Administration Guide" https://irix7.com/techpubs/007-0855-080.pdf and understand the complete process. This guide has too much literature and it is not very concrete, you can explain the same in 10 pages.</li>
-  <li>1. sgi computer to generate diskless tree.</li>
-  <li>2. sgi computer to work as <b>diskless workstation</b>, it could be the same than (1).</li>
-  <li>3. Raspberry Pi+Reanimator to work as diskless workstation <b>server</b>. Reanimator on VirtualBox should work too.</li>
+  <li>1. Read the guide "Diskless Workstation Administration Guide" https://irix7.com/techpubs/007-0855-080.pdf and understand the complete process. This guide contains too much literature and it is not very concrete, you can explain the same in 10 pages.</li>
+  <li>2. sgi computer to work as <b>diskless server</b>, it will <b>generate</b> the diskless tree.</li>
+  <li>3. sgi computer to work as <b>diskless workstation</b>, it could be the same than (2).</li>
+  <li>4. Raspberry Pi+Reanimator to work as <b>diskless server</b>. Reanimator on VirtualBox should work too. It will work as <b>bootp and NFS server</b>.</li>
 </ul>
 <br>
 I have tested three configurations:<br>
