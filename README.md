@@ -23,14 +23,8 @@ According to my experience, shared tree generation over network is much slower, 
 <br>
 <h2>Procedure</h2>
 <h3>1. Creating a directory to store the diskless tree</h3>
-C1. Create a directory on /home/irix/i named diskless:<br>
-
-```
-# directory /home/irix/i/diskless is provided with the right permissions, skip these steps for option 2
-$ sudo mkdir /home/irix/i/diskless
-$ sudo 777 /home/irix/i/diskless
-
-```
+C1. The directory /home/irix/i/diskless is created an shared via NFS.<br>
+You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower):<br>
 
 ```mermaid
 graph TD;
@@ -39,13 +33,24 @@ graph TD;
    Octane2--Option 2: shared tree generation over network-->mount_RBPi[mount RBPi:/home/irix/i/diskless on /diskless]-->RBPi[(RBPi:/home/irix/i/diskless)];
 ```
 
-C2. The path changes depending on your usb device and mounting point, if you use Reanimator's menus the path is /home/iris/i/sda1. Create there a directory named diskless.<br>
+C2. The directory /home/irix/i/sda1 is created an shared via NFS.<br>
+The path can change depending on your usb device and mounting point, if you use Reanimator's menus, the path is /home/iris/i/sda1. If you mount /dev/sdx on another path, create a mount point:<br>
+
+```
+$ sudo mount /path/diskless
+$ sudo 777 /path/diskless
+
+# add the path on /etc/exports and run "sudo service nfs-kernel-server restart" to apply changes
+/path/i/diskless			*(rw,no_root_squash,no_subtree_check)
+
+```
+
 
 ```mermaid
 graph TD;
     Octane2--Option 1: local shared tree generation-->local_diskless[local /diskless directory]--Octane2: # tar cvf diskless.tar /diskless-->diskless.tar;
     diskless.tar--copy to RBPi using scp or mounting RBPi:/home/irix/i on local /mnt-->RBPi:/home/irix/i--# tar xvf diskless.tar-->RBPi[(RBPi:/home/irix/i/diskless)];
-   Octane2--Option 2: shared tree generation over network-->mount_RBPi[mount RBPi:/home/irix/i/sda1/diskless on /diskless]-->RBPi[(RBPi:/home/irix/i/sda1/diskless)];
+   Octane2--Option 2: shared tree generation over network-->mount_RBPi[mount RBPi:/home/irix/i/sda1 on /diskless]-->RBPi[(RBPi:/home/irix/i/sda1)];
 ```
 
 C3. The path changes depending on your drive device and mounting point, let's suppose the drive is mounted on /media/sda1. Create there a directory named diskless.<br>
