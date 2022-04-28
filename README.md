@@ -114,7 +114,7 @@ Hostname is octane2
 If you wish to use a different interface name for this host, enter it now
 (Press return if octane2 is ok): 
 
-Do you want client boot information stored on octane2 (y/n)? y --> SERVER_NIS="no"
+Do you want client boot information stored on octane2 (y/n)? y --> SERVER_NIS="no" on .dat file
 ----------
 if "n":
 Make sure octane2 is listed in the NIS server's /etc/updaters file.
