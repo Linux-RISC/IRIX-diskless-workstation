@@ -75,16 +75,10 @@ C3. Only shared tree generation over network is supported:<br>
 
 ```mermaid
 graph TD;
-    Octane2--mount NAS_IP:/path/diskless on /diskless-->B[local /diskless directory];
-    Octane2--shared tree generation over network-->B[local /diskless directory];
+    Octane2--mount NAS_IP:/path/diskless on /diskless-->B[NAS_IP:/path/diskless];
+    Octane2--shared tree generation over network-->B[NAS_IP:/path/diskless];
 ```
 
-- Modify directory permissions:<br>
-
-```
-% chmod 777 diskless
-
-```
 <h3>2. Preparing the IRIX server to generate the diskless tree</h3>
 Verify the diskless server subsystem is installed:<br>
 
