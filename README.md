@@ -23,7 +23,7 @@ According to my experience, shared tree generation over network is much slower, 
 <br>
 <h2>Procedure</h2>
 <h3>1. Creating a directory to store the diskless tree</h3>
-C1. The directory /home/irix/i/diskless is created an shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower):<br>
+C1. The directories /home/irix/i and /home/irix/i/diskless exist and are shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower):<br>
 
 ```mermaid
 graph TD;
@@ -32,18 +32,30 @@ graph TD;
    Octane2--Option 2: shared tree generation over network-->mount_RBPi[mount RBPi:/home/irix/i/diskless on /diskless]-->RBPi[(RBPi:/home/irix/i/diskless)];
 ```
 
-C2. The directories /home/irix/i/sda1 and /home/irix/i/sda1/diskless are created an shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower):<br>
+C2. The directory /home/irix/i/sda1 is shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower).<br>
 
-The path can change depending on your usb device and mounting point, if you use Reanimator's menus, the path is /home/iris/i/sda1. If you mount /dev/sdx on another path, create a mount point:<br>
+The path can change depending on your usb device and mounting point, if you use Reanimator's menus, the path is /home/iris/i/sda1. The directory diskless must be created on the <b>mounted</b> USB drive:<br>
 
 ```
-$ sudo mount /path/diskless
-$ sudo 777 /path/diskless
+# driver mounted using Reanimator's default path home/irix/i/sda1
+$ sudo mkdir /home/irix/i/sda1/diskless
+$ sudo chmod 777 /home/irix/i/sda1/diskless
+
+# uncomment this line on /etc/exports and run "sudo service nfs-kernel-server restart" to apply changes
+#/home/irix/i/sda1/diskless             *(rw,no_root_squash,no_subtree_check)º
+```
+
+```
+# custom path
+$ sudo mount /dev/sda1 /my_path
+$ sudo mkdir /my_path/diskless
+$ sudo chmod 777 /my_path/diskless
 
 # add the path on /etc/exports and run "sudo service nfs-kernel-server restart" to apply changes
-/path/i/diskless			*(rw,no_root_squash,no_subtree_check)
-
+/my_path/i/diskless			*(rw,no_root_squash,no_subtree_check)
 ```
+
+If you choose the shared tree generation over network, the drive must be mounted on /home/irix/i/sda1 (or /my_path/diskless). Keep in mind that nfs-kernel-server <b>won't work<br> if USB drive is not mountend on boot, you must run "sudo service nfs-kernel-server restart" after mounting the USB drive<br>
 
 
 ```mermaid
