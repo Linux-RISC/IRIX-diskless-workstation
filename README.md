@@ -37,12 +37,15 @@ C2. The directory /home/irix/i/sda1 is shared via NFS. You can choose between lo
 The path can change depending on your usb device and mounting point, if you use Reanimator's menus, the path is /home/iris/i/sda1. The directory diskless must be created on the <b>mounted</b> USB drive:<br>
 
 ```
-# driver mounted using Reanimator's default path home/irix/i/sda1
+# drive mounted using Reanimator's default path /home/irix/i/sda1
 $ sudo mkdir /home/irix/i/sda1/diskless
 $ sudo chmod 777 /home/irix/i/sda1/diskless
 
 # uncomment this line on /etc/exports and run "sudo service nfs-kernel-server restart" to apply changes
-#/home/irix/i/sda1/diskless             *(rw,no_root_squash,no_subtree_check)º
+#/home/irix/i/sda1/diskless             *(rw,no_root_squash,no_subtree_check)
+
+# add this line on /etc/fstab to automount USB drive on boot
+/dev/sda1 /home/irix/i/sda1 auto  defaults  0 0
 ```
 
 ```
@@ -52,10 +55,13 @@ $ sudo mkdir /my_path/diskless
 $ sudo chmod 777 /my_path/diskless
 
 # add the path on /etc/exports and run "sudo service nfs-kernel-server restart" to apply changes
-/my_path/i/diskless			*(rw,no_root_squash,no_subtree_check)
+/my_path/diskless			*(rw,no_root_squash,no_subtree_check)
+
+# add this line on /etc/fstab to automount USB drive on boot
+/dev/sda1 /my_path auto  defaults  0 0
 ```
 
-If you choose the shared tree generation over network, the drive must be mounted on /home/irix/i/sda1 (or /my_path/diskless). Keep in mind that nfs-kernel-server <b>won't work<br> if USB drive is not mountend on boot, you must run "sudo service nfs-kernel-server restart" after mounting the USB drive<br>
+If you choose the shared tree generation over network, the USB drive must be mounted on /home/irix/i/sda1 (or /my_path). Keep in mind that nfs-kernel-server <b>won't work</b> if USB drive is not mountend on boot and the mount directories exported on /etc/exports, you must run "sudo service nfs-kernel-server restart" after mounting the USB drive<br>
 
 
 ```mermaid
@@ -69,8 +75,8 @@ C3. Only shared tree generation over network is supported:<br>
 
 ```mermaid
 graph TD;
-    Octane2--mount RBPi:/media/sda1/diskless on /diskless-->B[local /diskless directory];
-    Octane2--shared tree generation-->B[local /diskless directory];
+    Octane2--mount NAS_IP:/path/diskless on /diskless-->B[local /diskless directory];
+    Octane2--shared tree generation over network-->B[local /diskless directory];
 ```
 
 - Modify directory permissions:<br>
