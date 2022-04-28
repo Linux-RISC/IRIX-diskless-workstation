@@ -100,6 +100,7 @@ install nfs.sw.dskless_server
 go
 ```
 <h3>3. Run share_setup to create a share tree configuration file (share.dat):</h3>
+Run share_setup for every share tree: 6.5.22_32, 6.5.22_64, 6.5.30, ...<br>
 
 ```
 % ./share_setup
@@ -148,6 +149,7 @@ Storing share tree configuration file at /var/boot/6.5.22.dat
 
 ```
 <h3>4. Run share_inst to install the share tree:</h3>
+Run share_inst for every share tree class: 6.5.22, 6.5.30, ...<br>
 
 ```
 ./share_inst -r 6.5.22
@@ -210,6 +212,7 @@ Please enter a choice [1]: 2
 
 ```
 <h3>5. Run client_setup to create a client tree configuration file (client.dat).</h3>
+Run client_setup for every client class: Indy, Octane, ...<br>
 
 ```
 % ./client_setup
