@@ -23,7 +23,7 @@ According to my experience, shared tree generation over network is much slower, 
 <br>
 <h2>Procedure</h2>
 <h3>1. Creating a directory to store the diskless tree</h3>
-C1. The directories /home/irix/i and /home/irix/i/diskless exist and are shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower):<br>
+C1. bootp+NAS. The directories /home/irix/i and /home/irix/i/diskless exist and are shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower):<br>
 
 ```mermaid
 graph TD;
@@ -33,7 +33,7 @@ graph TD;
    RBPi[(RBPi:/home/irix/i/diskless)]--bootp and NFS-->Indy([Indy]);
 ```
 
-C2. (RBPi only) The directory /home/irix/i/sda1 is shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower).<br>
+C2. (RBPi only) bootp+NAS+USB drive. The directory /home/irix/i/sda1 is shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower).<br>
 
 The path can change depending on your usb device and mount point, if you use Reanimator's menus, the path is /home/iris/i/sda1. The directory diskless must be created on the <b>mounted</b> USB drive:<br>
 
@@ -73,7 +73,7 @@ graph TD;
    RBPi[(RBPi:/home/irix/i/sda1/diskless)]--bootp and NFS-->Indy([Indy]);
 ```
 
-C3. Only shared tree generation over network is supported:<br>
+C3. bootp+separated NAS storage. Only shared tree generation over network is supported:<br>
 
 ```mermaid
 graph TD;
