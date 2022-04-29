@@ -33,7 +33,7 @@ graph TD;
    RBPi[(RBPi:/home/irix/i/diskless)]--bootp and NFS-->Indy([Indy]);
 ```
 
-C2. The directory /home/irix/i/sda1 is shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower).<br>
+C2. (RBPi only) The directory /home/irix/i/sda1 is shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower).<br>
 
 The path can change depending on your usb device and mounting point, if you use Reanimator's menus, the path is /home/iris/i/sda1. The directory diskless must be created on the <b>mounted</b> USB drive:<br>
 
