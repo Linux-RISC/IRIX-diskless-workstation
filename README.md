@@ -117,21 +117,24 @@ Example: diskless tree = (share tree 6.5.22+client tree 1_1+swap tree 1_1+client
 ```
 # cd /var/boot
 # ./share_setup
-... (6.5.22 file created)
+... (6.5.22.dat file created)
 ./share_setup
-... (5.3.dat file created)
+... (6.5.30.dat file created)
+
 # ./share_inst -r 6.5.22
-... (6.5.22 share tree installed at /diskless/share/6.5.22)
-# ./share_inst -r 5.3
-... (5.3 share tree installed at /diskless/share/5.3)
-# ./client_setup
-... (Octane.dat file created)
+... (6.5.22 share tree installed on /diskless/share/6.5.22)
+# ./share_inst -r 6.5.30
+... (6.5.30 share tree installed at /diskless/share/6.5.30)
+
 # ./client_setup
 ... (Indy.dat file created)
-# ./client_inst -h octane -r 6.5.22 -c Octane
-... (octane client tree installed to /diskless/client/octane)
-# ./client_inst -h indy -r 5.3 -c Indy
+# ./client_setup
+... (Octane2.dat file created)
+
+# ./client_inst -h Indy -r 6.5.22 -c IRIS
 ... (indy client tree installed to /diskless/client/indy)
+# ./client_inst -h Octane2 -r 6.5.30 -c IRIS2
+... (octane client tree installed to /diskless/client/octane)
 ```
 
 <h3>4. Run share_setup to create a share tree configuration file (share.dat):</h3>
