@@ -84,7 +84,7 @@ graph TD;
 ```
 
 <h3>2. Preparing the IRIX server to generate the diskless tree</h3>
-Verify the diskless server subsystem is installed:<br>
+Verify the diskless server subsystem (nfs.sw.dskless_server) is installed:<br>
 
 ```
 % versions nfs
