@@ -103,7 +103,7 @@ install nfs.sw.dskless_server
 go
 ```
 <h3>3. Overview of the installation procedure:</h3>
-Some definitions:<br>
+Some remarks:<br>
 <ul>
   <li>A diskless tree contains one share tree for each release of IRIX that it supports.</li>
   <li>The share tree contains the portion of the IRIX operating system that can be shared by a group of diskless clients.</li>
@@ -113,6 +113,15 @@ Some definitions:<br>
 needed to support the individual client that is using it.</li>
 </ul>
 Example: diskless tree = (share tree 6.5.22+client tree 1_1+swap tree 1_1+client tree 1_2+swap tree 1_2)+(share tree 6.5.30+client tree 2_1+swap tree 2_1+client tree 2_2+swap tree 2_2)
+
+<ul>
+  <li>Run share_setup to create a share tree configuration file (share.dat).</li>
+  <li>Run share_inst to install the share tree.</li>
+  <li>Run client_setup to create a client tree configuration file (client.dat).</li>
+  <li>Run clone_client to reproduce the client and swap trees for additional clients.</li>
+  <li>Boot each client and verify the installation.</li>
+</ul>
+
 
 ```
 # cd /var/boot
