@@ -114,6 +114,7 @@ needed to support the individual client that is using it.</li>
 </ul>
 Example: diskless tree = (share tree 6.5.22+client tree 1_1+swap tree 1_1+client tree 1_2+swap tree 1_2)+(share tree 6.5.30+client tree 2_1+swap tree 2_1+client tree 2_2+swap tree 2_2)
 <br><br>
+Installation steps:
 <ul>
   <li>Run share_setup to create a share tree configuration file (share.dat).</li>
   <li>Run share_inst to install the share tree.</li>
