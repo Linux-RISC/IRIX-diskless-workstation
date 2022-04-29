@@ -102,7 +102,7 @@ keep *
 install nfs.sw.dskless_server
 go
 ```
-<h3>3. Command summary:</h3>
+<h3>3. Overview of the installation procedure:</h3>
 Some definitions:<br>
 <ul>
   <li>A diskless tree contains one share tree for each release of IRIX that it supports.</li>
