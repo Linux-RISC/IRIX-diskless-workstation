@@ -90,7 +90,7 @@ If the subsystem is not installed, you can install it from the media "ONC3/NFS V
 Download this media on Reanimator(2. Download menu --> 7. Download IRIX 6.5.x) and proceed:<br>
 
 ```
-% inst
+# inst
 1. open
 Type irix@rbpi:i/IRIX/irix65x/nfs/dist
 11. done
@@ -99,11 +99,34 @@ keep *
 install nfs.sw.dskless_server
 go
 ```
-<h3>3. Run share_setup to create a share tree configuration file (share.dat):</h3>
+<h3>3. Command summary:</h3>
+
+```
+# cd /var/boot
+# ./share_setup
+... (6.5.22 file created)
+./share_setup
+... (5.3.dat file created)
+# ./share_inst -r 6.5.22
+... (6.5.22 share tree installed at /diskless/share/6.5.22)
+# ./share_inst -r 5.3
+... (5.3 share tree installed at /diskless/share/5.3)
+# ./client_setup
+... (Octane.dat file created)
+# ./client_setup
+... (Indy.dat file created)
+# ./client_inst -h octane -r 6.5.22 -c Octane
+... (octane client tree installed to /diskless/client/octane)
+# ./client_inst -h indy -r 5.3 -c Indy
+... (indy client tree installed to /diskless/client/indy)
+```
+
+<h3>4. Run share_setup to create a share tree configuration file (share.dat):</h3>
 Run share_setup for every share tree: 6.5.22_32, 6.5.22_64, 6.5.30, ...<br>
 
 ```
-% ./share_setup
+# cd /var/boot
+# ./share_setup
 ----------
 This program will help you create a share tree configuration file for a 
 single IRIX version.  Create a separate share tree configuration file for
@@ -148,11 +171,12 @@ Choose one (1 or 2): 1
 Storing share tree configuration file at /var/boot/6.5.22.dat
 
 ```
-<h3>4. Run share_inst to install the share tree:</h3>
+<h3>5. Run share_inst to install the share tree:</h3>
 Run share_inst for every share tree class: 6.5.22, 6.5.30, ...<br>
 
 ```
-./share_inst -r 6.5.22
+# cd /var/boot
+# ./share_inst -r 6.5.22
 About to install shared tree at /mnt/diskless/share/6.5.22......
 Enter confirmation (y/Y):y
 Which installation tool would you like to use:
@@ -211,11 +235,11 @@ Please cancel or confirm the request.
 Please enter a choice [1]: 2
 
 ```
-<h3>5. Run client_setup to create a client tree configuration file (client.dat).</h3>
+<h3>6. Run client_setup to create a client tree configuration file (client.dat).</h3>
 Run client_setup for every client class: Indy, Octane, ...<br>
 
 ```
-% ./client_setup
+# ./client_setup
 perl: warning: Setting locale failed.
 perl: warning: Please check that your locale settings:
         LC_ALL = (unset),
@@ -270,4 +294,50 @@ Enter your NIS domain name (hit <Enter> for no domainname):
 Specify a name for your client tree configuration file (no extension 
 please): indy
 Creating file indy.dat
+```
+<h3>7. Run client_inst to install the client.</h3>
+Run client_inst for every share tree class and client class:<br>
+
+```
+# ./client_inst -h IRIS2 -r 6.5.30 -c octane2
+...
+# ./client_inst -h IRIS -r 6.5.22 -c indy
+
+Client tree = /diskless/client/IRIS, shared tree = /diskless/share/6.5.22
+Enter confirmation (y/Y) :y
+Create 8m swap file ........
+Which installation tool would you like to use:
+        1. inst
+        2. Software Manager
+
+Your choice (1 or 2): 1
+13. admin
+15. load filename
+irix@rbpi:i/6.5.22.txt
+11. done
+..
+keep *
+install nfs.sw.dskless_client
+Inst> conflics
+...
+```
+<h3>8. Run clone_client to reproduce the client and swap trees for additional clients.</h3>
+Run client_inst for every share tree class and client class:<br>
+
+```
+# ./clone_client -f IRIS2.txt -r 6.5.22 -c indy -clone /diskless/client/IRIS
+# ./client_inst -h IRIS -r 6.5.22 -c indy -d
+# ./clone_client -f IRIS.txt -r 6.5.22 -c indy -clone /diskless/client/IRIS2
+```
+
+<h3>9. Boot each client and verify the installation.</h3>
+Run in Comand Monitor(example for Indy):
+
+```
+>>setenv verbose on
+>>setenv diskless 1
+>>setenv netaddr 192.168.9.1
+>>setenv OSLoader /unix
+>>setenv SystemPartition bootp():diskless/client/IRIS
+>>setenv OSLoadPartition bootp():diskless/client/IRIS
 ```
