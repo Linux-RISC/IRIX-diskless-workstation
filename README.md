@@ -329,8 +329,13 @@ Inst> conflics
 Run client_inst for every share tree class and client class:<br>
 
 ```
+# # clone /diskless/client/IRIS, using indy as client tree configuration file, 6.5.22 as share tree configuration file and host names contained in IRIS2.txt 
 # ./clone_client -f IRIS2.txt -r 6.5.22 -c indy -clone /diskless/client/IRIS
+
+# # delete hostname IRIS
 # ./client_inst -h IRIS -r 6.5.22 -c indy -d
+
+# # create client IRIS (contained in IRIS.txt)
 # ./clone_client -f IRIS.txt -r 6.5.22 -c indy -clone /diskless/client/IRIS2
 ```
 
