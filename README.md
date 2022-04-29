@@ -111,7 +111,7 @@ Some definitions:<br>
   <li>The swap tree provides the disk space that an individual client needs for virtual memory operations.</li>
   <li>A class is a group of workstations that contain identical CPU and graphics hardware. A class is generally (but not always) designated by a model name, such as O2™ or Octane™.</li>
 </ul>
-Example: diskless tree = (share tree 6.5.22+client tree 1_1+client tree 1_2+swap tree 1_1+swap tree 1_2)+(share tree 6.5.30+client tree 2_1+client tree 2_2+swap tree 2_1+swap tree 2_2)
+Example: diskless tree = (share tree 6.5.22+client tree 1_1+swap tree 1_1+client tree 1_2+swap tree 1_2)+(share tree 6.5.30+client tree 2_1+swap tree 2_1+client tree 2_2+swap tree 2_2)
 
 ```
 # cd /var/boot
