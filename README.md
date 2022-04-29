@@ -103,6 +103,15 @@ install nfs.sw.dskless_server
 go
 ```
 <h3>3. Command summary:</h3>
+Some definitions:<br>
+<ul>
+  <li>A diskless tree contains one share tree for each release of IRIX that it supports.</li>
+  <li>The share tree contains the portion of the IRIX operating system that can be shared by a group of diskless clients.</li>
+  <li>A client tree contains the IRIX kernel for an individual client, the specific hardware files that the client requires, and private files such as /etc/hosts, /etc/fstab, and /etc/sys_id.</li>
+  <li>The swap tree provides the disk space that an individual client needs for virtual memory operations.</li>
+  <li>A class is a group of workstations that contain identical CPU and graphics hardware. A class is generally (but not always) designated by a model name, such as O2™ or Octane™.</li>
+</ul>
+Example: diskless tree = (share tree 6.5.22+client tree 1_1+client tree 1_2+swap tree 1_1+swap tree 1_2)+(share tree 6.5.30+client tree 2_1+client tree 2_2+swap tree 2_1+swap tree 2_2)
 
 ```
 # cd /var/boot
