@@ -97,8 +97,7 @@ Download this media on Reanimator(2. Download menu --> 7. Download IRIX 6.5.x) a
 # inst
 1. open
 Type irix@rbpi:i/IRIX/irix65x/nfs/dist
-11. done
-..
+
 keep *
 install nfs.sw.dskless_server
 go
