@@ -216,7 +216,7 @@ Your choice (1 or 2): 1
 13. admin
 15. load filename
 Load selections from file: irix@rbpi:i/6.5.22.txt
-11. done
+11 done
 ..
 Inst> keep *
 Inst> install maintenance
