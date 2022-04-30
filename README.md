@@ -214,40 +214,43 @@ Which installation tool would you like to use:
 Your choice (1 or 2): 1
 13. admin
 15. load filename
-irix@rbpi:i/6.5.22.txt
+Load selections from file: irix@rbpi:i/6.5.22.txt
 11. done
 ..
-keep *
-install maintenance
-install nfs.sw.dskless_client
-Inst> co
+Inst> keep *
+Inst> install maintenance
+Inst> install nfs.sw.dskless_client
+Inst> conflicts
 
-Overlay product nfs.sw.dskless_client (1289662620) cannot be installed
-because of missing prerequisites: base product nfs.sw.dskless_client
-(1274627335)
-  1a. Do not install nfs.sw.dskless_client (1289662620)
-  1b. Also install base product nfs.sw.dskless_client (1274627335) (see
-      ONC3/NFS VERSION-3 FOR IRIX 6.2 THROUGH 6.5 CD) from an additional
-      distribution -- insert another CD or specify another software
-      distribution
+eoe.sw.xfsmserv (1274627340) is incompatible with eoe.sw.base (1289434520)
+  1a. Do not install eoe.sw.xfsmserv (1274627340)
+  1b. Open new distribution to resolve conflict
+
+inventor_eoe.sw.inventor (1274627337) is incompatible with eoe.sw.base
+(1289434520)
+  2a. Do not install inventor_eoe.sw.inventor (1274627337)
+  2b. Open new distribution to resolve conflict
+
+inventor_eoe.man.relnotes (1274627337) is incompatible with eoe.sw.base
+(1289434520)
+  3a. Do not install inventor_eoe.man.relnotes (1274627337)
+  3b. Open new distribution to resolve conflict
+
+Cannot replace insight_base.sw.eoe (1289434520) (with insight_base.sw.base
+(1274627333), insight_base.sw.eoe (1274627333) and insight_base.sw.locale
+(1274627333)) because it is needed by other products.
+  4a. Do not replace insight_base.sw.eoe (1289434520)
+  4b. Remove
+      infosearch.sw.base (1289434520)
+      insight.books.ViewerHelp (1289434520)
+      insight.sw.client (1289434520)
+      insight.sw.sgihelp (1289434520)
 
 
 Resolve conflicts by typing "conflicts choice choice ..."
 or try "help conflicts"
 
-Inst> conflicts 1b
-irix@rbpi:i/IRIX/irix65x/nfs/dist
-
-Inst> co
-
-nfs.sw.dskless_client cannot be installed because of missing prerequisites:
-  1a. Do not install nfs.sw.dskless_client (1289662620)
-  1b. Also install nfs.sw.nfs (1289662620).
-
-Resolve conflicts by typing "conflicts choice choice ..."
-or try "help conflicts"
-
-Inst> co 1b
+Inst> conflicts 1a 2a 3a 4a
 No conflicts
 
 Inst> go
