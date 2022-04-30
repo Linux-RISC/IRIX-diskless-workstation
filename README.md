@@ -567,7 +567,6 @@ Modified to boot using C3. RBPi/VirtualBox working as bootp server and using a s
 192.168.9.13:/path/diskless/swap/IRIS /swap nfs rw 0 0
 ```
 
-<br><br>
 Run in Comand Monitor(example for Indy):
 
 ```
