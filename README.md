@@ -150,7 +150,7 @@ Inst> conflicts
 ... 
 13. admin
 15. load filename
-Load selections from file: irix@rbpi:i/6.5.22.txt
+Load selections from file: irix@rbpi:i/6.5.30.txt
 11 done
 ..
 Inst> keep *
@@ -501,7 +501,7 @@ IRIS root=octane2:/diskless/client/IRIS sbin=octane2:/diskless/share/6.5.22/sbin
 Run client_inst for every share tree class and client class:<br>
 
 ```
-# # clone /diskless/client/IRIS, using indy as client tree configuration file, 6.5.22 as share tree configuration file and host names contained in IRIS2.txt 
+# # clone /diskless/client/IRIS, using indy as client tree configuration file, 6.5.22 as share tree configuration file and host names contained in IRIS3.txt 
 # ./clone_client -f IRIS3.txt -r 6.5.22 -c indy -clone /diskless/client/IRIS
 
 # # delete hostname IRIS
