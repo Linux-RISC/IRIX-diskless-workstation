@@ -251,7 +251,7 @@ Choose one (1 or 2): 1
 Storing share tree configuration file at /var/boot/6.5.22.dat
 ```
 <h3>5. Run share_inst to install the shared tree</h3>
-Run share_inst for every share tree configuration: 6.5.22, 6.5.30, ...<br>
+Run share_inst for every shared tree configuration: 6.5.22, 6.5.30, ...<br>
 Example for 6.5.22 32 bits:<br>
 
 ```
@@ -387,7 +387,7 @@ please): indy
 Creating file indy.dat
 ```
 <h3>7. Run client_inst to install the client</h3>
-Run client_inst for every share tree configuration and client class:<br>
+Run client_inst for every shared tree configuration and client class:<br>
 
 ```
 # ./client_inst -h IRIS2 -r 6.5.30 -c octane2
@@ -512,7 +512,7 @@ IRIS2 root=octane2:/diskless/client/IRIS2 sbin=octane2:/diskless/share/6.5.30/sb
 <b>Optional</b>. Some example of operations are provided as cheat sheet:<br>
 
 ```
-# # clone /diskless/client/IRIS, using indy as client tree configuration file, 6.5.22 as share tree configuration file and host names contained in IRIS3.txt
+# # clone /diskless/client/IRIS, using indy as client tree configuration file, 6.5.22 as shared tree configuration file and host names contained in IRIS3.txt
 # # IRIS3 must be and identical machine to IRIS
 # ./clone_client -f IRIS3.txt -r 6.5.22 -c indy -clone /diskless/client/IRIS
 
