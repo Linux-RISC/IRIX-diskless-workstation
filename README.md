@@ -134,19 +134,69 @@ Example:<br>
 ... (Storing share tree configuration file at /var/boot/6.5.30.dat)
 
 # ./share_inst -r 6.5.22
-... (6.5.22 share tree installed at /diskless/share/6.5.22)
+... 
+13. admin
+15. load filename
+Load selections from file: irix@rbpi:i/6.5.22.txt
+11 done
+..
+Inst> keep *
+Inst> install maintenance
+Inst> install nfs.sw.dskless_client
+Inst> conflicts
+...
+(6.5.22 share tree installed at /diskless/share/6.5.22)
 # ./share_inst -r 6.5.30
-... (6.5.30 share tree installed at /diskless/share/6.5.30)
+... 
+13. admin
+15. load filename
+Load selections from file: irix@rbpi:i/6.5.22.txt
+11 done
+..
+Inst> keep *
+Inst> install maintenance
+Inst> install nfs.sw.dskless_client
+Inst> conflicts
+...
+(6.5.30 share tree installed at /diskless/share/6.5.30)
 
 # ./client_setup
-... (Creating file indy.dat)
+...
+IP22
+...
+(Creating file indy.dat)
 # ./client_setup
-... (Creating file octane2.dat)
+...
+IP30
+...
+(Creating file octane2.dat)
 
-# ./client_inst -h Indy -r 6.5.22 -c IRIS
-... (indy client tree installed to /diskless/client/indy)
-# ./client_inst -h Octane2 -r 6.5.30 -c IRIS2
-... (octane client tree installed to /diskless/client/octane)
+# ./client_inst -h IRIS -r 6.5.22 -c indy
+... 
+13. admin
+15. load filename
+Load selections from file: irix@rbpi:i/6.5.22.txt
+11 done
+..
+Inst> keep *
+Inst> install maintenance
+Inst> install nfs.sw.dskless_client
+Inst> conflicts
+...
+(indy client tree installed to /diskless/client/indy)
+# ./client_inst -h IRIS2 -r 6.5.30 -c octane2
+... 
+13. admin
+15. load filename
+Load selections from file: irix@rbpi:i/6.5.30.txt
+11 done
+..
+Inst> keep *
+Inst> install maintenance
+Inst> install nfs.sw.dskless_client
+Inst> conflicts
+...
+(octane client tree installed to /diskless/client/octane)
 ```
 
 <h3>4. Run share_setup to create a share tree configuration file (share.dat)</h3>
