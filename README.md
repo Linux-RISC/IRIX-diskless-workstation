@@ -523,8 +523,21 @@ IRIS2 root=octane2:/diskless/client/IRIS2 sbin=octane2:/diskless/share/6.5.30/sb
 # ./clone_client -f IRIS.txt -r 6.5.22 -c indy -clone /diskless/client/IRIS3
 ```
 
-<h3>9. Copy diskless.tar and restore diskless.tar to Reanimator if you used local shared tree generation.</h3>
-You can clean the hosts from /diskless/client/IRIS/etc/hosts and /diskless/client/IRIS2/etc/hosts, they are not used.
+<h3>9. Copying and restoring diskless.tar to Reanimator if you used local shared tree generation.</h3>
+
+Example using scp to copy Octane2-->RBPi:
+```
+# tar cvf /diskless.tar /diskless
+# scp /diskless.tar pi@192.168.9.100:/home/irix/i
+```
+
+Example using NFS to copy Octane2-->RBPi:
+```
+# tar cvf /diskless.tar /diskless
+# mount 192.168.9.100:/home/irix/i /mnt
+# cp /diskless.tar /mnt
+# umount /mnt
+```
 <br>
 <br>
 <h3>10. Boot each client and verify the installation.</h3>
