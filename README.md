@@ -512,7 +512,8 @@ IRIS2 root=octane2:/diskless/client/IRIS2 sbin=octane2:/diskless/share/6.5.30/sb
 Run client_inst for every share tree class and client class:<br>
 
 ```
-# # clone /diskless/client/IRIS, using indy as client tree configuration file, 6.5.22 as share tree configuration file and host names contained in IRIS3.txt 
+# # clone /diskless/client/IRIS, using indy as client tree configuration file, 6.5.22 as share tree configuration file and host names contained in IRIS3.txt
+# # IRIS3 must be and identical machine to IRIS
 # ./clone_client -f IRIS3.txt -r 6.5.22 -c indy -clone /diskless/client/IRIS
 
 # # delete hostname IRIS
