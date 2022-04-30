@@ -222,35 +222,47 @@ Inst> install maintenance
 Inst> install nfs.sw.dskless_client
 Inst> conflicts
 
-eoe.sw.xfsmserv (1274627340) is incompatible with eoe.sw.base (1289434520)
-  1a. Do not install eoe.sw.xfsmserv (1274627340)
-  1b. Open new distribution to resolve conflict
+Overlay product nfs.sw.dskless_client (1289434520) cannot be installed
+because of missing prerequisites: base product nfs.sw.dskless_client
+(1274627335)
+  1a. Do not install nfs.sw.dskless_client (1289434520)
+  1b. Also install base product nfs.sw.dskless_client (1274627335) (see
+      ONC3/NFS VERSION-3 FOR IRIX 6.2 THROUGH 6.5 CD) from an additional
+      distribution -- insert another CD or specify another software
+      distribution
 
-inventor_eoe.sw.inventor (1274627337) is incompatible with eoe.sw.base
-(1289434520)
-  2a. Do not install inventor_eoe.sw.inventor (1274627337)
-  2b. Open new distribution to resolve conflict
-
-inventor_eoe.man.relnotes (1274627337) is incompatible with eoe.sw.base
-(1289434520)
-  3a. Do not install inventor_eoe.man.relnotes (1274627337)
-  3b. Open new distribution to resolve conflict
-
-Cannot replace insight_base.sw.eoe (1289434520) (with insight_base.sw.base
-(1274627333), insight_base.sw.eoe (1274627333) and insight_base.sw.locale
-(1274627333)) because it is needed by other products.
-  4a. Do not replace insight_base.sw.eoe (1289434520)
-  4b. Remove
-      infosearch.sw.base (1289434520)
-      insight.books.ViewerHelp (1289434520)
-      insight.sw.client (1289434520)
-      insight.sw.sgihelp (1289434520)
+java2_plugin.sw32.mozilla_freeware cannot be installed because of missing
+prerequisites:
+  2a. Do not install java2_plugin.sw32.mozilla_freeware (1278918520)
+  2b. Also install fw_mozilla.sw.mozilla (1278327220 - 2147483647) from an
+      additional distribution -- insert another CD or specify another
+      software distribution.
 
 
 Resolve conflicts by typing "conflicts choice choice ..."
 or try "help conflicts"
 
-Inst> conflicts 1a 2a 3a 4a
+Inst> conflicts 1b 2a
+Note: this operation opens a distribution and selects all
+of its default or upgrade products for install.  If you
+wish to open just a single product, append the product
+name to the distribution name, as in /CDROM/dist/eoe.
+See the "distribution" help topic for more information.
+Enter new distribution from list:
+...
+Install software from: irix@rbpi:i/IRIX/irix65x/nfs/dist
+...
+Inst> conflicts
+
+nfs.sw.dskless_client cannot be installed because of missing prerequisites:
+  1a. Do not install nfs.sw.dskless_client (1289434520)
+  1b. Also install nfs.sw.nfs (1289434520).
+
+
+Resolve conflicts by typing "conflicts choice choice ..."
+or try "help conflicts"
+
+Inst> conflicts 1b
 No conflicts
 
 Inst> go
