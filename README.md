@@ -461,18 +461,24 @@ Inst> go
 
 ```
 
-Let's have a look to some files:
+Let's have a look to some files to understand /etc/bootparams and /etc/exports on Reanimator:
 ```
 # ls -l /var/boot/IRIS/
 total 8
 -rw-r--r--    1 root     sys          107 Apr 30 15:52 README
 lrwxr-xr-x    1 root     sys           43 Apr 30 15:52 unix -> /diskless/share/6.5.22/sbin/stand/sash.ARCS
 lrwxr-xr-x    1 root     sys           26 Apr 30 15:52 unix.auto -> /diskless/client/IRIS/unix
+# ls -l /var/boot/IRIS2
+total 8
+-rw-r--r--    1 root     sys          107 Apr 30 16:53 README
+lrwxr-xr-x    1 root     sys           27 Apr 30 16:53 unix -> /diskless/client/IRIS2/unix
 
 # cat /etc/bootparams 
 #
 6.5.22 root=octane2:/diskless/share/6.5.22 sbin=octane2: swap=octane2:
 IRIS root=octane2:/diskless/client/IRIS sbin=octane2:/diskless/share/6.5.22/sbin usr=octane2:/diskless/share/6.5.22/usr var_share=octane2:/diskless/share/6.5.22/var/share swap=octane2:/diskless/swap/IRIS
+6.5.30 root=octane2:/diskless/share/6.5.30 sbin=octane2: swap=octane2:
+IRIS2 root=octane2:/diskless/client/IRIS2 sbin=octane2:/diskless/share/6.5.30/sbin usr=octane2:/diskless/share/6.5.30/usr var_share=octane2:/diskless/share/6.5.30/var/share swap=octane2:/diskless/swap/IRIS2
 
 
 # cat /etc/exports
@@ -494,6 +500,11 @@ IRIS root=octane2:/diskless/client/IRIS sbin=octane2:/diskless/share/6.5.22/sbin
 /diskless/share/6.5.22/var/share -mandlock,rw   #class=6.5.22
 /diskless/client/IRIS -mandlock,rw=IRIS,access=IRIS,root=IRIS   #host=IRIS
 /diskless/swap/IRIS -rw=IRIS,wsync,access=IRIS,root=IRIS        #host=IRIS
+/diskless/share/6.5.30/usr -mandlock,ro         #class=6.5.30
+/diskless/share/6.5.30/sbin -mandlock,ro        #class=6.5.30
+/diskless/share/6.5.30/var/share -mandlock,rw   #class=6.5.30
+/diskless/client/IRIS2 -mandlock,rw=IRIS2,access=IRIS2,root=IRIS2       #host=IRIS2
+/diskless/swap/IRIS2 -rw=IRIS2,wsync,access=IRIS2,root=IRIS2    #host=IRIS2
 
 ```
 
