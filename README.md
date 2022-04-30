@@ -541,10 +541,10 @@ Example using configuration C2 and NFS to copy Octane2-->RBPi, the usb drive <b>
 
 Restoring on Reanimator:
 ```
-# restoring on RBPi
-pi@rbpi:/home/irix/i $ sudo tar xvf diskless.tar
+# restoring on RBPi using configuration C2 (the usb drive must be mounted)
+pi@rbpi:/home/irix/i/sda1 $ sudo tar xvf diskless.tar
 
-# restoring on VirtualBox
+# restoring on VirtualBox using configuration C1
 sgi@debian:/home/irix/i $ sudo tar xvf diskless.tar
 ```
 <br>
