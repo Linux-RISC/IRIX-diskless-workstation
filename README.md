@@ -102,7 +102,7 @@ keep *
 install nfs.sw.dskless_server
 go
 ```
-<h3>3. Overview of the installation procedure:</h3>
+<h3>3. Overview of the installation procedure</h3>
 Some remarks:<br>
 <ul>
   <li>A diskless tree contains one share tree for each release of IRIX that it supports.</li>
@@ -149,7 +149,7 @@ Example:<br>
 ... (octane client tree installed to /diskless/client/octane)
 ```
 
-<h3>4. Run share_setup to create a share tree configuration file (share.dat):</h3>
+<h3>4. Run share_setup to create a share tree configuration file (share.dat)</h3>
 Run share_setup for every share tree: 6.5.22_32, 6.5.22_64, 6.5.30, ...<br>
 Example for 6.5.22 32 bits:<br>
 
@@ -199,7 +199,7 @@ Which version would you like:
 Choose one (1 or 2): 1
 Storing share tree configuration file at /var/boot/6.5.22.dat
 ```
-<h3>5. Run share_inst to install the share tree:</h3>
+<h3>5. Run share_inst to install the share tree</h3>
 Run share_inst for every share tree class: 6.5.22, 6.5.30, ...<br>
 Example for 6.5.22 32 bits:<br>
 
@@ -280,7 +280,7 @@ Please enter a choice [1]: 2
 ----------
 Inst> quit
 ```
-<h3>6. Run client_setup to create a client tree configuration file (client.dat).</h3>
+<h3>6. Run client_setup to create a client tree configuration file (client.dat)</h3>
 Run client_setup for every client class: Indy, Octane, ...<br>
 Example for Indy:<br>
 
@@ -335,7 +335,7 @@ Specify a name for your client tree configuration file (no extension
 please): indy
 Creating file indy.dat
 ```
-<h3>7. Run client_inst to install the client.</h3>
+<h3>7. Run client_inst to install the client</h3>
 Run client_inst for every share tree class and client class:<br>
 
 ```
@@ -345,21 +345,70 @@ Run client_inst for every share tree class and client class:<br>
 
 Client tree = /diskless/client/IRIS, shared tree = /diskless/share/6.5.22
 Enter confirmation (y/Y) :y
-Create 8m swap file ........
+Create 64m swap file ........
 Which installation tool would you like to use:
         1. inst
         2. Software Manager
 
 Your choice (1 or 2): 1
-13. admin
+
+13. admin ...
 15. load filename
-irix@rbpi:i/6.5.22.txt
-11. done
+Load selections from file: irix@rbpi:i/6.5.22.txt
+11 done
 ..
-keep *
-install nfs.sw.dskless_client
-Inst> conflics
-...
+Inst> keep *
+Inst> install nfs.sw.dskless_client
+Inst> conflicts
+
+c++_eoe.sw.lib, compiler_eoe.sw.cpp, compiler_eoe.sw.lboot,
+compiler_eoe.sw.lib, compiler_eoe.sw.unix, eoe.sw.base, eoe.sw.efs,
+eoe.sw.gfx, x_eoe.sw.Server, x_eoe.sw.Xfonts and x_eoe.sw.eoe are required
+and must be installed
+  1a. Also install c++_eoe.sw.lib (1279199410), compiler_eoe.sw.cpp
+      (1279199410), compiler_eoe.sw.lboot (1279199410), compiler_eoe.sw.lib
+      (1279199410), compiler_eoe.sw.unix (1279199410), eoe.sw.base
+      (1289434520), eoe.sw.efs (1289434520), eoe.sw.gfx (1289434520),
+      x_eoe.sw.Server (1289434520), x_eoe.sw.Xfonts (1289434520) and
+      x_eoe.sw.eoe (1289434520)
+
+Overlay product nfs.sw.dskless_client (1289434520) cannot be installed
+because of missing prerequisites: base product nfs.sw.dskless_client
+(1274627335)
+  2a. Do not install nfs.sw.dskless_client (1289434520)
+  2b. Also install base product nfs.sw.dskless_client (1274627335) (see
+      ONC3/NFS VERSION-3 FOR IRIX 6.2 THROUGH 6.5 CD) from an additional
+      distribution -- insert another CD or specify another software
+      distribution
+
+nfs.sw.dskless_client cannot be installed because of missing prerequisites:
+  3a. Do not install nfs.sw.dskless_client (1289434520)
+  3b. Also install eoe.sw.base (1289434520).
+
+
+Resolve conflicts by typing "conflicts choice choice ..."
+or try "help conflicts"
+
+
+Inst> conflicts 1a 2b 3b
+
+Install software from: irix@rbpi:i/IRIX/irix65x/nfs/dist
+
+Inst> conflicts
+
+nfs.sw.dskless_client cannot be installed because of missing prerequisites:
+  1a. Do not install nfs.sw.dskless_client (1289434520)
+  1b. Also install nfs.sw.nfs (1289434520).
+
+
+Resolve conflicts by typing "conflicts choice choice ..."
+or try "help conflicts"
+
+Inst> conflicts 1b
+No conflicts
+
+Inst> go
+
 ```
 <h3>8. Run clone_client to reproduce the client and swap trees for additional clients.</h3>
 Run client_inst for every share tree class and client class:<br>
