@@ -67,18 +67,18 @@ If you choose the shared tree generation over network, the USB drive must be mou
 
 ```mermaid
 graph TD;
-    Octane2([Octane2])--Option 1: local shared tree generation-->local_diskless[local /diskless directory]--Octane2: # tar cvf diskless.tar /diskless-->diskless.tar;
+    Octane2([Octane2])--Option 1: local share tree generation-->local_diskless[local /diskless directory]--Octane2: # tar cvf diskless.tar /diskless-->diskless.tar;
     diskless.tar--copy to RBPi using scp or mounting RBPi:/home/irix/i/sda1 on local /mnt-->RBPi:/home/irix/i/sda1--"$ sudo tar xvf diskless.tar; $ sudo chmod 777 diskless"-->RBPi[(RBPi:/home/irix/i/sda1/diskless)];
    Octane2([Octane2])--Option 2: shared tree generation over network-->mount_RBPi[mount RBPi:/home/irix/i/sda1/diskless on /diskless]-->RBPi[(RBPi:/home/irix/i/sda1/diskless)];
    RBPi[(RBPi:/home/irix/i/sda1/diskless)]--bootp and NFS-->Indy([Indy]);
 ```
 
-C3. bootp+separated NFS NAS storage. Only shared tree generation over network is supported:<br>
+C3. bootp+separated NFS NAS storage. Only share tree generation over network is supported:<br>
 
 ```mermaid
 graph TD;
     Octane2([Octane2])--mount NAS_IP:/path/diskless on /diskless-->B[NAS_IP:/path/diskless];
-    Octane2([Octane2])--shared tree generation over network-->B[NAS_IP:/path/diskless];
+    Octane2([Octane2])--share tree generation over network-->B[NAS_IP:/path/diskless];
     B[NAS_IP:/path/diskless]--NFS-->Indy([Indy]);
     RBPi[(RBPi:/home/irix/i/IRIS)]--bootp-->Indy([Indy]);
 ```
@@ -113,7 +113,8 @@ Some remarks:<br>
 needed to support the individual client that is using it.</li>
 </ul>
 Example: diskless tree = (share tree 6.5.22+client tree 1_1+swap tree 1_1+client tree 1_2+swap tree 1_2)+(share tree 6.5.30+client tree 2_1+swap tree 2_1+client tree 2_2+swap tree 2_2)
-<br><br>
+<br>
+<br>
 Installation steps:
 <ul>
   <li>Run share_setup to create a share tree configuration file (share.dat).</li>
@@ -522,9 +523,14 @@ IRIS2 root=octane2:/diskless/client/IRIS2 sbin=octane2:/diskless/share/6.5.30/sb
 # ./clone_client -f IRIS.txt -r 6.5.22 -c indy -clone /diskless/client/IRIS3
 ```
 
-<h3>9. Boot each client and verify the installation.</h3>
+<h3>9. Copy diskless.tar and restore diskless.tar to Reanimator if you used local share tree generation.</h3>
 You can clean the hosts from /diskless/client/IRIS/etc/hosts and /diskless/client/IRIS2/etc/hosts, they are not used.
-<br><br>
+<br>
+<br>
+<h3>10. Boot each client and verify the installation.</h3>
+You can clean the hosts from /diskless/client/IRIS/etc/hosts and /diskless/client/IRIS2/etc/hosts, they are not used.
+<br>
+<br>
 Edit /diskless/client/IRIS/etc/fstab and /diskless/client/IRIS2/etc/fstab and another clients to boot from Reanimator or a NAS.<br>
 Original file:<br>
 
@@ -567,7 +573,7 @@ Modified to boot using C3. RBPi/VirtualBox working as bootp server and using a s
 192.168.9.13:/path/diskless/swap/IRIS /swap nfs rw 0 0
 ```
 
-Run in Comand Monitor(example for Indy):
+Run in Comand Monitor (example for Indy):
 
 ```
 >>setenv verbose on
