@@ -460,7 +460,6 @@ No conflicts
 Inst> go
 
 ```
-
 Let's have a look to some files to understand /etc/bootparams and /etc/exports on Reanimator:
 ```
 # ls -l /var/boot/IRIS/
@@ -524,6 +523,28 @@ Run client_inst for every share tree class and client class:<br>
 ```
 
 <h3>9. Boot each client and verify the installation.</h3>
+You can clean the hosts from /diskless/client/IRIS/etc/hosts and /diskless/client/IRIS2/etc/hosts, they won't aren't used.
+<br><br>
+Edit /diskless/client/IRIS/etc/fstab and /diskless/client/IRIS2/etc/fstab and another clients to boot from Reanimator or a NAS:
+```
+# cat /diskless/client/IRIS/etc/fstab
+octane2:/diskless/client/IRIS / nfs rw 0 0
+octane2:/diskless/share/6.5.22/usr /usr nfs ro 0 0
+octane2:/diskless/share/6.5.22/sbin /sbin nfs ro 0 0
+octane2:/diskless/share/6.5.22/var/share /var/share nfs rw 0 0
+octane2:/diskless/swap/IRIS /swap nfs rw 0 0
+```
+Example to boot from RBPi:
+```
+# cat /diskless/client/IRIS/etc/fstab
+192.168.9.100:/diskless/client/IRIS / nfs rw 0 0
+192.168.9.100:/diskless/share/6.5.22/usr /usr nfs ro 0 0
+192.168.9.100:/diskless/share/6.5.22/sbin /sbin nfs ro 0 0
+192.168.9.100:/diskless/share/6.5.22/var/share /var/share nfs rw 0 0
+192.168.9.100:/diskless/swap/IRIS /swap nfs rw 0 0
+```
+
+<br><br>
 Run in Comand Monitor(example for Indy):
 
 ```
