@@ -508,7 +508,7 @@ IRIS2 root=octane2:/diskless/client/IRIS2 sbin=octane2:/diskless/share/6.5.30/sb
 ```
 
 <h3>8. Run clone_client to reproduce the client and swap trees for additional clients.</h3>
-Run client_inst for every share tree class and client class:<br>
+Run client_inst for every share tree configuration and client class:<br>
 
 ```
 # # clone /diskless/client/IRIS, using indy as client tree configuration file, 6.5.22 as share tree configuration file and host names contained in IRIS3.txt
