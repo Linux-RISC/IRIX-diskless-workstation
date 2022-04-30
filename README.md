@@ -19,21 +19,21 @@ I assume that you are using a file system that is compatible with GNU/Linux file
 <br>
 You can use any of the three configurations, the procedure is the same, you only need to modify the directory paths.<br>
 <br>
-According to my experience, share tree generation over network is much slower, it's faster to backup the diskless directory with tar and restore it on the destination machine. Please, try both methods and decide yourself.<br>
+According to my experience, shared tree generation over network is much slower, it's faster to backup the diskless directory with tar and restore it on the destination machine. Please, try both methods and decide yourself.<br>
 <br>
 <h2>Procedure</h2>
 <h3>1. Creating a directory to store the diskless tree</h3>
-C1. bootp+NFS. The directories /home/irix/i and /home/irix/i/diskless exist and are shared via NFS. You can choose between local share tree generation (complex but faster) and share tree generation over network (easier but slower):<br>
+C1. bootp+NFS. The directories /home/irix/i and /home/irix/i/diskless exist and are shared via NFS. You can choose between local share tree generation (complex but faster) and shared tree generation over network (easier but slower):<br>
 
 ```mermaid
 graph TD;
-    Octane2([Octane2])--Option 1: local share tree generation-->local_diskless[local /diskless directory]--Octane2: # tar cvf diskless.tar /diskless-->diskless.tar;
+    Octane2([Octane2])--Option 1: local shared tree generation-->local_diskless[local /diskless directory]--Octane2: # tar cvf diskless.tar /diskless-->diskless.tar;
     diskless.tar--copy to RBPi using scp or mounting RBPi:/home/irix/i on local /mnt-->RBPi:/home/irix/i--"$ sudo tar xvf diskless.tar; $ sudo chmod 777 diskless"-->RBPi[(RBPi:/home/irix/i/diskless)];
-   Octane2([Octane2])--Option 2: share tree generation over network-->mount_RBPi[mount RBPi:/home/irix/i/diskless on /diskless]-->RBPi[(RBPi:/home/irix/i/diskless)];
+   Octane2([Octane2])--Option 2: shared tree generation over network-->mount_RBPi[mount RBPi:/home/irix/i/diskless on /diskless]-->RBPi[(RBPi:/home/irix/i/diskless)];
    RBPi[(RBPi:/home/irix/i/diskless)]--bootp and NFS-->Indy([Indy]);
 ```
 
-C2. (RBPi only) bootp+NFS+USB drive. The directory /home/irix/i/sda1 is shared via NFS. You can choose between local share tree generation (complex but faster) and share tree generation over network (easier but slower).<br>
+C2. (RBPi only) bootp+NFS+USB drive. The directory /home/irix/i/sda1 is shared via NFS. You can choose between local share tree generation (complex but faster) and shared tree generation over network (easier but slower).<br>
 
 The path can change depending on your usb device and mount point, if you use Reanimator's menus, the path is /home/iris/i/sda1. The directory diskless must be created on the <b>mounted</b> USB drive:<br>
 
@@ -67,18 +67,18 @@ If you choose the shared tree generation over network, the USB drive must be mou
 
 ```mermaid
 graph TD;
-    Octane2([Octane2])--Option 1: local share tree generation-->local_diskless[local /diskless directory]--Octane2: # tar cvf diskless.tar /diskless-->diskless.tar;
+    Octane2([Octane2])--Option 1: local shared tree generation-->local_diskless[local /diskless directory]--Octane2: # tar cvf diskless.tar /diskless-->diskless.tar;
     diskless.tar--copy to RBPi using scp or mounting RBPi:/home/irix/i/sda1 on local /mnt-->RBPi:/home/irix/i/sda1--"$ sudo tar xvf diskless.tar; $ sudo chmod 777 diskless"-->RBPi[(RBPi:/home/irix/i/sda1/diskless)];
    Octane2([Octane2])--Option 2: shared tree generation over network-->mount_RBPi[mount RBPi:/home/irix/i/sda1/diskless on /diskless]-->RBPi[(RBPi:/home/irix/i/sda1/diskless)];
    RBPi[(RBPi:/home/irix/i/sda1/diskless)]--bootp and NFS-->Indy([Indy]);
 ```
 
-C3. bootp+separated NFS NAS storage. Only share tree generation over network is supported:<br>
+C3. bootp+separated NFS NAS storage. Only shared tree generation over network is supported:<br>
 
 ```mermaid
 graph TD;
     Octane2([Octane2])--mount NAS_IP:/path/diskless on /diskless-->B[NAS_IP:/path/diskless];
-    Octane2([Octane2])--share tree generation over network-->B[NAS_IP:/path/diskless];
+    Octane2([Octane2])--shared tree generation over network-->B[NAS_IP:/path/diskless];
     B[NAS_IP:/path/diskless]--NFS-->Indy([Indy]);
     RBPi[(RBPi:/home/irix/i/IRIS)]--bootp-->Indy([Indy]);
 ```
@@ -105,20 +105,20 @@ go
 <h3>3. Overview of the installation procedure</h3>
 Some remarks:<br>
 <ul>
-  <li>A diskless tree contains one share tree for each release of IRIX that it supports.</li>
-  <li>The share tree contains the portion of the IRIX operating system that can be shared by a group of diskless clients.</li>
+  <li>A diskless tree contains one shared tree for each release of IRIX that it supports.</li>
+  <li>The shared tree contains the portion of the IRIX operating system that can be shared by a group of diskless clients.</li>
   <li>A client tree contains the IRIX kernel for an individual client, the specific hardware files that the client requires, and private files such as /etc/hosts, /etc/fstab, and /etc/sys_id.</li>
   <li>The swap tree provides the disk space that an individual client needs for virtual memory operations.</li>
-  <li>A class is a group of workstations that contain identical CPU and graphics hardware. A class is generally (but not always) designated by a model name, such as O2™ or Octane™. A client class requires its own hardware-specific software modules. For this reason, a share tree must contain all the hardware-specific modules needed to support every class in its client base. By contrast, a client tree contains only those hardware-specific modules
+  <li>A class is a group of workstations that contain identical CPU and graphics hardware. A class is generally (but not always) designated by a model name, such as O2™ or Octane™. A client class requires its own hardware-specific software modules. For this reason, a shared tree must contain all the hardware-specific modules needed to support every class in its client base. By contrast, a client tree contains only those hardware-specific modules
 needed to support the individual client that is using it.</li>
 </ul>
-Example: diskless tree = (share tree 6.5.22+client tree 1_1+swap tree 1_1+client tree 1_2+swap tree 1_2)+(share tree 6.5.30+client tree 2_1+swap tree 2_1+client tree 2_2+swap tree 2_2)
+Example: diskless tree = (shared tree 6.5.22+client tree 1_1+swap tree 1_1+client tree 1_2+swap tree 1_2)+(shared tree 6.5.30+client tree 2_1+swap tree 2_1+client tree 2_2+swap tree 2_2)
 <br>
 <br>
 Installation steps:
 <ul>
-  <li>Run share_setup to create a share tree configuration file (share.dat).</li>
-  <li>Run share_inst to install the share tree.</li>
+  <li>Run share_setup to create a shared tree configuration file (share.dat).</li>
+  <li>Run share_inst to install the shared tree.</li>
   <li>Run client_setup to create a client tree configuration file (client.dat).</li>
   <li>Run clone_client to reproduce the client and swap trees for additional clients.</li>
   <li>Boot each client and verify the installation.</li>
@@ -200,16 +200,16 @@ Inst> conflicts
 (octane client tree installed to /diskless/client/octane)
 ```
 
-<h3>4. Run share_setup to create a share tree configuration file (share.dat)</h3>
-Run share_setup for every share tree: 6.5.22_32, 6.5.22_64, 6.5.30, ...<br>
+<h3>4. Run share_setup to create a shared tree configuration file (share.dat)</h3>
+Run share_setup for every shared tree: 6.5.22_32, 6.5.22_64, 6.5.30, ...<br>
 Example for 6.5.22 32 bits:<br>
 
 ```
 # cd /var/boot
 # ./share_setup
 ----------
-This program will help you create a share tree configuration file for a 
-single IRIX version.  Create a separate share tree configuration file for
+This program will help you create a shared tree configuration file for a 
+single IRIX version.  Create a separate shared tree configuration file for
 a 32-bit and a 64-bit version of the same IRIX release.
 
 Retrieving system information...
