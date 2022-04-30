@@ -411,8 +411,14 @@ Inst> go
 
 ```
 
-Let's have a look to /etc/bootparams and /etc/exports
+Let's have a look to some files:
 ```
+# ls -l /var/boot/IRIS/
+total 8
+-rw-r--r--    1 root     sys          107 Apr 30 15:52 README
+lrwxr-xr-x    1 root     sys           43 Apr 30 15:52 unix -> /diskless/share/6.5.22/sbin/stand/sash.ARCS
+lrwxr-xr-x    1 root     sys           26 Apr 30 15:52 unix.auto -> /diskless/client/IRIS/unix
+
 # cat /etc/bootparams 
 #
 6.5.22 root=octane2:/diskless/share/6.5.22 sbin=octane2: swap=octane2:
