@@ -197,7 +197,6 @@ Which version would you like:
         2. 64bit
 Choose one (1 or 2): 1
 Storing share tree configuration file at /var/boot/6.5.22.dat
-
 ```
 <h3>5. Run share_inst to install the share tree:</h3>
 Run share_inst for every share tree class: 6.5.22, 6.5.30, ...<br>
