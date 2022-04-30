@@ -134,7 +134,7 @@ Example:<br>
 ... (Storing share tree configuration file at /var/boot/6.5.30.dat)
 
 # ./share_inst -r 6.5.22
-... (6.5.22 share tree installed on /diskless/share/6.5.22)
+... (6.5.22 share tree installed at /diskless/share/6.5.22)
 # ./share_inst -r 6.5.30
 ... (6.5.30 share tree installed at /diskless/share/6.5.30)
 
