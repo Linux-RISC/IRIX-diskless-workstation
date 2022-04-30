@@ -386,7 +386,7 @@ please): indy
 Creating file indy.dat
 ```
 <h3>7. Run client_inst to install the client</h3>
-Run client_inst for every share tree class and client class:<br>
+Run client_inst for every share tree configuration and client class:<br>
 
 ```
 # ./client_inst -h IRIS2 -r 6.5.30 -c octane2
