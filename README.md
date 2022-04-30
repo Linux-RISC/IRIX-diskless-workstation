@@ -139,9 +139,9 @@ Example:<br>
 ... (6.5.30 share tree installed at /diskless/share/6.5.30)
 
 # ./client_setup
-... (Indy.dat file created)
+... (Creating file indy.dat)
 # ./client_setup
-... (Octane2.dat file created)
+... (Creating file octane2.dat)
 
 # ./client_inst -h Indy -r 6.5.22 -c IRIS
 ... (indy client tree installed to /diskless/client/indy)
@@ -280,16 +280,11 @@ Inst> quit
 ```
 <h3>6. Run client_setup to create a client tree configuration file (client.dat).</h3>
 Run client_setup for every client class: Indy, Octane, ...<br>
+Example for Indy:<br>
 
 ```
 # ./client_setup
-perl: warning: Setting locale failed.
-perl: warning: Please check that your locale settings:
-        LC_ALL = (unset),
-        LANG = "es_ES.UTF-8"
-    are supported and installed on your system.
-perl: warning: Falling back to the standard locale ("C").
-
+----------
 This program will help you create a client tree configuration file for the
  client you would like to install.
 
@@ -332,7 +327,7 @@ You have defined a client class with these components:
         MODE=32bit
 
 Specify a size in MB for swap.
-Swap size (Default is 64m - <Enter> for default):8
+Swap size (Default is 64m - <Enter> for default):
 Enter your NIS domain name (hit <Enter> for no domainname): 
 Specify a name for your client tree configuration file (no extension 
 please): indy
