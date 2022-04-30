@@ -129,9 +129,9 @@ Example:<br>
 ```
 # cd /var/boot
 # ./share_setup
-... (6.5.22.dat file created)
+... (Storing share tree configuration file at /var/boot/6.5.22.dat)
 ./share_setup
-... (6.5.30.dat file created)
+... (Storing share tree configuration file at /var/boot/6.5.30.dat)
 
 # ./share_inst -r 6.5.22
 ... (6.5.22 share tree installed on /diskless/share/6.5.22)
