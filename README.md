@@ -526,6 +526,7 @@ Run client_inst for every share tree class and client class:<br>
 You can clean the hosts from /diskless/client/IRIS/etc/hosts and /diskless/client/IRIS2/etc/hosts, they won't aren't used.
 <br><br>
 Edit /diskless/client/IRIS/etc/fstab and /diskless/client/IRIS2/etc/fstab and another clients to boot from Reanimator or a NAS:
+
 ```
 # cat /diskless/client/IRIS/etc/fstab
 octane2:/diskless/client/IRIS / nfs rw 0 0
