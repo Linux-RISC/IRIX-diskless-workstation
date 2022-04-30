@@ -276,7 +276,8 @@ Please cancel or confirm the request.
 1. Cancel the installation request
 2. Continue the installation request
 Please enter a choice [1]: 2
-
+----------
+Inst> quit
 ```
 <h3>6. Run client_setup to create a client tree configuration file (client.dat).</h3>
 Run client_setup for every client class: Indy, Octane, ...<br>
