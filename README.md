@@ -562,7 +562,7 @@ octane2:/diskless/share/6.5.22/sbin /sbin nfs ro 0 0
 octane2:/diskless/share/6.5.22/var/share /var/share nfs rw 0 0
 octane2:/diskless/swap/IRIS /swap nfs rw 0 0
 ```
-Modified to boot using C1. RBPi/VirtualBox working as bootp server and NFS server:
+Modified to boot using C1. RBPi/VirtualBox(change IP to 192.168.9.101) working as bootp server and NFS server:
 ```
 # cat /diskless/client/IRIS/etc/fstab
 192.168.9.100:/home/irix/i/diskless/client/IRIS / nfs rw 0 0
@@ -593,13 +593,23 @@ Modified to boot using C3. RBPi/VirtualBox working as bootp server and using a s
 192.168.9.13:/path/diskless/swap/IRIS /swap nfs rw 0 0
 ```
 
-Run in Comand Monitor (example for Indy):
+Run in Comand Monitor (example for Indy using C1):
 
 ```
 >>setenv verbose on
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.1
 >>setenv OSLoader /unix
->>setenv SystemPartition bootp():diskless/client/IRIS
->>setenv OSLoadPartition bootp():diskless/client/IRIS
+>>setenv SystemPartition bootp():i/diskless/client/IRIS
+>>setenv OSLoadPartition bootp():i/diskless/client/IRIS
+```
+Run in Comand Monitor (example for Indy using C2):
+
+```
+>>setenv verbose on
+>>setenv diskless 1
+>>setenv netaddr 192.168.9.1
+>>setenv OSLoader /unix
+>>setenv SystemPartition bootp():i/sda1/diskless/client/IRIS
+>>setenv OSLoadPartition bootp():i/sda1/diskless/client/IRIS
 ```
