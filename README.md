@@ -548,11 +548,11 @@ pi@rbpi:/home/irix/i/sda1 $ sudo tar xvf diskless.tar
 sgi@debian:/home/irix/i $ sudo tar xvf diskless.tar
 ```
 <h3>10. Boot each client and verify the installation.</h3>
-You can clean the hosts from /diskless/client/IRIS/etc/hosts and /diskless/client/IRIS2/etc/hosts, they are not used.
+You can clean on Reanimator the hosts from diskless/client/IRIS/etc/hosts and diskless/client/IRIS2/etc/hosts, they are not used.
 <br>
 <br>
-Edit /diskless/client/IRIS/etc/fstab and /diskless/client/IRIS2/etc/fstab and another clients to boot from Reanimator or a NAS.<br>
-Original file:<br>
+Edit on Reanimator diskless/client/IRIS/etc/fstab and diskless/client/IRIS2/etc/fstab and another clients to boot from Reanimator or a NAS.<br>
+Original file on Octane2:<br>
 
 ```
 # cat /diskless/client/IRIS/etc/fstab
@@ -562,9 +562,9 @@ octane2:/diskless/share/6.5.22/sbin /sbin nfs ro 0 0
 octane2:/diskless/share/6.5.22/var/share /var/share nfs rw 0 0
 octane2:/diskless/swap/IRIS /swap nfs rw 0 0
 ```
-Modified to boot using C1. RBPi/VirtualBox(change IP to 192.168.9.101) working as bootp server and NFS server:
+Modified file on Reanimator to boot using C1. RBPi/VirtualBox(change IP to 192.168.9.101) working as bootp server and NFS server:
 ```
-# cat /diskless/client/IRIS/etc/fstab
+$ cat diskless/client/IRIS/etc/fstab
 192.168.9.100:/home/irix/i/diskless/client/IRIS / nfs rw 0 0
 192.168.9.100:/home/irix/i/diskless/share/6.5.22/usr /usr nfs ro 0 0
 192.168.9.100:/home/irix/i/diskless/share/6.5.22/sbin /sbin nfs ro 0 0
@@ -572,9 +572,9 @@ Modified to boot using C1. RBPi/VirtualBox(change IP to 192.168.9.101) working a
 192.168.9.100:/home/irix/i/diskless/swap/IRIS /swap nfs rw 0 0
 ```
 
-Modified to boot using C2. (RBPi only) bootp+NFS+external hard disk connected to an USB port on RBPi:
+Modified file on Reanimator to boot using C2. (RBPi only) bootp+NFS+external hard disk connected to an USB port on RBPi:
 ```
-# cat /diskless/client/IRIS/etc/fstab
+$ cat diskless/client/IRIS/etc/fstab
 192.168.9.100:/home/irix/i/sda1/diskless/client/IRIS / nfs rw 0 0
 192.168.9.100:/home/irix/i/sda1/diskless/share/6.5.22/usr /usr nfs ro 0 0
 192.168.9.100:/home/irix/i/sda1/diskless/share/6.5.22/sbin /sbin nfs ro 0 0
@@ -582,9 +582,9 @@ Modified to boot using C2. (RBPi only) bootp+NFS+external hard disk connected to
 192.168.9.100:/home/irix/i/sda1/diskless/swap/IRIS /swap nfs rw 0 0
 ```
 
-Modified to boot using C3. RBPi/VirtualBox working as bootp server and using a separated NFS NAS as storage:
+Modified file on Reanimator to boot using C3. RBPi/VirtualBox working as bootp server and using a separated NFS NAS as storage:
 ```
-# cat /diskless/client/IRIS/etc/fstab
+$ cat diskless/client/IRIS/etc/fstab
 # modify NAS IP and drive path /path according to your NAS configuration
 192.168.9.13:/path/diskless/client/IRIS / nfs rw 0 0
 192.168.9.13:/path/diskless/share/6.5.22/usr /usr nfs ro 0 0
