@@ -23,7 +23,7 @@ According to my experience, shared tree generation over network is much slower, 
 <br>
 <h2>Procedure</h2>
 <h3>1. Creating a directory to store the diskless tree</h3>
-C1. bootp+NFS. The directories /home/irix/i and /home/irix/i/diskless exist and are shared via NFS. You can choose between local share tree generation (complex but faster) and shared tree generation over network (easier but slower):<br>
+C1. bootp+NFS. The directories /home/irix/i and /home/irix/i/diskless exist and are shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower):<br>
 
 ```mermaid
 graph TD;
@@ -33,7 +33,7 @@ graph TD;
    RBPi[(RBPi:/home/irix/i/diskless)]--bootp and NFS-->Indy([Indy]);
 ```
 
-C2. (RBPi only) bootp+NFS+USB drive. The directory /home/irix/i/sda1 is shared via NFS. You can choose between local share tree generation (complex but faster) and shared tree generation over network (easier but slower).<br>
+C2. (RBPi only) bootp+NFS+USB drive. The directory /home/irix/i/sda1 is shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower).<br>
 
 The path can change depending on your usb device and mount point, if you use Reanimator's menus, the path is /home/iris/i/sda1. The directory diskless must be created on the <b>mounted</b> USB drive:<br>
 
@@ -250,7 +250,7 @@ Which version would you like:
 Choose one (1 or 2): 1
 Storing share tree configuration file at /var/boot/6.5.22.dat
 ```
-<h3>5. Run share_inst to install the share tree</h3>
+<h3>5. Run share_inst to install the shared tree</h3>
 Run share_inst for every share tree configuration: 6.5.22, 6.5.30, ...<br>
 Example for 6.5.22 32 bits:<br>
 
@@ -523,7 +523,7 @@ IRIS2 root=octane2:/diskless/client/IRIS2 sbin=octane2:/diskless/share/6.5.30/sb
 # ./clone_client -f IRIS.txt -r 6.5.22 -c indy -clone /diskless/client/IRIS3
 ```
 
-<h3>9. Copy diskless.tar and restore diskless.tar to Reanimator if you used local share tree generation.</h3>
+<h3>9. Copy diskless.tar and restore diskless.tar to Reanimator if you used local shared tree generation.</h3>
 You can clean the hosts from /diskless/client/IRIS/etc/hosts and /diskless/client/IRIS2/etc/hosts, they are not used.
 <br>
 <br>
