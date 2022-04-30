@@ -151,6 +151,7 @@ Example:<br>
 
 <h3>4. Run share_setup to create a share tree configuration file (share.dat):</h3>
 Run share_setup for every share tree: 6.5.22_32, 6.5.22_64, 6.5.30, ...<br>
+Example for 6.5.22 32 bits:<br>
 
 ```
 # cd /var/boot
@@ -200,6 +201,7 @@ Storing share tree configuration file at /var/boot/6.5.22.dat
 ```
 <h3>5. Run share_inst to install the share tree:</h3>
 Run share_inst for every share tree class: 6.5.22, 6.5.30, ...<br>
+Example for 6.5.22 32 bits:<br>
 
 ```
 # cd /var/boot
