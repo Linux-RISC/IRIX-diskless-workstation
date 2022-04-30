@@ -410,18 +410,49 @@ No conflicts
 Inst> go
 
 ```
+
+Let's have a look to /etc/bootparams and /etc/exports
+```
+# cat /etc/bootparams 
+#
+6.5.22 root=octane2:/diskless/share/6.5.22 sbin=octane2: swap=octane2:
+IRIS root=octane2:/diskless/client/IRIS sbin=octane2:/diskless/share/6.5.22/sbin usr=octane2:/diskless/share/6.5.22/usr var_share=octane2:/diskless/share/6.5.22/var/share swap=octane2:/diskless/swap/IRIS
+
+
+# cat /etc/exports
+#
+# NFS exported filesystem database (see exports(4) for more information).
+#
+# Entries in this file consist of lines containing the following fields:
+#
+# filesystem    [ options ]     [ netgroup ] [ hostname ] ...
+#
+# Filesystem must be left-justified and may name any directory within a
+# local filesystem.  A backslash (\) at the end of a line permits splitting
+# long lines into shorter ones.  Netgroup(4) and hostname refer 
+# to machines or collections of machines to which filesystem is exported.
+#
+#/var/spool/pcnfs
+/diskless/share/6.5.22/usr -mandlock,ro         #class=6.5.22
+/diskless/share/6.5.22/sbin -mandlock,ro        #class=6.5.22
+/diskless/share/6.5.22/var/share -mandlock,rw   #class=6.5.22
+/diskless/client/IRIS -mandlock,rw=IRIS,access=IRIS,root=IRIS   #host=IRIS
+/diskless/swap/IRIS -rw=IRIS,wsync,access=IRIS,root=IRIS        #host=IRIS
+
+```
+
 <h3>8. Run clone_client to reproduce the client and swap trees for additional clients.</h3>
 Run client_inst for every share tree class and client class:<br>
 
 ```
 # # clone /diskless/client/IRIS, using indy as client tree configuration file, 6.5.22 as share tree configuration file and host names contained in IRIS2.txt 
-# ./clone_client -f IRIS2.txt -r 6.5.22 -c indy -clone /diskless/client/IRIS
+# ./clone_client -f IRIS3.txt -r 6.5.22 -c indy -clone /diskless/client/IRIS
 
 # # delete hostname IRIS
 # ./client_inst -h IRIS -r 6.5.22 -c indy -d
 
 # # create client IRIS (contained in IRIS.txt)
-# ./clone_client -f IRIS.txt -r 6.5.22 -c indy -clone /diskless/client/IRIS2
+# ./clone_client -f IRIS.txt -r 6.5.22 -c indy -clone /diskless/client/IRIS3
 ```
 
 <h3>9. Boot each client and verify the installation.</h3>
