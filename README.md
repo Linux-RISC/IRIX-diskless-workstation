@@ -525,18 +525,27 @@ IRIS2 root=octane2:/diskless/client/IRIS2 sbin=octane2:/diskless/share/6.5.30/sb
 
 <h3>9. Copying and restoring diskless.tar to Reanimator if you used local shared tree generation.</h3>
 
-Example using scp to copy Octane2-->RBPi:
+Example using configuration C1 and scp to copy Octane2-->RBPi:
 ```
 # tar cvf /diskless.tar /diskless
 # scp /diskless.tar pi@192.168.9.100:/home/irix/i
 ```
 
-Example using NFS to copy Octane2-->RBPi:
+Example using configuration C2 and NFS to copy Octane2-->RBPi, the usb drive <b>must</b> be mounted:
 ```
 # tar cvf /diskless.tar /diskless
-# mount 192.168.9.100:/home/irix/i /mnt
+# mount 192.168.9.100:/home/irix/i/sda1 /mnt
 # cp /diskless.tar /mnt
 # umount /mnt
+```
+
+Restoring on Reanimator:
+```
+# restoring on RBPi
+pi@rbpi:/home/irix/i $ sudo tar xvf diskless.tar
+
+# restoring on VirtualBox
+sgi@debian:/home/irix/i $ sudo tar xvf diskless.tar
 ```
 <br>
 <br>
