@@ -600,6 +600,7 @@ Run in Comand Monitor (example for Indy using C1):
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.1
 >>setenv OSLoader /unix
+>>setenv bootfile bootp():i/IRIS/unix
 >>setenv SystemPartition bootp():i/diskless/client/IRIS
 >>setenv OSLoadPartition bootp():i/diskless/client/IRIS
 ```
