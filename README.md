@@ -550,13 +550,141 @@ sgi@debian:/home/irix/i $ sudo tar xvf diskless.tar
 ```
 <h3>10. Boot each client and verify the installation.</h3>
 You can clean on Reanimator the hosts from diskless/client/IRIS/etc/hosts and diskless/client/IRIS2/etc/hosts, they are not used. Make sure to update hosts files, for example:<br>
-diskless/client/IRIS/etc/hosts original file:<br>
+diskless/client/IRIS/etc/hosts <b>original</b> file:<br>
 
 ```
-# cat /diskless/client/IRIS/etc/fstab
+# WARNING: As shipped by SGI this system has no passwords on the following
+#          accounts: root, lp, nuucp, EZsetup, demos, OutOfBox, guest.
+#          If you leave these or any other accounts open when you enable
+#          networking, your system will be at significant risk for malicious
+#          attacks.  Use the EZsetup GUI to close open accounts, or use
+#          passwd(1) to accomplish the same thing from the command line.
+
+#          See passwd(1), or EZsetup(1M) for more information.
+
+#  IP address-hostname database (see hosts(4) for more information).
+
+
+# Default IP address for a new IRIS. It should be changed immediately to 
+# the address appropriate for your network.
+# (The '192.0.2' network number is the officially blessed 'test' network.)
+
+192.0.2.1       IRIS
+
+
+# This entry must be present or the system will not work.
+127.0.0.1       localhost
+
+
+# Assigned multicast group addresses listed in RFC-1060 ("Assigned Numbers").
+# These entries can be deleted if you don't want them.
+# (They are also available via the Internet DNS name servers.)
+224.0.0.1       all-systems.mcast.net
+224.0.0.2       all-routers.mcast.net
+224.0.0.4       dvmrp.mcast.net
+224.0.0.5       ospf-all.mcast.net
+224.0.0.6       ospf-dsig.mcast.net
+224.0.1.1       ntp.mcast.net
+224.0.1.2       sgi-dog.mcast.net
+224.0.1.3       rwhod.mcast.net
+224.0.2.1       rwho.mcast.net
+224.0.2.2       sun-rpc.mcast.net
 ```
-<br>
-<br>
+diskless/client/IRIS/etc/hosts <b>modified</b> file:<br>
+
+```
+# WARNING: As shipped by SGI this system has no passwords on the following
+#          accounts: root, lp, nuucp, EZsetup, demos, OutOfBox, guest.
+#          If you leave these or any other accounts open when you enable
+#          networking, your system will be at significant risk for malicious
+#          attacks.  Use the EZsetup GUI to close open accounts, or use
+#          passwd(1) to accomplish the same thing from the command line.
+
+#          See passwd(1), or EZsetup(1M) for more information.
+
+#  IP address-hostname database (see hosts(4) for more information).
+
+
+# Default IP address for a new IRIS. It should be changed immediately to 
+# the address appropriate for your network.
+# (The '192.0.2' network number is the officially blessed 'test' network.)
+
+#192.0.2.1       IRIS
+192.168.9.1       IRIS
+
+
+# This entry must be present or the system will not work.
+127.0.0.1       localhost
+
+
+# Assigned multicast group addresses listed in RFC-1060 ("Assigned Numbers").
+# These entries can be deleted if you don't want them.
+# (They are also available via the Internet DNS name servers.)
+224.0.0.1       all-systems.mcast.net
+224.0.0.2       all-routers.mcast.net
+224.0.0.4       dvmrp.mcast.net
+224.0.0.5       ospf-all.mcast.net
+224.0.0.6       ospf-dsig.mcast.net
+224.0.1.1       ntp.mcast.net
+224.0.1.2       sgi-dog.mcast.net
+224.0.1.3       rwhod.mcast.net
+224.0.2.1       rwho.mcast.net
+224.0.2.2       sun-rpc.mcast.net
+```
+diskless/client/IRIS2/etc/hosts <b>original</b> file:<br>
+
+```
+#  IP address-hostname database (see hosts(4) for more information).
+# Default IP address for a new IRIS. It should be changed immediately to 
+# the address appropriate for your network.
+# (The '192.0.2' network number is the officially blessed 'test' network.)
+# 192.0.2.1     IRIS
+# This entry must be present or the system will not work.
+127.0.0.1       localhost
+# Assigned multicast group addresses listed in RFC-1060 ("Assigned Numbers").
+# These entries can be deleted if you don't want them.
+# (They are also available via the Internet DNS name servers.)
+224.0.0.1       all-systems.mcast.net
+224.0.0.2       all-routers.mcast.net
+224.0.0.4       dvmrp.mcast.net
+224.0.0.5       ospf-all.mcast.net
+224.0.0.6       ospf-dsig.mcast.net
+224.0.1.1       ntp.mcast.net
+224.0.1.2       sgi-dog.mcast.net
+224.0.1.3       rwhod.mcast.net
+224.0.2.1       rwho.mcast.net
+224.0.2.2       sun-rpc.mcast.net
+192.168.9.6     octane2
+192.168.9.5     indy
+192.168.9.100   rbpi
+192.168.9.1     IRIS
+192.168.9.2     IRIS2
+```
+diskless/client/IRIS/etc/hosts <b>modified</b> file:<br>
+
+```
+#  IP address-hostname database (see hosts(4) for more information).
+# Default IP address for a new IRIS. It should be changed immediately to 
+# the address appropriate for your network.
+# (The '192.0.2' network number is the officially blessed 'test' network.)
+# 192.0.2.1     IRIS
+# This entry must be present or the system will not work.
+127.0.0.1       localhost
+# Assigned multicast group addresses listed in RFC-1060 ("Assigned Numbers").
+# These entries can be deleted if you don't want them.
+# (They are also available via the Internet DNS name servers.)
+224.0.0.1       all-systems.mcast.net
+224.0.0.2       all-routers.mcast.net
+224.0.0.4       dvmrp.mcast.net
+224.0.0.5       ospf-all.mcast.net
+224.0.0.6       ospf-dsig.mcast.net
+224.0.1.1       ntp.mcast.net
+224.0.1.2       sgi-dog.mcast.net
+224.0.1.3       rwhod.mcast.net
+224.0.2.1       rwho.mcast.net
+224.0.2.2       sun-rpc.mcast.net
+192.168.9.2     IRIS2
+```
 Edit on Reanimator diskless/client/IRIS/etc/fstab and diskless/client/IRIS2/etc/fstab and another clients to boot from Reanimator or a NAS.<br>
 Original file on Octane2:<br>
 
