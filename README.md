@@ -1,3 +1,4 @@
+Last update: 2022/05/09<br>
 # IRIX diskless workstation using Reanimator
 <br>
 The purpose of this guide is to show how to boot an IRIX diskless workstation using Reanimator http://irix.mersisl.com/<br>
@@ -600,7 +601,6 @@ Run in Comand Monitor (example for Indy using C1):
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.1
 >>setenv OSLoader /unix
->>setenv bootfile bootp():i/IRIS/unix
 >>setenv SystemPartition bootp():i/diskless/client/IRIS
 >>setenv OSLoadPartition bootp():i/diskless/client/IRIS
 ```
@@ -614,3 +614,9 @@ Run in Comand Monitor (example for Indy using C2):
 >>setenv SystemPartition bootp():i/sda1/diskless/client/IRIS
 >>setenv OSLoadPartition bootp():i/sda1/diskless/client/IRIS
 ```
+<h3>12. Troubleshooting.</h3>
+<ul>
+  <li>1. check the variables in Command Monitor</li>
+  <li>2. check names an client IP in file /home/irix/i/diskless/client/<client_name>/etc/hosts</li>
+  <li>2. check paths and server IP in file /home/irix/i/diskless/client/<client_name>/etc/fstab</li>
+</ul>
