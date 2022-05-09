@@ -764,7 +764,7 @@ Reboot and try again, I don't know why it happens.</li>
 </ul>
 <h3>12. Remarks.</h3>
 <ul>
-  <li>1. The first time my Indy boots, it takes about 30 minutes to complete the process using a RBPi 2 as server. It also reconfigures the operating system on boot and the new kernel on shutdown</li>
+  <li>1. The first time my Indy boots, it takes about 30 minutes to complete the process using a RBPi 2 as server. It also reconfigures the operating system on boot (about 20') and the new kernel on shutdown (about 10').</li>
 </ul>
 Boot times summary:<br>
 <table>
