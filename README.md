@@ -760,7 +760,7 @@ Run in Comand Monitor (example for Indy using C2):
 /var/share: Unmounted
 NFS server localhost (nsd) not responding still trying
 ```
-Reboot and try again, I don't know why it happens.</li>
+Reboot and try again checking netaddr in Command Monitor, I don't know why it happens, I think it's related to DHCP.</li>
 </ul>
 <h3>12. Remarks.</h3>
 <ul>
