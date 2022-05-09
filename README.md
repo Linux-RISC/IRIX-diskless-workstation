@@ -14,7 +14,7 @@ The purpose of this guide is to show how to boot an IRIX diskless workstation us
 I have tested three configurations:<br>
 C1. RBPi/VirtualBox working as bootp server and NFS server. This is the easiest configuration to test a diskless workstation, if using RBPi keep in mind that the SD card will reduce its expected life time, due to the excess of write cycles.<br>
 C2. (RBPi only) To avoid the SD problem and increase the throughput, you can connect an external hard disk to an USB port on RBPi and use it as storage instead the SD card.<br>
-C3. RBPi/VirtualBox working as bootp server and using a separated NFS NAS as storage. I have used as NAS (Network-attached storage https://en.wikipedia.org/wiki/Network-attached_storage) a think client with Debian GNU/Linux and NFS, you don't need to use a professional solution.<br>
+C3. RBPi/VirtualBox working as bootp server and using a separated NFS NAS as storage (NFS 4.x disabled). I have used as NAS (Network-attached storage https://en.wikipedia.org/wiki/Network-attached_storage) a think client with Debian GNU/Linux and NFS, you don't need to use a professional solution.<br>
 <br>
 I assume that you are using a file system that is compatible with GNU/Linux file permissions, such as ext4.<br>
 <br>
@@ -793,10 +793,9 @@ Reboot and try again checking netaddr in Command Monitor, I don't know why it ha
 </ul>
 <h3>12. Remarks.</h3>
 <ul>
-  <li>1. The first time my Indy boots, it takes about 30 minutes to complete the process using a RBPi 2 as server. It also reconfigures the operating system on boot (about 20') and the new kernel on shutdown (about 10').</li>
-  <li>2. These times are roughly halved if booting from a NAS.</li>
-  <li>3. Some errors are displayed on boot: "not found", "cannot open", "Read-only file system", ... can they be avoided ?</li>
-  <li>4. I installed the entire system (install maintenance) on the shared tree and just nfs.sw.dskless_client on the client tree, but IRIX diskless desktop appears too simple, it is necessary to install the maintenance branch on the client tree ?</li>
+  <li>1. The first time my Indy boots, it takes about 30 minutes to complete the process using a RBPi 2 as server. It also reconfigures the operating system on boot (about 20') and the new kernel on shutdown (about 10'). These times are roughly halved if booting from a NAS.</li>
+  <li>2. Some errors are displayed on boot: "not found", "cannot open", "Read-only file system", ... can they be avoided ?</li>
+  <li>3. I installed the entire system (install maintenance) on the shared tree and just nfs.sw.dskless_client on the client tree, but IRIX diskless desktop appears too simple, it is necessary to install the maintenance branch on the client tree ?</li>
 </ul>
 Boot times summary:<br>
 <table>
