@@ -549,7 +549,12 @@ pi@rbpi:/home/irix/i/sda1 $ sudo tar xvf diskless.tar
 sgi@debian:/home/irix/i $ sudo tar xvf diskless.tar
 ```
 <h3>10. Boot each client and verify the installation.</h3>
-You can clean on Reanimator the hosts from diskless/client/IRIS/etc/hosts and diskless/client/IRIS2/etc/hosts, they are not used.
+You can clean on Reanimator the hosts from diskless/client/IRIS/etc/hosts and diskless/client/IRIS2/etc/hosts, they are not used. Make sure to update hosts files, for example:<br>
+diskless/client/IRIS/etc/hosts original file:<br>
+
+```
+# cat /diskless/client/IRIS/etc/fstab
+```
 <br>
 <br>
 Edit on Reanimator diskless/client/IRIS/etc/fstab and diskless/client/IRIS2/etc/fstab and another clients to boot from Reanimator or a NAS.<br>
