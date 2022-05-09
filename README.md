@@ -766,6 +766,7 @@ Reboot and try again checking netaddr in Command Monitor, I don't know why it ha
 <ul>
   <li>1. The first time my Indy boots, it takes about 30 minutes to complete the process using a RBPi 2 as server. It also reconfigures the operating system on boot (about 20') and the new kernel on shutdown (about 10').</li>
   <li>2. These times are roughly halved if booting from a NAS.</li>
+  <li>3. Some errors are displayed on boot, how to avoid them ?</li>
 </ul>
 Boot times summary:<br>
 <table>
