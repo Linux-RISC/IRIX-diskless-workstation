@@ -696,6 +696,13 @@ octane2:/diskless/share/6.5.22/usr /usr nfs ro 0 0
 octane2:/diskless/share/6.5.22/sbin /sbin nfs ro 0 0
 octane2:/diskless/share/6.5.22/var/share /var/share nfs rw 0 0
 octane2:/diskless/swap/IRIS /swap nfs rw 0 0
+
+# cat /diskless/client/IRIS2/etc/fstab
+octane2:/diskless/client/IRIS2 / nfs rw 0 0
+octane2:/diskless/share/6.5.30/usr /usr nfs ro 0 0
+octane2:/diskless/share/6.5.30/sbin /sbin nfs ro 0 0
+octane2:/diskless/share/6.5.30/var/share /var/share nfs rw 0 0
+octane2:/diskless/swap/IRIS2 /swap nfs rw 0 0
 ```
 Modified file on Reanimator to boot using C1. RBPi/VirtualBox(change IP to 192.168.9.101) working as bootp server and NFS server:
 ```
@@ -705,6 +712,13 @@ $ cat diskless/client/IRIS/etc/fstab
 192.168.9.100:/home/irix/i/diskless/share/6.5.22/sbin /sbin nfs ro 0 0
 192.168.9.100:/home/irix/i/diskless/share/6.5.22/var/share /var/share nfs rw 0 0
 192.168.9.100:/home/irix/i/diskless/swap/IRIS /swap nfs rw 0 0
+
+$ cat diskless/client/IRIS2/etc/fstab
+192.168.9.100:/home/irix/i/diskless/client/IRIS2 / nfs rw 0 0
+192.168.9.100:/home/irix/i/diskless/share/6.5.30/usr /usr nfs ro 0 0
+192.168.9.100:/home/irix/i/diskless/share/6.5.30/sbin /sbin nfs ro 0 0
+192.168.9.100:/home/irix/i/diskless/share/6.5.30/var/share /var/share nfs rw 0 0
+192.168.9.100:/home/irix/i/diskless/swap/IRIS2 /swap nfs rw 0 0
 ```
 
 Modified file on Reanimator to boot using C2. (RBPi only) bootp+NFS+external hard disk connected to an USB port on RBPi:
@@ -715,6 +729,13 @@ $ cat diskless/client/IRIS/etc/fstab
 192.168.9.100:/home/irix/i/sda1/diskless/share/6.5.22/sbin /sbin nfs ro 0 0
 192.168.9.100:/home/irix/i/sda1/diskless/share/6.5.22/var/share /var/share nfs rw 0 0
 192.168.9.100:/home/irix/i/sda1/diskless/swap/IRIS /swap nfs rw 0 0
+
+$ cat diskless/client/IRIS2/etc/fstab
+192.168.9.100:/home/irix/i/sda1/diskless/client/IRIS2 / nfs rw 0 0
+192.168.9.100:/home/irix/i/sda1/diskless/share/6.5.30/usr /usr nfs ro 0 0
+192.168.9.100:/home/irix/i/sda1/diskless/share/6.5.30/sbin /sbin nfs ro 0 0
+192.168.9.100:/home/irix/i/sda1/diskless/share/6.5.30/var/share /var/share nfs rw 0 0
+192.168.9.100:/home/irix/i/sda1/diskless/swap/IRIS2 /swap nfs rw 0 0
 ```
 
 Modified file on Reanimator to boot using C3. RBPi/VirtualBox working as bootp server and using a separated NFS NAS as storage:
@@ -726,6 +747,14 @@ $ cat diskless/client/IRIS/etc/fstab
 192.168.9.13:/path/diskless/share/6.5.22/sbin /sbin nfs ro 0 0
 192.168.9.13:/path/diskless/share/6.5.22/var/share /var/share nfs rw 0 0
 192.168.9.13:/path/diskless/swap/IRIS /swap nfs rw 0 0
+
+$ cat diskless/client/IRIS2/etc/fstab
+# modify NAS IP and drive path /path according to your NAS configuration
+192.168.9.13:/path/diskless/client/IRIS2 / nfs rw 0 0
+192.168.9.13:/path/diskless/share/6.5.30/usr /usr nfs ro 0 0
+192.168.9.13:/path/diskless/share/6.5.30/sbin /sbin nfs ro 0 0
+192.168.9.13:/path/diskless/share/6.5.30/var/share /var/share nfs rw 0 0
+192.168.9.13:/path/diskless/swap/IRIS2 /swap nfs rw 0 0
 ```
 
 Run in Comand Monitor (example for Indy using C1):
