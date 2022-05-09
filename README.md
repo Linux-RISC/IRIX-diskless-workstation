@@ -752,7 +752,7 @@ Run in Comand Monitor (example for Indy using C2):
 <ul>
   <li>1. Read the troubleshooting section of "Diskless Workstation Administration Guide" https://irix7.com/techpubs/007-0855-080.pdf.</li>
   <li>2. Check the variables in Command Monitor.</li>
-  <li>3. Check names an the client IP in file /home/irix/i/diskless/client/client_name/etc/hosts. Keep in mind that the client IP will be assigned using DHCP on boot and updated in the hosts file, this will create boot problems. Disable DHCP running "chkconfig autoconfig_ipaddress off" on the diskless client, and fix the IP address in Command Monitor, in hosts and the diskless client using https://software.majix.org/irix/network-setup.shtml.</li>
+  <li>3. Check names an the client IP in file /home/irix/i/diskless/client/client_name/etc/hosts. Keep in mind that the client IP will be assigned using DHCP on boot and updated in the hosts file, this will create boot problems. After booting, disable DHCP running "chkconfig autoconfig_ipaddress off" on the diskless client, and fix the IP address in Command Monitor, in hosts file and on the diskless client using https://software.majix.org/irix/network-setup.shtml.</li>
   <li>4. Check the paths and the server IP in file /home/irix/i/diskless/client/client_name/etc/fstab.</li>
   <li>5. This message appears:<br>
     
