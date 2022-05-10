@@ -796,7 +796,7 @@ Reboot and try again checking netaddr in Command Monitor, I don't know why it ha
   <li>1. The first time my Indy boots, it takes about 30 minutes to complete the process using a RBPi 2 as server. It also reconfigures the operating system on boot (about 20') and the new kernel on shutdown (about 10'). These times are roughly halved if booting from a NAS.</li>
   <li>2. Some errors are displayed on boot: "not found", "cannot open", "Read-only file system", ... can they be avoided ?</li>
   <li>3. I installed the entire system (install maintenance) on the shared tree and just nfs.sw.dskless_client on the client tree, but IRIX diskless desktop appears too simple, it is necessary to install the maintenance branch on the client tree ?</li>
-  <li>4. For my Octane2, "Automatically reconfiguring the operating system" takes about 8 minutes, but no desktop is started, it shows "The system is ready".</li>
+  <li>4. For my Octane2, "Automatically reconfiguring the operating system" takes about 8 minutes, but no desktop is started, it shows "The system is ready". The phase "Reconfiguring kernel, please wait" took about 7 minutes.</li>
 </ul>
 Boot times summary:<br>
 <table>
