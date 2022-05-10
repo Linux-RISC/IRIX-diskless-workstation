@@ -822,6 +822,6 @@ Boot times summary:<br>
     <td>Octane2</td>
     <td>GNU/Linux NAS</td>
     <td>1' 10''</td>
-    <td>1'</td>
+    <td>less than 1'</td>
   </tr>
 </table>
