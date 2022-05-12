@@ -540,7 +540,7 @@ Example using configuration C2 and NFS to copy Octane2-->RBPi, the usb drive <b>
 # umount /mnt
 ```
 
-Example using configuration C3, creating the file diskless.tar on a NAS shared resource:
+Example using configuration C3, creating the file diskless.tar on a NAS shared resource. this is the fastest method in my opinion:
 ```
 # mount NAS_IP:/path /mnt
 # tar cvf /mnt/diskless.tar /diskless
