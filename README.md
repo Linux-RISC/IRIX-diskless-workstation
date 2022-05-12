@@ -540,6 +540,13 @@ Example using configuration C2 and NFS to copy Octane2-->RBPi, the usb drive <b>
 # umount /mnt
 ```
 
+Example using configuration C3, creating the file diskless.tar on a NAS shared resource:
+```
+# mount NAS_IP:/path /mnt
+# tar cvf /mnt/diskless.tar /diskless
+# umount /mnt
+```
+
 Restoring on Reanimator:
 ```
 # restoring on RBPi using configuration C2 (the usb drive must be mounted)
