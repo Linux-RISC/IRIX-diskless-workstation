@@ -811,23 +811,32 @@ Boot times summary:<br>
     <th>Server</th>
     <th>boot time</th>
     <th>shutdown time</th>
+    <th>share_inst</th>
+    <th>client_inst</th>
+    <th>user</th>
   </tr>
   <tr>
     <td>Indy</td>
     <td>RBPi 2</td>
     <td>10'</td>
     <td>2'</td>
+    <td>keep *<br>install maintenance<br>install nfs.sw.dskless_client</td>
+    <td>Linux-RISC</td>
   </tr>
   <tr>
     <td>Indy</td>
     <td>GNU/Linux NAS</td>
     <td>5'</td>
     <td>1'</td>
+    <td>keep *<br>install maintenance<br>install nfs.sw.dskless_client</td>
+    <td>Linux-RISC</td>
   </tr>
   <tr>
     <td>Octane2</td>
     <td>GNU/Linux NAS</td>
     <td>1' 10''</td>
     <td>less than 1'</td>
+    <td>keep *<br>install maintenance<br>install nfs.sw.dskless_client</td>
+    <td>Linux-RISC</td>
   </tr>
 </table>
