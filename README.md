@@ -545,11 +545,13 @@ Example using configuration C3, creating the file diskless.tar on a NAS shared r
 # tar cvf /mnt/diskless.tar /diskless
 # umount /mnt
 ```
+
 <b>Warning:</b> if C3 is used, copy /var/boot/client_name to /home/irix/i or /home/irix/i/sda1:
 ```
 # cd /var/boot
 # tar cvf IRIS.tar IRIS IRIS2
 ```
+
 Restoring on Reanimator:
 ```
 # restoring on RBPi using configuration C2 (the usb drive must be mounted)
