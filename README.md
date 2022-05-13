@@ -550,7 +550,7 @@ Example using configuration C3, creating the file diskless.tar on a NAS shared r
 ```
 # cd /var/boot
 # tar cvf IRIS.tar IRIS IRIS2
-# scp /diskless.tar pi@192.168.9.100:/home/irix/i
+# scp IRIS.tar pi@192.168.9.100:/home/irix/i/diskless
 ```
 Copy using NFS:<br>
 
@@ -558,7 +558,7 @@ Copy using NFS:<br>
 # cd /var/boot
 # tar cvf IRIS.tar IRIS IRIS2
 # mount 192.168.9.100:/home/irix/i/diskless /mnt
-# cp /diskless.tar /mnt
+# cp IRIS.tar /mnt
 # umount /mnt
 ```
 Restoring on Reanimator:
