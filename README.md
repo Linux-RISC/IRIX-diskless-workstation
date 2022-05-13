@@ -820,7 +820,8 @@ Boot times summary:<br>
     <td>RBPi 2</td>
     <td>10'</td>
     <td>2'</td>
-    <td>keep *<br>install maintenance<br>install nfs.sw.dskless_client</td>
+    <td>Inst> keep *<br>Inst> install maintenance<br>Inst> install nfs.sw.dskless_client</td>
+    <td>Inst> install nfs.sw.dskless_client</td>
     <td>Linux-RISC</td>
   </tr>
   <tr>
@@ -828,7 +829,8 @@ Boot times summary:<br>
     <td>GNU/Linux NAS</td>
     <td>5'</td>
     <td>1'</td>
-    <td>keep *<br>install maintenance<br>install nfs.sw.dskless_client</td>
+    <td>Inst> keep *<br>Inst> install maintenance<br>Inst> install nfs.sw.dskless_client</td>
+    <td>Inst> install nfs.sw.dskless_client</td>
     <td>Linux-RISC</td>
   </tr>
   <tr>
@@ -836,7 +838,8 @@ Boot times summary:<br>
     <td>GNU/Linux NAS</td>
     <td>1' 10''</td>
     <td>less than 1'</td>
-    <td>keep *<br>install maintenance<br>install nfs.sw.dskless_client</td>
+    <td>Inst> keep *<br>Inst> install maintenance<br>Inst> install nfs.sw.dskless_client</td>
+    <td>Inst> install nfs.sw.dskless_client</td>
     <td>Linux-RISC</td>
   </tr>
 </table>
