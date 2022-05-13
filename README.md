@@ -581,7 +581,7 @@ total 4
 -rw-r--r-- 1 root sys 107 Apr 30 15:53 README
 lrwxrwxrwx 1 root sys  27 Apr 30 15:53 unix -> /diskless/client/IRIS2/unix
 ```
-The easiest way to make these paths work, is mounting the NAS_IP:/path/diskless on diskless, for example for my NAS:
+The easiest way to make these paths work is mounting the NAS_IP:/path/diskless on diskless, for example for my NAS:
 
 ```
 sudo mount 192.168.9.13:/media/sdb1/NAS/diskless /diskless
