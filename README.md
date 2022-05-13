@@ -507,7 +507,7 @@ IRIS2 root=octane2:/diskless/client/IRIS2 sbin=octane2:/diskless/share/6.5.30/sb
 /diskless/swap/IRIS2 -rw=IRIS2,wsync,access=IRIS2,root=IRIS2    #host=IRIS2
 
 ```
-Reanimator provides preconfigured /etc/bootparams and /etc/exports. Edit them using Reanimator's menus according to your configuration.<br>
+Reanimator provides <b>preconfigured</b> /etc/bootparams and /etc/exports. Edit them using Reanimator's menus according to your configuration.<br>
 <h3>8. Run clone_client to reproduce the client and swap trees for additional clients.</h3>
 <b>Optional</b>. Some example of operations are provided as cheat sheet:<br>
 
