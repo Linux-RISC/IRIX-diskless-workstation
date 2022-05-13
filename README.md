@@ -127,6 +127,7 @@ Installation steps:
 Example:<br>
   <li>IRIS Indy 6.5.22 32 bits</li>
   <li>IRIS2 Octane2 6.5.30 64 bits</li>
+
 ```
 # cd /var/boot
 # ./share_setup
@@ -200,6 +201,7 @@ Inst> conflicts
 <h3>4. Run share_setup to create a shared tree configuration file (share.dat)</h3>
 Run share_setup for every shared tree: 6.5.22_32, 6.5.22_64, 6.5.30, ...<br>
 Example for 6.5.22 32 bits:<br>
+
 ```
 # cd /var/boot
 # ./share_setup
@@ -249,6 +251,7 @@ Storing share tree configuration file at /var/boot/6.5.22.dat
 <h3>5. Run share_inst to install the shared tree</h3>
 Run share_inst for every shared tree configuration: 6.5.22, 6.5.30, ...<br>
 Example for 6.5.22 32 bits:<br>
+
 ```
 # cd /var/boot
 # ./share_inst -r 6.5.22
@@ -329,6 +332,7 @@ Inst> quit
 <h3>6. Run client_setup to create a client tree configuration file (client.dat)</h3>
 Run client_setup for every client class: Indy, Octane, ...<br>
 Example for Indy:<br>
+
 ```
 # ./client_setup
 ----------
@@ -382,6 +386,7 @@ Creating file indy.dat
 ```
 <h3>7. Run client_inst to install the client</h3>
 Run client_inst for every shared tree configuration and client class:<br>
+
 ```
 # ./client_inst -h IRIS2 -r 6.5.30 -c octane2
 ...
@@ -454,6 +459,7 @@ No conflicts
 Inst> go
 ```
 Let's have a look to some files on Octane2 to understand /etc/bootparams and /etc/exports on Reanimator:
+
 ```
 # ls -l /var/boot/IRIS/
 total 8
@@ -501,6 +507,7 @@ IRIS2 root=octane2:/diskless/client/IRIS2 sbin=octane2:/diskless/share/6.5.30/sb
 Reanimator provides <b>preconfigured</b> /etc/bootparams and /etc/exports. Edit them using Reanimator's menus according to your configuration.<br>
 <h3>8. Run clone_client to reproduce the client and swap trees for additional clients.</h3>
 <b>Optional</b>. Some example of operations are provided as cheat sheet:<br>
+
 ```
 # # clone /diskless/client/IRIS, using indy as client tree configuration file, 6.5.22 as shared tree configuration file and host names contained in IRIS3.txt
 # # IRIS3 must be and identical machine to IRIS
@@ -515,11 +522,13 @@ Reanimator provides <b>preconfigured</b> /etc/bootparams and /etc/exports. Edit 
 <h3>9. Copying and restoring diskless.tar to Reanimator if you used local shared tree generation.</h3>
 
 Example using configuration C1 and scp to copy Octane2-->RBPi:
+
 ```
 # tar cvf /diskless.tar /diskless
 # scp /diskless.tar pi@192.168.9.100:/home/irix/i
 ```
 Example using configuration C2 and NFS to copy Octane2-->RBPi, the usb drive <b>must</b> be mounted:
+
 ```
 # tar cvf /diskless.tar /diskless
 # mount 192.168.9.100:/home/irix/i/sda1 /mnt
@@ -527,17 +536,20 @@ Example using configuration C2 and NFS to copy Octane2-->RBPi, the usb drive <b>
 # umount /mnt
 ```
 Example using configuration C3, creating the file diskless.tar on a NAS shared resource. This is the <b>fastest method</b> in my opinion:
+
 ```
 # mount NAS_IP:/path /mnt
 # tar cvf /mnt/diskless.tar /diskless
 # umount /mnt
 ```
 <b>Warning:</b> if C3 is used, copy /var/boot/client_name to /home/irix/i or /home/irix/i/sda1:
+
 ```
 # cd /var/boot
 # tar cvf IRIS.tar IRIS IRIS2
 ```
 Restoring on Reanimator:
+
 ```
 # restoring on RBPi using configuration C2 (the usb drive must be mounted)
 pi@rbpi:/home/irix/i/sda1 $ sudo tar xvf IRIS.tar
@@ -549,6 +561,7 @@ sgi@debian:/home/irix/i $ sudo tar xvf IRIS.tar
 You can clean on Reanimator the hosts from diskless/client/IRIS/etc/hosts and diskless/client/IRIS2/etc/hosts, they are not used. Make sure to update the hosts files, for example:<br>
 <br>
 diskless/client/IRIS/etc/hosts <b>original</b> file:<br>
+
 ```
 # WARNING: As shipped by SGI this system has no passwords on the following
 #          accounts: root, lp, nuucp, EZsetup, demos, OutOfBox, guest.
@@ -588,6 +601,7 @@ diskless/client/IRIS/etc/hosts <b>original</b> file:<br>
 224.0.2.2       sun-rpc.mcast.net
 ```
 diskless/client/IRIS/etc/hosts <b>modified</b> file:<br>
+
 ```
 # WARNING: As shipped by SGI this system has no passwords on the following
 #          accounts: root, lp, nuucp, EZsetup, demos, OutOfBox, guest.
@@ -628,6 +642,7 @@ diskless/client/IRIS/etc/hosts <b>modified</b> file:<br>
 224.0.2.2       sun-rpc.mcast.net
 ```
 diskless/client/IRIS2/etc/hosts <b>original</b> file:<br>
+
 ```
 #  IP address-hostname database (see hosts(4) for more information).
 # Default IP address for a new IRIS. It should be changed immediately to 
@@ -656,6 +671,7 @@ diskless/client/IRIS2/etc/hosts <b>original</b> file:<br>
 192.168.9.2     IRIS2
 ```
 diskless/client/IRIS/etc/hosts <b>modified</b> file:<br>
+
 ```
 #  IP address-hostname database (see hosts(4) for more information).
 # Default IP address for a new IRIS. It should be changed immediately to 
@@ -681,6 +697,7 @@ diskless/client/IRIS/etc/hosts <b>modified</b> file:<br>
 ```
 Edit on Reanimator diskless/client/IRIS/etc/fstab and diskless/client/IRIS2/etc/fstab and another clients to boot from Reanimator or a NAS.<br>
 Original file on Octane2:<br>
+
 ```
 # cat /diskless/client/IRIS/etc/fstab
 octane2:/diskless/client/IRIS / nfs rw 0 0
@@ -697,6 +714,7 @@ octane2:/diskless/share/6.5.30/var/share /var/share nfs rw 0 0
 octane2:/diskless/swap/IRIS2 /swap nfs rw 0 0
 ```
 <b>Modified</b> file on Reanimator to boot using C1. RBPi/VirtualBox(change IP to 192.168.9.101) working as bootp server and NFS server:
+
 ```
 $ cat diskless/client/IRIS/etc/fstab
 192.168.9.100:/home/irix/i/diskless/client/IRIS / nfs rw 0 0
@@ -713,6 +731,7 @@ $ cat diskless/client/IRIS2/etc/fstab
 192.168.9.100:/home/irix/i/diskless/swap/IRIS2 /swap nfs rw 0 0
 ```
 <b>Modified</b> file on Reanimator to boot using C2. (RBPi only) bootp+NFS+external hard disk connected to an USB port on RBPi:
+
 ```
 $ cat diskless/client/IRIS/etc/fstab
 192.168.9.100:/home/irix/i/sda1/diskless/client/IRIS / nfs rw 0 0
@@ -729,6 +748,7 @@ $ cat diskless/client/IRIS2/etc/fstab
 192.168.9.100:/home/irix/i/sda1/diskless/swap/IRIS2 /swap nfs rw 0 0
 ```
 <b>Modified</b> file on Reanimator to boot using C3. RBPi/VirtualBox working as bootp server and using a separated NFS NAS as storage:
+
 ```
 $ cat diskless/client/IRIS/etc/fstab
 # modify NAS IP and drive path /path according to your NAS configuration
@@ -747,6 +767,7 @@ NAS_IP:/path/diskless/share/6.5.30/var/share /var/share nfs rw 0 0
 NAS_IP:/path/diskless/swap/IRIS2 /swap nfs rw 0 0
 ```
 Run in Comand Monitor (example for Indy using C1 or C3):
+
 ```
 >>setenv verbose on
 >>setenv diskless 1
@@ -756,6 +777,7 @@ Run in Comand Monitor (example for Indy using C1 or C3):
 >>setenv OSLoadPartition bootp():i/diskless/client/IRIS
 ```
 Run in Comand Monitor (example for Octane using C2):
+
 ```
 >>setenv verbose on
 >>setenv diskless 1
@@ -770,7 +792,8 @@ Run in Comand Monitor (example for Octane using C2):
   <li>2. Check the variables in Command Monitor.</li>
   <li>3. Check the names and the client IP in the file /home/irix/i/diskless/client/client_name/etc/hosts before booting. Keep in mind that the client IP will be assigned using DHCP on boot and updated in the hosts file, this will create boot problems. After booting, disable DHCP running "chkconfig autoconfig_ipaddress off" on the diskless client, and fix the IP address in Command Monitor, in hosts file and on the diskless client using https://software.majix.org/irix/network-setup.shtml.</li>
   <li>4. Check the paths and the server IP in file /home/irix/i/diskless/client/client_name/etc/fstab.</li>
-  <li>5. If this message appears:<br>   
+  <li>5. If this message appears:<br>
+
 ```
 /var/share: Unmounted
 NFS server localhost (nsd) not responding still trying
