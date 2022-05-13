@@ -823,7 +823,7 @@ Summary:<br>
     <td>2'</td>
     <td>Inst> keep *<br>Inst> install maintenance<br>Inst> install nfs.sw.dskless_client</td>
     <td>Inst> install nfs.sw.dskless_client</td>
-    <td>Simple desktop. Error on shutdown using Toolchest./td>
+    <td>Simple desktop. Error on shutdown using Toolchest</td>
     <td>Linux-RISC</td>
   </tr>
   <tr>
@@ -833,7 +833,7 @@ Summary:<br>
     <td>1'</td>
     <td>Inst> keep *<br>Inst> install maintenance<br>Inst> install nfs.sw.dskless_client</td>
     <td>Inst> install nfs.sw.dskless_client</td>
-    <td>Simple desktop. Error on shutdown using Toolchest./td>
+    <td>Simple desktop. Error on shutdown using Toolchest</td>
     <td>Linux-RISC</td>
   </tr>
   <tr>
@@ -843,7 +843,7 @@ Summary:<br>
     <td>less than 1'</td>
     <td>Inst> keep *<br>Inst> install maintenance<br>Inst> install nfs.sw.dskless_client</td>
     <td>Inst> install nfs.sw.dskless_client</td>
-    <td>No desktop shown./td>
+    <td>No desktop started</td>
     <td>Linux-RISC</td>
   </tr>
 </table>
