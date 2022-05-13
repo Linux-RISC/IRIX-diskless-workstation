@@ -799,12 +799,12 @@ Reboot and try again checking netaddr in Command Monitor, I don't know why it ha
 </ul>
 <h3>12. Remarks.</h3>
 <ul>
-  <li>1. The first time my Indy boots, it takes about 30 minutes to complete the process using a RBPi 2 as server. It also reconfigures the operating system on boot (about 20') and the new kernel on shutdown (about 10'). These times are roughly halved if booting from a NAS.</li>
+  <li>1. The first time my Indy boots, it takes about 30 minutes to complete the process using a RBPi 2 as server. It also reconfigures the operating system on boot (about 20') and the new kernel on shutdown (about 10'). These times are roughly halved if booting from a NAS. After these processes, the shutdown time is about 2 minutes.</li>
   <li>2. Some errors are displayed on boot: "not found", "cannot open", "Read-only file system", ... can they be avoided ?</li>
   <li>3. I installed the entire system (install maintenance) on the shared tree and just nfs.sw.dskless_client on the client tree, but IRIX diskless desktop appears too simple, it is necessary to install the maintenance branch on the client tree ?</li>
-  <li>4. For my Octane2, "Automatically reconfiguring the operating system" takes about 8 minutes, but no desktop is started, it shows "The system is ready". The phase "Reconfiguring kernel, please wait" took about 7 minutes. After these processes, the boot time is about 1 minute-</li>
+  <li>4. For my Octane2, "Automatically reconfiguring the operating system" takes about 8 minutes, but no desktop is started, it shows "The system is ready". The phase "Reconfiguring kernel, please wait" took about 7 minutes. After these processes, the boot time is about 1 minute. No desktop is shown, why ?</li>
 </ul>
-Boot times summary:<br>
+Summary:<br>
 <table>
   <tr>
     <th>Client</th>
@@ -813,6 +813,7 @@ Boot times summary:<br>
     <th>shutdown time</th>
     <th>share_inst</th>
     <th>client_inst</th>
+    <th>problems</th>
     <th>user</th>
   </tr>
   <tr>
@@ -822,6 +823,7 @@ Boot times summary:<br>
     <td>2'</td>
     <td>Inst> keep *<br>Inst> install maintenance<br>Inst> install nfs.sw.dskless_client</td>
     <td>Inst> install nfs.sw.dskless_client</td>
+    <td>Simple desktop. Error on shutdown using Toolchest./td>
     <td>Linux-RISC</td>
   </tr>
   <tr>
@@ -831,6 +833,7 @@ Boot times summary:<br>
     <td>1'</td>
     <td>Inst> keep *<br>Inst> install maintenance<br>Inst> install nfs.sw.dskless_client</td>
     <td>Inst> install nfs.sw.dskless_client</td>
+    <td>Simple desktop. Error on shutdown using Toolchest./td>
     <td>Linux-RISC</td>
   </tr>
   <tr>
@@ -840,6 +843,7 @@ Boot times summary:<br>
     <td>less than 1'</td>
     <td>Inst> keep *<br>Inst> install maintenance<br>Inst> install nfs.sw.dskless_client</td>
     <td>Inst> install nfs.sw.dskless_client</td>
+    <td>No desktop shown./td>
     <td>Linux-RISC</td>
   </tr>
 </table>
