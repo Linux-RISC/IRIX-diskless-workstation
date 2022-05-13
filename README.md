@@ -586,6 +586,7 @@ The easiest way to make these paths work is mounting NAS_IP:/path/diskless on di
 ```
 sudo mount 192.168.9.13:/media/sdb1/NAS/diskless /diskless
 ```
+All the links will work now.
 <h3>10. Boot each client and verify the installation.</h3>
 You can clean on Reanimator the hosts from diskless/client/IRIS/etc/hosts and diskless/client/IRIS2/etc/hosts, they are not used. Make sure to update the hosts files, for example:<br>
 <br>
