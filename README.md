@@ -182,7 +182,6 @@ Load selections from file: irix@rbpi:i/6.5.22.txt
 11 done
 ..
 Inst> keep *
-Inst> install maintenance
 Inst> install nfs.sw.dskless_client
 Inst> conflicts
 ...
@@ -195,7 +194,6 @@ Load selections from file: irix@rbpi:i/6.5.30.txt
 11 done
 ..
 Inst> keep *
-Inst> install maintenance
 Inst> install nfs.sw.dskless_client
 Inst> conflicts
 ...
