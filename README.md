@@ -542,13 +542,40 @@ Example using configuration C3, creating the file diskless.tar on a NAS shared r
 # tar cvf /mnt/diskless.tar /diskless
 # umount /mnt
 ```
-<b>Warning:</b> if C3 is used, copy /var/boot/client_name to /home/irix/i or /home/irix/i/sda1:
+<b>Warning:</b> if C3 is used, copy to Reanimator /var/boot/client_name on /home/irix/i or /home/irix/i/sda1:
 
 ```
 # cd /var/boot
 # tar cvf IRIS.tar IRIS IRIS2
+# scp /diskless.tar pi@192.168.9.100:/home/irix/i
+```
+Copy using NFS:<br>
+
+```
+# cd /var/boot
+# tar cvf IRIS.tar IRIS IRIS2
+# mount 192.168.9.100:/home/irix/i/diskless /mnt
+# cp /diskless.tar /mnt
+# umount /mnt
 ```
 Restoring on Reanimator:
+
+```
+# restoring on RBPi
+pi@rbpi:/home/irix/i/diskless $ sudo tar xvf IRIS.tar
+
+# restoring on VirtualBox
+sgi@debian:/home/irix/i/diskless $ sudo tar xvf IRIS.tar
+```
+Watch the contents os these files:
+
+```
+# restoring on RBPi using configuration C2 (the usb drive must be mounted)
+pi@rbpi:/home/irix/i/sda1 $ sudo tar xvf IRIS.tar
+
+# restoring on VirtualBox using configuration C1
+sgi@debian:/home/irix/i $ sudo tar xvf IRIS.tar
+```
 
 ```
 # restoring on RBPi using configuration C2 (the usb drive must be mounted)
