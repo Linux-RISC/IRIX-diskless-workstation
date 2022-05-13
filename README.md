@@ -567,22 +567,24 @@ pi@rbpi:/home/irix/i/diskless $ sudo tar xvf IRIS.tar
 # restoring on VirtualBox
 sgi@debian:/home/irix/i/diskless $ sudo tar xvf IRIS.tar
 ```
-Watch the contents os these files:
+Watch the contents of these directories:
 
 ```
-# restoring on RBPi using configuration C2 (the usb drive must be mounted)
-pi@rbpi:/home/irix/i/sda1 $ sudo tar xvf IRIS.tar
+pi@rbpi:/home/irix/i/diskless $ ls -l IRIS
+total 4
+-rw-r--r-- 1 root sys 107 Apr 30 14:52 README
+lrwxrwxrwx 1 root sys  43 Apr 30 14:52 unix -> /diskless/share/6.5.22/sbin/stand/sash.ARCS
+lrwxrwxrwx 1 root sys  26 Apr 30 14:52 unix.auto -> /diskless/client/IRIS/unix
 
-# restoring on VirtualBox using configuration C1
-sgi@debian:/home/irix/i $ sudo tar xvf IRIS.tar
+pi@rbpi:/home/irix/i/diskless $ ls -l IRIS2
+total 4
+-rw-r--r-- 1 root sys 107 Apr 30 15:53 README
+lrwxrwxrwx 1 root sys  27 Apr 30 15:53 unix -> /diskless/client/IRIS2/unix
 ```
+The easiest way to make these paths work, is mounting the NAS_IP:/path/diskless on diskless, for example for my NAS:
 
 ```
-# restoring on RBPi using configuration C2 (the usb drive must be mounted)
-pi@rbpi:/home/irix/i/sda1 $ sudo tar xvf IRIS.tar
-
-# restoring on VirtualBox using configuration C1
-sgi@debian:/home/irix/i $ sudo tar xvf IRIS.tar
+sudo mount 192.168.9.13:/media/sdb1/NAS/diskless /diskless
 ```
 <h3>10. Boot each client and verify the installation.</h3>
 You can clean on Reanimator the hosts from diskless/client/IRIS/etc/hosts and diskless/client/IRIS2/etc/hosts, they are not used. Make sure to update the hosts files, for example:<br>
