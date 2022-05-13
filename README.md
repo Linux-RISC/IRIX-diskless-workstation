@@ -545,6 +545,26 @@ Example using configuration C3, creating the file diskless.tar on a NAS shared r
 # tar cvf /mnt/diskless.tar /diskless
 # umount /mnt
 ```
+<b>Warning:</b> if C3 is used, copy /var/boot/client_name to /home/irix/i or /home/irix/i/sda1:
+```
+# cd /var/boot
+# tar cvf IRIS.tar IRIS IRIS2
+```
+Restoring on Reanimator:
+```
+# restoring on RBPi using configuration C2 (the usb drive must be mounted)
+pi@rbpi:/home/irix/i/sda1 $ sudo tar xvf IRIS.tar
+
+# restoring on VirtualBox using configuration C1
+sgi@debian:/home/irix/i $ sudo tar xvf IRIS.tar
+
+```
+<h3>10. Boot each client and verify the installation.</h3>
+You can clean on Reanimator the hosts from diskless/client/IRIS/etc/hosts and diskless/client/IRIS2/etc/hosts, they are not used. Make sure to update the hosts files, for example:<br>
+<br>
+diskless/client/IRIS/etc/hosts <b>original</b> file:<br>
+
+```
 
 Restoring on Reanimator:
 ```
