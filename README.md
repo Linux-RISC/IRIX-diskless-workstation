@@ -748,19 +748,19 @@ $ cat diskless/client/IRIS2/etc/fstab
 ```
 $ cat diskless/client/IRIS/etc/fstab
 # modify NAS IP and drive path /path according to your NAS configuration
-192.168.9.13:/path/diskless/client/IRIS / nfs rw 0 0
-192.168.9.13:/path/diskless/share/6.5.22/usr /usr nfs ro 0 0
-192.168.9.13:/path/diskless/share/6.5.22/sbin /sbin nfs ro 0 0
-192.168.9.13:/path/diskless/share/6.5.22/var/share /var/share nfs rw 0 0
-192.168.9.13:/path/diskless/swap/IRIS /swap nfs rw 0 0
+NAS_IP:/path/diskless/client/IRIS / nfs rw 0 0
+NAS_IP:/path/diskless/share/6.5.22/usr /usr nfs ro 0 0
+NAS_IP:/path/diskless/share/6.5.22/sbin /sbin nfs ro 0 0
+NAS_IP:/path/diskless/share/6.5.22/var/share /var/share nfs rw 0 0
+NAS_IP:/path/diskless/swap/IRIS /swap nfs rw 0 0
 
 $ cat diskless/client/IRIS2/etc/fstab
 # modify NAS IP and drive path /path according to your NAS configuration
-192.168.9.13:/path/diskless/client/IRIS2 / nfs rw 0 0
-192.168.9.13:/path/diskless/share/6.5.30/usr /usr nfs ro 0 0
-192.168.9.13:/path/diskless/share/6.5.30/sbin /sbin nfs ro 0 0
-192.168.9.13:/path/diskless/share/6.5.30/var/share /var/share nfs rw 0 0
-192.168.9.13:/path/diskless/swap/IRIS2 /swap nfs rw 0 0
+NAS_IP:/path/diskless/client/IRIS2 / nfs rw 0 0
+NAS_IP:/path/diskless/share/6.5.30/usr /usr nfs ro 0 0
+NAS_IP:/path/diskless/share/6.5.30/sbin /sbin nfs ro 0 0
+NAS_IP:/path/diskless/share/6.5.30/var/share /var/share nfs rw 0 0
+NAS_IP:/path/diskless/swap/IRIS2 /swap nfs rw 0 0
 ```
 
 Run in Comand Monitor (example for Indy using C1 or C3):
