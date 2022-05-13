@@ -461,7 +461,7 @@ No conflicts
 Inst> go
 
 ```
-Let's have a look to some files to understand /etc/bootparams and /etc/exports on Reanimator:
+Let's have a look to some files on Octane2 to understand /etc/bootparams and /etc/exports on Reanimator:
 ```
 # ls -l /var/boot/IRIS/
 total 8
