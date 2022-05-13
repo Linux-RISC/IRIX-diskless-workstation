@@ -763,7 +763,7 @@ $ cat diskless/client/IRIS2/etc/fstab
 192.168.9.13:/path/diskless/swap/IRIS2 /swap nfs rw 0 0
 ```
 
-Run in Comand Monitor (example for Indy using C1):
+Run in Comand Monitor (example for Indy using C1 or C3):
 
 ```
 >>setenv verbose on
