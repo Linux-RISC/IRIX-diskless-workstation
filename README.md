@@ -89,7 +89,7 @@ graph TD;
 Verify the diskless server subsystem (nfs.sw.dskless_server) is installed:<br>
 
 ```
-% versions nfs
+# versions nfs
 
 ```
 If the subsystem is not installed, you can install it from the media "ONC3/NFS Version 3 for IRIX 6.2, 6.3, 6.4, and 6.5".<br>
