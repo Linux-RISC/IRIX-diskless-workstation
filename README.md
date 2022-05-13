@@ -773,15 +773,15 @@ Run in Comand Monitor (example for Indy using C1 or C3):
 >>setenv SystemPartition bootp():i/diskless/client/IRIS
 >>setenv OSLoadPartition bootp():i/diskless/client/IRIS
 ```
-Run in Comand Monitor (example for Indy using C2):
+Run in Comand Monitor (example for Octane using C2):
 
 ```
 >>setenv verbose on
 >>setenv diskless 1
->>setenv netaddr 192.168.9.1
+>>setenv netaddr 192.168.9.2
 >>setenv OSLoader /unix
->>setenv SystemPartition bootp():i/sda1/diskless/client/IRIS
->>setenv OSLoadPartition bootp():i/sda1/diskless/client/IRIS
+>>setenv SystemPartition bootp():i/sda1/diskless/client/IRIS2
+>>setenv OSLoadPartition bootp():i/sda1/diskless/client/IRIS2
 ```
 <h3>11. Troubleshooting.</h3>
 <ul>
