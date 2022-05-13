@@ -78,7 +78,7 @@ graph TD;
    RBPi[(RBPi:/home/irix/i/sda1/diskless)]--bootp and NFS-->Indy([Indy]);
 ```
 
-C3. bootp+separated NFS NAS storage. Only shared tree generation over network is supported:<br>
+C3. bootp+separated NFS NAS storage. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower):<br>
 
 ```mermaid
 graph TD;
@@ -87,7 +87,7 @@ graph TD;
     B[NAS_IP:/path/diskless]--NFS-->Indy([Indy]);
     RBPi[(RBPi:/home/irix/i/IRIS)]--bootp-->Indy([Indy]);
 ```
-
+To copy diskless.tar to the NAS, please read "Copying and restoring diskless.tar to Reanimator if you used local shared tree generation" below.
 <h3>2. Preparing the IRIX server to generate the diskless tree</h3>
 Verify the diskless server subsystem (nfs.sw.dskless_server) is installed:<br>
 
