@@ -796,7 +796,7 @@ NAS_IP:/path/diskless/share/6.5.30/sbin /sbin nfs ro 0 0
 NAS_IP:/path/diskless/share/6.5.30/var/share /var/share nfs rw 0 0
 NAS_IP:/path/diskless/swap/IRIS2 /swap nfs rw 0 0
 ```
-Run in Comand Monitor (example for Indy using C1 or C3):
+Run in Comand Monitor (example for Indy using C1):
 
 ```
 >>setenv verbose on
@@ -815,6 +815,16 @@ Run in Comand Monitor (example for Octane using C2):
 >>setenv OSLoader /unix
 >>setenv SystemPartition bootp():i/sda1/diskless/client/IRIS2
 >>setenv OSLoadPartition bootp():i/sda1/diskless/client/IRIS2
+```
+Run in Comand Monitor (example for Octane using C3):
+
+```
+>>setenv verbose on
+>>setenv diskless 1
+>>setenv netaddr 192.168.9.2
+>>setenv OSLoader /unix
+>>setenv SystemPartition bootp():i/sda1/diskless/IRIS2
+>>setenv OSLoadPartition bootp():i/sda1/diskless/IRIS2
 ```
 <h3>11. Troubleshooting.</h3>
 <ul>
