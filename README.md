@@ -50,8 +50,9 @@ $ sudo chmod 777 /home/irix/i/sda1/diskless
 /dev/sda1 /home/irix/i/sda1 auto  defaults  0 0
 ```
 
+You can also use a custom path:
 ```
-# custom path
+# drive mounted using a custom path
 $ sudo mount /dev/sda1 /my_path
 $ sudo mkdir /my_path/diskless
 $ sudo chmod 777 /my_path/diskless
