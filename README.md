@@ -890,7 +890,7 @@ Summary:<br>
     <td>Octane2</td>
     <td>GNU/Linux NAS</td>
     <td>1' 10''</td>
-    <td>< &lt;1'</td>
+    <td><1'</td>
     <td>Inst> keep *<br>Inst> install maintenance<br>Inst> install nfs.sw.dskless_client</td>
     <td>Inst> install nfs.sw.dskless_client</td>
     <td>No desktop started</td>
