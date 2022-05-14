@@ -854,7 +854,7 @@ Reboot and try again checking netaddr in Command Monitor, I don't know why it ha
   <li>4. For my Octane2, "Automatically reconfiguring the operating system" takes about 8 minutes, but no desktop is started, it shows "The system is ready". The phase "Reconfiguring kernel, please wait" took about 7 minutes. After these processes, the boot time is about 1 minute. No desktop is shown, why ?</li>
   <li>5. After these results, a lot of tests and hours of fun are necessary to complete the table below. Please, send your feedback to rbpiuser@gmail.com</li>
 </ul>
-Summary:<br>
+Results summary:<br>
 <table>
   <tr>
     <th>Client</th>
