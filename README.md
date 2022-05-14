@@ -82,20 +82,15 @@ C3. bootp+separated NFS NAS storage. You can choose between local shared tree ge
 
 ```mermaid
 graph TD;
+    Octane2([Octane2])--Option 1: local shared tree generation-->local_diskless[local /diskless directory]--mount NAS_IP:/path on /mnt-->C[NAS_IP:/path];
+    local_diskless[local /diskless directory]--"# tar xvf /mnt/diskless.tar /diskless"-->C[NAS_IP:/path];
+    C[NAS_IP:/path]--"$ sudo tar xvf diskless.tar"-->B[NAS_IP:/path/diskless];
     Octane2([Octane2])--mount NAS_IP:/path/diskless on /diskless-->B[NAS_IP:/path/diskless];
-    Octane2([Octane2])--shared tree generation over network-->B[NAS_IP:/path/diskless];
+    Octane2([Octane2])--Option 2: shared tree generation over network-->B[NAS_IP:/path/diskless];
     B[NAS_IP:/path/diskless]--NFS-->Indy([Indy]);
     RBPi[(RBPi:/home/irix/i/IRIS)]--bootp-->Indy([Indy]);
 ```
 
-
-```mermaid
-graph TD;
-    Octane2([Octane2])--Option 1: local shared tree generation-->local_diskless[local /diskless directory]--Octane2: # tar cvf diskless.tar /diskless-->diskless.tar;
-    diskless.tar--copy to RBPi using scp or mounting RBPi:/home/irix/i/sda1 on local /mnt-->RBPi:/home/irix/i/sda1--"$ sudo tar xvf diskless.tar; $ sudo chmod 777 diskless"-->RBPi[(RBPi:/home/irix/i/sda1/diskless)];
-   Octane2([Octane2])--Option 2: shared tree generation over network-->mount_RBPi[mount RBPi:/home/irix/i/sda1/diskless on /diskless]-->RBPi[(RBPi:/home/irix/i/sda1/diskless)];
-   RBPi[(RBPi:/home/irix/i/sda1/diskless)]--bootp and NFS-->Indy([Indy]);
-```
 <h3>2. Preparing the IRIX server to generate the diskless tree</h3>
 Verify the diskless server subsystem (nfs.sw.dskless_server) is installed:<br>
 
