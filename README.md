@@ -32,7 +32,7 @@ C1. bootp+NFS. The directories /home/irix/i and /home/irix/i/diskless exist and 
 ```mermaid
 graph TD;
     Octane2([Octane2])--Option 1: local shared tree generation-->local_diskless[local /diskless directory]--Octane2: # tar cvf diskless.tar /diskless-->diskless.tar;
-    diskless.tar--copy to RBPi using scp or mounting RBPi:/home/irix/i on local /mnt-->RBPi:/home/irix/i--"$ sudo tar xvf diskless.tar; $ sudo chmod 777 diskless"-->RBPi[(RBPi:/home/irix/i/diskless)];
+    diskless.tar--copy to RBPi using scp or mounting RBPi:/home/irix/i on local /mnt-->RBPi:/home/irix/i--"Reanimator: $ sudo tar xvf diskless.tar; $ sudo chmod 777 diskless"-->RBPi[(RBPi:/home/irix/i/diskless)];
    Octane2([Octane2])--Option 2: shared tree generation over network-->mount_RBPi[mount RBPi:/home/irix/i/diskless on /diskless]-->RBPi[(RBPi:/home/irix/i/diskless)];
    RBPi[(RBPi:/home/irix/i/diskless)]--bootp and NFS-->Indy([Indy]);
 ```
@@ -73,7 +73,7 @@ If you choose the shared tree generation over network, the USB drive must be mou
 ```mermaid
 graph TD;
     Octane2([Octane2])--Option 1: local shared tree generation-->local_diskless[local /diskless directory]--Octane2: # tar cvf diskless.tar /diskless-->diskless.tar;
-    diskless.tar--copy to RBPi using scp or mounting RBPi:/home/irix/i/sda1 on local /mnt-->RBPi:/home/irix/i/sda1--"$ sudo tar xvf diskless.tar; $ sudo chmod 777 diskless"-->RBPi[(RBPi:/home/irix/i/sda1/diskless)];
+    diskless.tar--copy to RBPi using scp or mounting RBPi:/home/irix/i/sda1 on local /mnt-->RBPi:/home/irix/i/sda1--"RBPi: $ sudo tar xvf diskless.tar; $ sudo chmod 777 diskless"-->RBPi[(RBPi:/home/irix/i/sda1/diskless)];
    Octane2([Octane2])--Option 2: shared tree generation over network-->mount_RBPi[mount RBPi:/home/irix/i/sda1/diskless on /diskless]-->RBPi[(RBPi:/home/irix/i/sda1/diskless)];
    RBPi[(RBPi:/home/irix/i/sda1/diskless)]--bootp and NFS-->Indy([Indy]);
 ```
@@ -84,7 +84,7 @@ C3. bootp+separated NFS NAS storage. You can choose between local shared tree ge
 graph TD;
     Octane2([Octane2])--Option 1: local shared tree generation-->local_diskless[local /diskless directory]--mount NAS_IP:/path on /mnt-->C[NAS_IP:/path];
     local_diskless[local /diskless directory]--"# tar xvf /mnt/diskless.tar /diskless"-->C[NAS_IP:/path];
-    C[NAS_IP:/path]--"$ sudo tar xvf diskless.tar"-->B[NAS_IP:/path/diskless];
+    C[NAS_IP:/path]--"NAS: untar diskless.tar. If GNU/Linux: $ sudo tar xvf diskless.tar"-->B[NAS_IP:/path/diskless];
     Octane2([Octane2])--mount NAS_IP:/path/diskless on /diskless-->B[NAS_IP:/path/diskless];
     Octane2([Octane2])--Option 2: shared tree generation over network-->B[NAS_IP:/path/diskless];
     B[NAS_IP:/path/diskless]--NFS-->Indy([Indy]);
