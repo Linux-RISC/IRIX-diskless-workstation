@@ -25,7 +25,7 @@ You can use any of the three configurations, the procedure is the same, you only
 According to my experience, shared tree generation over network is much slower, it's faster to backup the diskless directory with tar and restore it on the destination machine. Please, try both methods and decide yourself.<br>
 <br>
 <h2>Procedure</h2>
-This process is complex, laborious and error-prone, please pay attention to each step to minimize errors.
+This is a complex, laborious and error-prone process, please pay attention to each step to minimize errors.
 <h3>1. Creating a directory to store the diskless tree</h3>
 C1. bootp+NFS. The directories /home/irix/i and /home/irix/i/diskless exist and are shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower):<br>
 
