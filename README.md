@@ -1,4 +1,4 @@
-Last update: 2022/05/14<br>
+Last update: 2022/05/15<br>
 # IRIX diskless workstation using Reanimator
 <br>
 The purpose of this guide is to show how to boot an IRIX diskless workstation using Reanimator http://irix.mersisl.com/<br>
