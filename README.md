@@ -863,6 +863,7 @@ Reboot and try again checking netaddr in Command Monitor, I don't know why it ha
   <li>3. I installed the entire system (install maintenance) on the shared tree and just nfs.sw.dskless_client on the client tree, but IRIX diskless desktop appears too simple, it is necessary to install the maintenance branch on the client tree ?</li>
   <li>4. For my Octane2, "Automatically reconfiguring the operating system" takes about 8 minutes, but no desktop is started, it shows "The system is ready". The phase "Reconfiguring kernel, please wait" took about 7 minutes. After these processes, the boot time is about 1 minute. No desktop is shown, why ?</li>
   <li>5. After these results, a lot of tests and hours of fun are necessary to complete the table below. Please, send your feedback to rbpiuser@gmail.com</li>
+  <li>6. Check some <a href="pictures.md" target="_blank">pictures</a> about these remarks</li>
 </ul>
 Results summary:<br>
 <table>
