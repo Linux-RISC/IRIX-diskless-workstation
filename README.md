@@ -141,6 +141,7 @@ Example:<br>
 ./share_setup
 ... (Storing share tree configuration file at /var/boot/6.5.30.dat)
 
+
 # ./share_inst -r 6.5.22
 ... 
 13. admin
@@ -154,6 +155,7 @@ Inst> install nfs.sw.dskless_client
 Inst> conflicts
 ...
 (6.5.22 share tree installed at /diskless/share/6.5.22)
+
 # ./share_inst -r 6.5.30
 ... 
 13. admin
@@ -168,6 +170,7 @@ Inst> conflicts
 ...
 (6.5.30 share tree installed at /diskless/share/6.5.30)
 
+
 # ./client_setup
 ...
 IP22
@@ -178,6 +181,7 @@ IP22
 IP30
 ...
 (Creating file octane2.dat)
+
 
 # ./client_inst -h IRIS -r 6.5.22 -c indy
 ... 
