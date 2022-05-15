@@ -832,7 +832,7 @@ Run in Comand Monitor (example for Octane using C3):
 >>setenv SystemPartition bootp():i/sda1/diskless/IRIS2
 >>setenv OSLoadPartition bootp():i/sda1/diskless/IRIS2
 ```
-To set defaul configuration, run in Command Monitor:<br>
+To set default configuration, run in Command Monitor:<br>
 
 ```
 >>resetenv
