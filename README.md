@@ -832,6 +832,11 @@ Run in Comand Monitor (example for Octane using C3):
 >>setenv SystemPartition bootp():i/sda1/diskless/IRIS2
 >>setenv OSLoadPartition bootp():i/sda1/diskless/IRIS2
 ```
+To set defaul configuration, run in Command Monitor:<br>
+
+```
+>>resetenv
+```
 <h3>11. Troubleshooting.</h3>
 <ul>
   <li>1. Read the troubleshooting section of "Diskless Workstation Administration Guide" https://irix7.com/techpubs/007-0855-080.pdf.</li>
