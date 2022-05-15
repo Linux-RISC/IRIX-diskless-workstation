@@ -848,7 +848,7 @@ To set default configuration, run in Command Monitor:<br>
   <li>2. Check the variables in Command Monitor.</li>
   <li>3. Check the names and the client IP in the file /home/irix/i/diskless/client/client_name/etc/hosts before booting. Keep in mind that the client IP will be assigned using DHCP on boot and updated in the hosts file, this will create boot problems. After booting, disable DHCP running "chkconfig autoconfig_ipaddress off" on the diskless client, and fix the IP address in Command Monitor, in hosts file and on the diskless client using https://software.majix.org/irix/network-setup.shtml.</li>
   <li>4. Check the paths and the server IP in file /home/irix/i/diskless/client/client_name/etc/fstab.</li>
-  <li>5. If this message appears:<br>
+  <li>5. If this message appears or the boot process is frozen for half an hour:<br>
 
 ```
 /var/share: Unmounted
