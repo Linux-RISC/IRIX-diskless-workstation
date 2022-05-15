@@ -908,4 +908,14 @@ Results summary:<br>
     <td>No desktop started</td>
     <td>Linux-RISC</td>
   </tr>
+  <tr>
+    <td>Octane2</td>
+    <td>GNU/Linux NAS</td>
+    <td>"</td>
+    <td>"</td>
+    <td>Inst> keep *<br>Inst> install standard<br>Inst> install incompleteoverlays<br>Inst> install nfs.sw.dskless_client</td>
+    <td>Inst> install nfs.sw.dskless_client</td>
+    <td>No desktop started</td>
+    <td>Linux-RISC</td>
+  </tr>
 </table>
