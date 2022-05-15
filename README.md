@@ -191,6 +191,7 @@ Inst> install nfs.sw.dskless_client
 Inst> conflicts
 ...
 (indy client tree installed to /diskless/client/indy)
+<br>
 # ./client_inst -h IRIS2 -r 6.5.30 -c octane2
 ... 
 13. admin
