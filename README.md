@@ -834,8 +834,8 @@ Run in Comand Monitor (example for Octane using C3):
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.2
 >>setenv OSLoader /unix
->>setenv SystemPartition bootp():i/sda1/diskless/IRIS2
->>setenv OSLoadPartition bootp():i/sda1/diskless/IRIS2
+>>setenv SystemPartition bootp():i/diskless/IRIS2
+>>setenv OSLoadPartition bootp():i/diskless/IRIS2
 ```
 To set default configuration, run in Command Monitor:<br>
 
