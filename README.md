@@ -1,4 +1,4 @@
-Last update: 2022/05/18<br>
+Last update: 2022/07/10<br>
 # IRIX diskless workstation using Reanimator
 <br>
 The purpose of this guide is to show how to boot an IRIX diskless workstation using Reanimator http://irix.mersisl.com/<br>
@@ -814,8 +814,8 @@ Run in Comand Monitor (example for Indy using C1):
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.1
 >>setenv OSLoader /unix
->>setenv SystemPartition bootp():i/diskless/client/IRIS
->>setenv OSLoadPartition bootp():i/diskless/client/IRIS
+>>setenv SystemPartition bootp():diskless/client/IRIS
+>>setenv OSLoadPartition bootp():diskless/client/IRIS
 ```
 Run in Comand Monitor (example for Octane using C2):
 
@@ -824,8 +824,8 @@ Run in Comand Monitor (example for Octane using C2):
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.2
 >>setenv OSLoader /unix
->>setenv SystemPartition bootp():i/sda1/diskless/client/IRIS2
->>setenv OSLoadPartition bootp():i/sda1/diskless/client/IRIS2
+>>setenv SystemPartition bootp():sda1/diskless/client/IRIS2
+>>setenv OSLoadPartition bootp():sda1/diskless/client/IRIS2
 ```
 Run in Comand Monitor (example for Octane using C3):
 
@@ -834,8 +834,8 @@ Run in Comand Monitor (example for Octane using C3):
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.2
 >>setenv OSLoader /unix
->>setenv SystemPartition bootp():i/diskless/IRIS2
->>setenv OSLoadPartition bootp():i/diskless/IRIS2
+>>setenv SystemPartition bootp():diskless/IRIS2
+>>setenv OSLoadPartition bootp():diskless/IRIS2
 ```
 To set default configuration, run in Command Monitor:<br>
 
