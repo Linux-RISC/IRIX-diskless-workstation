@@ -3,7 +3,7 @@ Last update: 2022/07/10<br>
 <br>
 The purpose of this guide is to show how to boot an IRIX diskless workstation using Reanimator http://irix.mersisl.com/<br>
 <br>
-<h2>Requeriments</h2>
+<h2>Requirements</h2>
 <ul>
   <li>1. IRIX/Linux administration and network administration skills.</li>
   <li>2. Read the guide "Diskless Workstation Administration Guide" https://irix7.com/techpubs/007-0855-080.pdf and understand the complete process. This guide contains too much literature and it is not very concrete, you can explain the same in 10 pages.</li>
