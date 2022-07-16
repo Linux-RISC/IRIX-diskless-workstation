@@ -37,7 +37,7 @@ Run in Command Monitor:<br>
 ```
 Return to main menu and boot IRIX.<br>
 <br>
-<h3>2. Mount primary disk and back up the content</h3>
+<h3>2. Mount primary disk</h3>
 Assuptions:<br>
 - primary hard disk is SCSI ID 1.<br>
 - both disks are partitioned as rootdrive.<br> 
@@ -46,14 +46,6 @@ Run as root (/diskless must exist):<br>
 
 ```
 # mount /dev/dsk/dks0d1s0 /diskless
-# tar cvf /diskless.tar /diskless
-```
-
-In my case, I used sgug's tar for compression, but Nekoware's tar or sgi Freeware's tar should work too:<br>
-
-```
-# mount /dev/dsk/dks0d1s0 /diskless
-# /usr/sgug/bin/tar czvf /diskless.tgz /diskless
 ```
 
 <h3>3. Copying and restoring diskless.tar to Reanimator</h3>
@@ -79,6 +71,14 @@ Example using configuration C3, creating the file diskless.tar on a NAS shared r
 # tar cvf /mnt/diskless.tar /diskless
 # umount /mnt
 ```
+In my case, I used sgug's tar for compression, but Nekoware's tar or sgi Freeware's tar should work too:
+
+```
+# mount NAS_IP:/path /mnt
+# /usr/sgug/bin/tar czvf /mnt/diskless.tar /diskless
+# umount /mnt
+```
+
 
 C2. (RBPi only) bootp+NFS+USB drive. The directory /home/irix/i/sda1 is shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower).<br>
 
