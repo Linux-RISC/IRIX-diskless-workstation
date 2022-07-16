@@ -8,8 +8,8 @@ Note: for a classic diskless workstation suppport according to https://irix7.com
 <h2>Requirements</h2>
 <ul>
   <li>1. IRIX/Linux administration and network administration skills.</li>
-  <li>2. A sgi computer with a functional IRIX installation on the primary hard disk. I will use an Octane2.</li>
-  <li>3. A secondary hard disk with a functional IRIX installation.</li>
+  <li>2. A sgi computer with a functional IRIX installation on the <b>primary</b> hard disk. I will use an Octane2.</li>
+  <li>3. A <b>secondary</b> hard disk with a functional IRIX installation. This disk will work as "rescue disk" and must have enough free space to tar the entire primary hard disk.</li>
   <li>4. Raspberry Pi+Reanimator to work as <b>diskless server</b>, providing <b>bootp and NFS server</b> services, NFS will serve the IRIX files. Reanimator on VirtualBox should work too. I will use a Raspberry Pi.</li>
   <li>5. An optional but recommended NAS to improve performance.</li>
 </ul>
@@ -23,19 +23,29 @@ I assume that you are using a file system that is compatible with GNU/Linux file
 <br>
 You can use any of the three configurations, the procedure is the same, you only need to modify the directory paths.<br>
 <br>
-According to my experience, shared tree generation over network is much slower, it's faster to backup the diskless directory with tar and restore it on the destination machine. Please, try both methods and decide yourself.<br>
+According to my experience, copying the files with rsync over network is much slower, it's faster to backup an IRIX disk with tar and restore it on the destination machine.<br>
 <br>
 <h2>Procedure</h2>
-This is a complex, laborious and error-prone process, please pay attention to each step to minimize errors.
-<h3>1. Creating a directory to store the diskless tree</h3>
-C1. bootp+NFS. The directories /home/irix/i and /home/irix/i/diskless exist and are shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower):<br>
+<h3>1. Boot from secondary hard disk</h3>
+Example: primary hard disk SCSI ID 1 and secondary hard disk is SCSI ID 2.<br>
+<br>
+Run in Command Monitor:<br>
 
-```mermaid
-graph TD;
-    Octane2([Octane2])--Option 1: local shared tree generation-->local_diskless[local /diskless directory]--Octane2: # tar cvf diskless.tar /diskless-->diskless.tar;
-    diskless.tar--copy to RBPi using scp or mounting RBPi:/home/irix/i on local /mnt-->RBPi:/home/irix/i--"Reanimator: $ sudo tar xvf diskless.tar; $ sudo chmod 777 diskless"-->RBPi[(RBPi:/home/irix/i/diskless)];
-   Octane2([Octane2])--Option 2: shared tree generation over network-->mount_RBPi[mount RBPi:/home/irix/i/diskless on /diskless]-->RBPi[(RBPi:/home/irix/i/diskless)];
-   RBPi[(RBPi:/home/irix/i/diskless)]--bootp and NFS-->Indy([Indy]);
+```
+>>setenv SystemPartition dksc(0,2,8)
+>>setenv OSLoadPartition dksc(0,2,0)
+```
+
+<h3>2. Mount primary disk and tar the content</h3>
+Assuptions:<br>
+- primary hard disk is SCSI ID 1 and secondary hard disk is SCSI ID 2.<br>
+- both disks as partitioned as rootdrive<br> 
+<br>
+Run as root (/mnt must exist):<br>
+
+```
+# mount /dev/dsk/dks0d1s0 /mnt
+#
 ```
 
 C2. (RBPi only) bootp+NFS+USB drive. The directory /home/irix/i/sda1 is shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower).<br>
