@@ -3,7 +3,7 @@ Last update: 2022/07/16<br>
 <br>
 The purpose of this guide is to show how to boot an IRIX diskless workstation using Reanimator http://irix.mersisl.com/<br>
 <br>
-Note: this guide is written according to https://irix7.com/techpubs/007-0855-080.pdf. This procedure is complex and laborious, even frustrating, and provides limited functionality. for a non-official diskless workstation suppport with full functionality, please visit <a href="IRIX-diskless-workstation.md" target="_blank">IRIX-diskless-workstation</a><br>
+Note: this guide is written according to https://irix7.com/techpubs/007-0855-080.pdf. This procedure is complex and laborious, even frustrating, and provides limited functionality. For a non-official diskless workstation suppport with full functionality, please visit <a href="https://github.com/Linux-RISC/IRIX-diskless-workstation" target="_blank">IRIX-diskless-workstation</a><br>
 <br>
 <h2>Requirements</h2>
 <ul>
