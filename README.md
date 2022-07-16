@@ -11,7 +11,7 @@ Notes:<br>
 <ul>
   <li>1. IRIX/Linux administration and network administration skills.</li>
   <li>2. A sgi computer with a functional IRIX installation on the <b>primary</b> hard disk. I will use an Octane2.</li>
-  <li>3. A <b>secondary</b> hard disk with a functional IRIX installation. This disk will work as "rescue disk" and must have enough free space to tar the entire primary hard disk.</li>
+  <li>3. A <b>secondary</b> hard disk with a functional IRIX installation. This disk will work as "rescue disk" and must have enough free space to save the entire primary hard disk.</li>
   <li>4. Raspberry Pi+Reanimator providing <b>bootp and NFS server</b> services, NFS will serve the IRIX files. Reanimator on VirtualBox should work too. I will use a Raspberry Pi.</li>
   <li>5. An optional but recommended NAS to improve performance.</li>
 </ul>
@@ -240,4 +240,4 @@ Even for a specific machine or software:
 - Use disk images (how, using dd?) to avoid thousands of files in a directory and mount those .img files on the destination server<br>
 - Is there a way to copy the primary disk without using a secondary disk?<br>
 - Boot from network and use a local disk for swap, data or both<br>
-- Share IRIX OS directories between machines (using Unix soft links) with the same IRIX version to save disk space, the concept is the same than "shared trees" of sgi diskless workstation
+- Share IRIX directories between machines (using Unix soft links) with the same IRIX version to save disk space, the concept is the same than "shared trees" of sgi diskless workstation manual
