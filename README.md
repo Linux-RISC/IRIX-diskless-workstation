@@ -106,7 +106,7 @@ $ sudo chmod 777 diskless
 ```
 
 <h3>4. Possible use cases:</h3>
-4.1 <b>Virtual</b> rescue disk in case of IRIX boot fail or disk failure<br>
+4.1 <b>Virtual</b> rescue disk in case of IRIX boot fail or disk failure, instead using a physical disk<br>
 4.2 Multiple IRIX versions on diskless directory to boot different IRIX versions:<br>
 <ul>
   <li>5.3/unix</li>
