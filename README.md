@@ -114,9 +114,10 @@ $ sudo rmdir diskless
 ```
 Note that the "diskless" share must be the root directory, after unpacking diskless.tgz you should move all the contents to the parent directory and delete the empty "diskless" directory.
 
-<h3>4. Possible use cases:</h3>
-4.1 <b>Virtual</b> rescue disk in case of IRIX boot fail or disk failure, instead using a physical disk<br>
-4.2 Multiple IRIX versions on diskless directory to boot different IRIX versions for a specific machine/software:<br>
+<h3>5. Possible use cases:</h3>
+1. <b>Virtual</b> rescue disk in case of IRIX boot fail or disk failure, instead using a physical disk<br>
+2. Multiple IRIX versions on diskless directory to boot different IRIX versions for a specific machine/software:<br>
+Directory "diskless" list:
 <ul>
   <li>6.5.22/unix</li>
   <li>6.5.30/unix</li>
@@ -147,11 +148,12 @@ Even for a specific machine or software:
 >>setenv OSLoadPartition bootp():diskless/Indy_5.3_LightWave3
 ```
 
-4.3 Repository containing a collection of tgz files with different versions, machines and software. Questions:<br>
-<ul>
-  <li>Use disk images (how, using dd?) to avoid thousands of files in a directory and mount those img files on the destination server.</li>
-  <li>Is there a way to copy the primary disk without using a secondary disk?</li>
-</ul>
-4.4 Test software on multiple machines without reinstalling<br>
-4.5 Boot from network and use a local disk for swap, data or both<br>
-4.6 Portable farm of sgi machines<br>
+3. Repository containing a collection of .tgz files with different versions, machines and software<br>
+4. Test software on multiple machines without reinstalling<br>
+5. Portable farm of sgi machines<br>
+
+<h3>6. Possible improvements:</h3>
+- Use disk images (how, using dd?) to avoid thousands of files in a directory and mount those .img files on the destination server<br>
+- Is there a way to copy the primary disk without using a secondary disk?<br>
+- Boot from network and use a local disk for swap, data or both<br>
+- Share IRIX OS directories between machines (using Unix soft links) with the same IRIX version to save disk space, the concept is the same than "shared trees" of sgi diskless workstation
