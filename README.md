@@ -149,7 +149,7 @@ Even for a specific machine or software:
 
 4.3 Repository containing a collection of tgz files with different versions, machines and software. Questions:<br>
 <ul>
-  <li>Use disk images (how?) to avoid thousands of files in a directory and mount those img files on the destination server.</li>
+  <li>Use disk images (how, using dd?) to avoid thousands of files in a directory and mount those img files on the destination server.</li>
   <li>Is there a way to copy the primary disk without using a secondary disk?</li>
 </ul>
 4.4 Test software on multiple machines without reinstalling<br>
