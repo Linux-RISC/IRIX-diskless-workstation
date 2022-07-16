@@ -1,7 +1,8 @@
 Last update: 2022/07/16<br>
-# (classic and limited) sgi IRIX diskless workstation using Reanimator
+# IRIX diskless workstation using Reanimator (work in progress)
 <br>
 The purpose of this guide is to show how to boot an IRIX diskless workstation using Reanimator http://irix.mersisl.com/<br>
+Note: for a classic diskless workstation suppport according to https://irix7.com/techpubs/007-0855-080.pdf, with limited functionality, please visit <a href="classic-IRIX-diskless-workstation.md" target="_blank">classic-IRIX-diskless-workstation</a><br>
 <br>
 <h2>Requirements</h2>
 <ul>
