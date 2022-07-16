@@ -140,6 +140,7 @@ Even for a specific machine:
 
 4.3 Another possible use cases:<br>
 <ul>
-  <li>rescue disk in case of IRIX boot fail</li>
+  <li><b>virtual</b> rescue disk in case of IRIX boot fail or disk failure</li>
   <li>test IRIX versions and software on multiple machines</li>
+  <li>portable farm of sgi machines</li>
 </ul>
