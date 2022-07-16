@@ -103,11 +103,14 @@ Restore on the NAS using local tools, in case of a GNU/Linux box:
 $ sudo rm -r diskless
 $ sudo tar xvf diskless.tar
 $ sudo chmod 777 diskless
+$ sudo mv diskless/* .
+$ sudo rmdir diskless
 ```
+Note that the "diskless" share must be the root directory, after unpacking diskless.tgz you should move all the contents to the parent directory and delete the empty "diskless" directory.
 
 <h3>4. Possible use cases:</h3>
 4.1 <b>Virtual</b> rescue disk in case of IRIX boot fail or disk failure, instead using a physical disk<br>
-4.2 Multiple IRIX versions on diskless directory to boot different IRIX versions for a specific machine/function:<br>
+4.2 Multiple IRIX versions on diskless directory to boot different IRIX versions for a specific machine/software:<br>
 <ul>
   <li>6.5.22/unix</li>
   <li>6.5.30/unix</li>
@@ -126,16 +129,20 @@ Select the IRIX version to boot modifying Command Monitor variables:
 >>setenv OSLoadPartition bootp():diskless/5.3
 ```
 
-Even for a specific machine or function:
+Even for a specific machine or software:
 ```
 >>setenv verbose on
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.2
 >>setenv OSLoader /unix
->>setenv SystemPartition bootp():diskless/Octane2
->>setenv OSLoadPartition bootp():diskless/Octane2
+>>setenv SystemPartition bootp():diskless/Indy_5.3_LightWave3
+>>setenv OSLoadPartition bootp():diskless/Indy_5.3_LightWave3
 ```
 
-4.3 Boot from network and use a local disk for swap, data or both<br>
+4.3 Repository containing a collection of tgz files with different versions, machines and software<br>
+<ul>
+  <li>Use disk images (how?) to avoid thousands of files in a directory and mount those img files on the destination server</li>
+</ul>
 4.4 Test software on multiple machines without reinstalling<br>
-4.5 Portable farm of sgi machines<br>
+4.5 Boot from network and use a local disk for swap, data or both<br>
+4.6 Portable farm of sgi machines<br>
