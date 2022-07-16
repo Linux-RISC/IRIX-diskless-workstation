@@ -26,8 +26,8 @@ You can use any of the three configurations, the procedure is the same, you only
 According to my experience, copying the files with rsync over network is much slower, it's faster to backup an IRIX disk with tar and restore it on the destination machine.<br>
 <br>
 <h2>Procedure</h2>
-<h3>1. Boot from secondary hard disk</h3>
-Example: primary hard disk SCSI ID 1 and secondary hard disk is SCSI ID 2.<br>
+<h3>1. Boot from secondary hard disk and back up the primary disk</h3>
+Example: secondary hard disk is SCSI ID 2.<br>
 <br>
 Run in Command Monitor:<br>
 
@@ -35,17 +35,55 @@ Run in Command Monitor:<br>
 >>setenv SystemPartition dksc(0,2,8)
 >>setenv OSLoadPartition dksc(0,2,0)
 ```
-
+Return to main menu and boot IRIX.<br>
+<br>
 <h3>2. Mount primary disk and tar the content</h3>
 Assuptions:<br>
-- primary hard disk is SCSI ID 1 and secondary hard disk is SCSI ID 2.<br>
-- both disks as partitioned as rootdrive<br> 
+- primary hard disk is SCSI ID 1.<br>
+- both disks are partitioned as rootdrive.<br> 
 <br>
 Run as root (/mnt must exist):<br>
 
 ```
 # mount /dev/dsk/dks0d1s0 /mnt
-#
+# tar cvf /mnt.tar /mnt
+```
+
+In my case, I used sgug's tar for compression, but Nekoware's tar or sgi Freeware's tar should work too:<br>
+
+```
+# mount /dev/dsk/dks0d1s0 /mnt
+# /usr/sgug/bin/tar czvf /mnt.tgz /mnt
+```
+
+<h3>1. Boot from secondary hard disk and back up the primary disk</h3>
+Example: secondary hard disk is SCSI ID 2.<br>
+<br>
+Run in Command Monitor:<br>
+
+```
+>>setenv SystemPartition dksc(0,2,8)
+>>setenv OSLoadPartition dksc(0,2,0)
+```
+Return to main menu and boot IRIX.<br>
+<br>
+<h3>2. Mount primary disk and tar the content</h3>
+Assuptions:<br>
+- primary hard disk is SCSI ID 1.<br>
+- both disks are partitioned as rootdrive.<br> 
+<br>
+Run as root (/mnt must exist):<br>
+
+```
+# mount /dev/dsk/dks0d1s0 /mnt
+# tar cvf /mnt.tar /mnt
+```
+
+In my case, I used sgug's tar for compression, but Nekoware's tar or sgi Freeware's tar should work too:<br>
+
+```
+# mount /dev/dsk/dks0d1s0 /mnt
+# /usr/sgug/bin/tar czvf /mnt.tgz /mnt
 ```
 
 C2. (RBPi only) bootp+NFS+USB drive. The directory /home/irix/i/sda1 is shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower).<br>
