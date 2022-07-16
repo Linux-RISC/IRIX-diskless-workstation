@@ -30,7 +30,6 @@ According to my experience, copying the files with rsync over network is much sl
 Example: secondary hard disk is SCSI ID 2.<br>
 <br>
 Run in Command Monitor:<br>
-
 ```
 >>setenv SystemPartition dksc(0,2,8)
 >>setenv OSLoadPartition dksc(0,2,0)
@@ -43,7 +42,6 @@ Assuptions:<br>
 - both disks are partitioned as rootdrive.<br> 
 <br>
 Run as root (/diskless must exist):<br>
-
 ```
 # mount /dev/dsk/dks0d1s0 /diskless
 ```
@@ -58,7 +56,6 @@ Example using configuration C1 and scp to copy Octane2-->RBPi:
 ```
 
 Restoring on Reanimator:
-
 ```
 pi@rbpi:/home/irix/i $ sudo rm -r diskless
 pi@rbpi:/home/irix/i $ sudo tar xvf diskless.tar
@@ -66,7 +63,6 @@ pi@rbpi:/home/irix/i $ sudo chmod 777 diskless
 ```
 
 Example using configuration C2 and NFS to copy Octane2-->RBPi, the usb drive <b>must</b> be mounted:
-
 ```
 # tar cvf /diskless.tar /diskless
 # mount 192.168.9.100:/home/irix/i/sda1 /mnt
@@ -74,7 +70,6 @@ Example using configuration C2 and NFS to copy Octane2-->RBPi, the usb drive <b>
 # umount /mnt
 ```
 Restoring on Reanimator:
-
 ```
 pi@rbpi:/home/irix/i/sda1 $ sudo rm -r diskless
 pi@rbpi:/home/irix/i/sda1 $ sudo tar xvf diskless.tar
@@ -82,7 +77,6 @@ pi@rbpi:/home/irix/i/sda1 $ sudo chmod 777 diskless
 ```
 
 Example using configuration C3, creating the file diskless.tar on a NAS shared resource. This is the <b>fastest method</b> according to my experience:
-
 ```
 # mount NAS_IP:/path /mnt
 # tar cvf /mnt/diskless.tar /diskless
@@ -90,15 +84,21 @@ Example using configuration C3, creating the file diskless.tar on a NAS shared r
 ```
 
 In my case, I used sgug's tar for compression, but Nekoware's tar or sgi Freeware's tar should work too:
-
 ```
 # mount NAS_IP:/path /mnt
 # /usr/sgug/bin/tar czvf /mnt/diskless.tar /diskless
 # umount /mnt
 ```
 
-Restore on the NAS using local tools, in case of a GNU/Linux box:
+Of course, you can tar on local hard disk and trasfer the file to the NAS using NFS, scp, Samba, ... 
+```
+# tar cvf /diskless.tar /diskless
+# mount NAS_IP:/path /mnt
+# cp /diskless.tar /mnt
+# umount /mnt
+```
 
+Restore on the NAS using local tools, in case of a GNU/Linux box:
 ```
 $ sudo rm -r diskless
 $ sudo tar xvf diskless.tar
@@ -107,17 +107,16 @@ $ sudo chmod 777 diskless
 
 <h3>4. Possible use cases:</h3>
 4.1 <b>Virtual</b> rescue disk in case of IRIX boot fail or disk failure, instead using a physical disk<br>
-4.2 Multiple IRIX versions on diskless directory to boot different IRIX versions:<br>
+4.2 Multiple IRIX versions on diskless directory to boot different IRIX versions for a specific machine/function:<br>
 <ul>
-  <li>5.3/unix</li>
   <li>6.5.22/unix</li>
   <li>6.5.30/unix</li>
-  <li>Indy/unix</li>
   <li>Octane2/unix</li>
+  <li>Indy_5.3/unix</li>
+  <li>Indy_5.3_LightWave3/unix</li>
   <li>...</li>
 </ul>
 Select the IRIX version to boot modifying Command Monitor variables:
-
 ```
 >>setenv verbose on
 >>setenv diskless 1
@@ -127,8 +126,7 @@ Select the IRIX version to boot modifying Command Monitor variables:
 >>setenv OSLoadPartition bootp():diskless/5.3
 ```
 
-Even for a specific machine:
-
+Even for a specific machine or function:
 ```
 >>setenv verbose on
 >>setenv diskless 1
