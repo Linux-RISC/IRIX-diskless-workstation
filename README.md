@@ -114,16 +114,57 @@ $ sudo rmdir diskless
 ```
 Note that the "diskless" share must be the root directory, after unpacking diskless.tgz you should move all the contents to the parent directory and delete the empty "diskless" directory.
 
+<h3>4. Configuring Reanimator and diskless workstation</h3>
+Reanimator provides <b>preconfigured</b> /etc/bootparams and /etc/exports. Edit them using Reanimator's menus according to your configuration.<br>
+This is an example for using Octane2 as diskless workstation:
+
+<b>C1 configuration</b>
+/etc/bootparams on Reanimator:
+
+```
+# C1. RBPi/VirtualBox(change IP to 192.168.9.101) working as bootp server and NFS server
+IRIS2   root=192.168.9.100:/home/irix/i/diskless
+```
+/etc/bootparams on Reanimator:
+
+```
+IRIS2   root=192.168.9.100:/home/irix/i/diskless
+```
+<b>C2 configuration</b>
+/etc/bootparams on Reanimator:
+
+```
+# C2. (RBPi only) bootp+NFS+external hard disk connected to an USB port on RBPi
+IRIS2   root=192.168.9.100:/home/irix/i/diskless/sda1
+```
+/etc/bootparams on Reanimator:
+
+```
+IRIS2   root=192.168.9.100:/home/irix/i/diskless
+```
+<b>C3 configuration</b>
+/etc/bootparams on Reanimator:
+
+```
+IRIS2   root=NAS_IP:/path/diskless
+```
+/etc/bootparams on Reanimator:
+
+```
+# C3. RBPi/VirtualBox working as bootp server and using a separated NFS NAS as storage
+IRIS2   root=192.168.9.100:/home/irix/i/diskless
+```
+
 <h3>5. Possible use cases:</h3>
 1. <b>Virtual</b> rescue disk in case of IRIX boot fail or disk failure, instead using a physical disk<br>
 2. Multiple IRIX versions on diskless directory to boot different IRIX versions for a specific machine/software:<br>
-Directory "diskless" list:
+Content of directory "diskless" on NAS:
 <ul>
-  <li>6.5.22/unix</li>
-  <li>6.5.30/unix</li>
-  <li>Octane2/unix</li>
-  <li>Indy_5.3/unix</li>
-  <li>Indy_5.3_LightWave3/unix</li>
+  <li>6.5.22</li>
+  <li>6.5.30</li>
+  <li>Octane2</li>
+  <li>Indy_5.3</li>
+  <li>Indy_5.3_LightWave3</li>
   <li>...</li>
 </ul>
 Select the IRIX version to boot modifying Command Monitor variables:
