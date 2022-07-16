@@ -26,7 +26,7 @@ You can use any of the three configurations, the procedure is the same, you only
 According to my experience, copying the files with rsync over network is much slower, it's faster to backup an IRIX disk with tar and restore it on the destination machine.<br>
 <br>
 <h2>Procedure</h2>
-<h3>1. Boot from secondary hard disk and back up the primary disk</h3>
+<h3>1. Boot from secondary hard disk</h3>
 Example: secondary hard disk is SCSI ID 2.<br>
 <br>
 Run in Command Monitor:<br>
@@ -37,53 +37,45 @@ Run in Command Monitor:<br>
 ```
 Return to main menu and boot IRIX.<br>
 <br>
-<h3>2. Mount primary disk and tar the content</h3>
+<h3>2. Mount primary disk and back up the content</h3>
 Assuptions:<br>
 - primary hard disk is SCSI ID 1.<br>
 - both disks are partitioned as rootdrive.<br> 
 <br>
-Run as root (/mnt must exist):<br>
+Run as root (/diskless must exist):<br>
 
 ```
-# mount /dev/dsk/dks0d1s0 /mnt
-# tar cvf /mnt.tar /mnt
+# mount /dev/dsk/dks0d1s0 /diskless
+# tar cvf /diskless.tar /diskless
 ```
 
 In my case, I used sgug's tar for compression, but Nekoware's tar or sgi Freeware's tar should work too:<br>
 
 ```
-# mount /dev/dsk/dks0d1s0 /mnt
-# /usr/sgug/bin/tar czvf /mnt.tgz /mnt
+# mount /dev/dsk/dks0d1s0 /diskless
+# /usr/sgug/bin/tar czvf /diskless.tgz /diskless
 ```
 
-<h3>1. Boot from secondary hard disk and back up the primary disk</h3>
-Example: secondary hard disk is SCSI ID 2.<br>
-<br>
-Run in Command Monitor:<br>
+<h3>3. Copying and restoring diskless.tar to Reanimator</h3>
 
 ```
->>setenv SystemPartition dksc(0,2,8)
->>setenv OSLoadPartition dksc(0,2,0)
+# tar cvf /diskless.tar /diskless
+# scp /diskless.tar pi@192.168.9.100:/home/irix/i
 ```
-Return to main menu and boot IRIX.<br>
-<br>
-<h3>2. Mount primary disk and tar the content</h3>
-Assuptions:<br>
-- primary hard disk is SCSI ID 1.<br>
-- both disks are partitioned as rootdrive.<br> 
-<br>
-Run as root (/mnt must exist):<br>
+Example using configuration C2 and NFS to copy Octane2-->RBPi, the usb drive <b>must</b> be mounted:
 
 ```
-# mount /dev/dsk/dks0d1s0 /mnt
-# tar cvf /mnt.tar /mnt
+# tar cvf /diskless.tar /diskless
+# mount 192.168.9.100:/home/irix/i/sda1 /mnt
+# cp /diskless.tar /mnt
+# umount /mnt
 ```
-
-In my case, I used sgug's tar for compression, but Nekoware's tar or sgi Freeware's tar should work too:<br>
+Example using configuration C3, creating the file diskless.tar on a NAS shared resource. This is the <b>fastest method</b> according to my experience:
 
 ```
-# mount /dev/dsk/dks0d1s0 /mnt
-# /usr/sgug/bin/tar czvf /mnt.tgz /mnt
+# mount NAS_IP:/path /mnt
+# tar cvf /mnt/diskless.tar /diskless
+# umount /mnt
 ```
 
 C2. (RBPi only) bootp+NFS+USB drive. The directory /home/irix/i/sda1 is shared via NFS. You can choose between local shared tree generation (complex but faster) and shared tree generation over network (easier but slower).<br>
