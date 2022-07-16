@@ -94,7 +94,7 @@ In my case, I used sgug's tar for compression, but Nekoware's tar or sgi Freewar
 # umount /mnt
 ```
 
-Of course, you can tar on local hard disk and trasfer the file to the NAS using NFS, scp, Samba, ... :
+Of course, you can tar on the secondary hard disk and trasfer the file to the NAS using NFS, scp, Samba, ... :
 
 ```
 # tar cvf /diskless.tar /diskless
