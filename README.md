@@ -56,6 +56,14 @@ Example using configuration C1 and scp to copy Octane2-->RBPi:
 # tar cvf /diskless.tar /diskless
 # scp /diskless.tar pi@192.168.9.100:/home/irix/i
 ```
+Restoring on Reanimator:
+
+```
+pi@rbpi:/home/irix/i $ sudo rm -r diskless
+pi@rbpi:/home/irix/i $ sudo tar xvf diskless.tar
+pi@rbpi:/home/irix/i $ sudo chmod 777 diskless
+```
+
 Example using configuration C2 and NFS to copy Octane2-->RBPi, the usb drive <b>must</b> be mounted:
 
 ```
@@ -64,6 +72,14 @@ Example using configuration C2 and NFS to copy Octane2-->RBPi, the usb drive <b>
 # cp /diskless.tar /mnt
 # umount /mnt
 ```
+Restoring on Reanimator:
+
+```
+pi@rbpi:/home/irix/i/sda1 $ sudo rm -r diskless
+pi@rbpi:/home/irix/i/sda1 $ sudo tar xvf diskless.tar
+pi@rbpi:/home/irix/i/sda1 $ sudo chmod 777 diskless
+```
+
 Example using configuration C3, creating the file diskless.tar on a NAS shared resource. This is the <b>fastest method</b> according to my experience:
 
 ```
@@ -71,6 +87,15 @@ Example using configuration C3, creating the file diskless.tar on a NAS shared r
 # tar cvf /mnt/diskless.tar /diskless
 # umount /mnt
 ```
+
+Restore on the NAS using local tools, in case of a GNU/Linux box:
+
+```
+$ sudo rm -r diskless
+$ sudo tar xvf diskless.tar
+$ sudo chmod 777 diskless
+```
+
 In my case, I used sgug's tar for compression, but Nekoware's tar or sgi Freeware's tar should work too:
 
 ```
