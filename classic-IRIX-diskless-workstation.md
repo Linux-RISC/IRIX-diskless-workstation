@@ -532,7 +532,7 @@ Reanimator provides <b>preconfigured</b> /etc/bootparams and /etc/exports. Edit 
 # # create client IRIS (contained in IRIS.txt)
 # ./clone_client -f IRIS.txt -r 6.5.22 -c indy -clone /diskless/client/IRIS3
 ```
-<h3>9. Copying and restoring diskless.tar to Reanimator if you used local shared tree generation.</h3>
+<h3>9. Copying and restoring diskless.tar on Reanimator if you used local shared tree generation.</h3>
 
 Example using configuration C1 and scp to copy Octane2-->RBPi:
 
