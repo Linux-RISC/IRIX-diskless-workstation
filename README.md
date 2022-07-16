@@ -104,3 +104,12 @@ $ sudo rm -r diskless
 $ sudo tar xvf diskless.tar
 $ sudo chmod 777 diskless
 ```
+
+<h3>4. Ideas to explore</h3>
+<br>
+- boot from network and use a local disk for swap, data or both<br>
+- possible use cases:<br>
+<ul>
+  <li>rescue disk in case of IRIX boot fail</li>
+  <li>test IRIX versions and software on multiple machines</li>
+</ul>
