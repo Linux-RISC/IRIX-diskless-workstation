@@ -125,6 +125,17 @@ This is an example for using Octane2 as diskless workstation:<br>
 # C1. RBPi/VirtualBox(change IP to 192.168.9.101) working as bootp server and NFS server
 IRIS2   root=192.168.9.100:/home/irix/i/diskless
 ```
+Diskless workstation Command Monitor configuration:<br>
+
+```
+>>setenv verbose on
+>>setenv diskless 1
+>>setenv netaddr 192.168.9.2
+>>setenv OSLoader /unix
+>>setenv SystemPartition bootp():diskless
+>>setenv OSLoadPartition bootp():diskless
+```
+
 <b>C2 configuration</b><br>
 /etc/bootparams on Reanimator:
 
@@ -132,12 +143,46 @@ IRIS2   root=192.168.9.100:/home/irix/i/diskless
 # C2. (RBPi only) bootp+NFS+external hard disk connected to an USB port on RBPi
 IRIS2   root=192.168.9.100:/home/irix/i/diskless/sda1
 ```
+Diskless workstation Command Monitor configuration:<br>
+
+```
+>>setenv verbose on
+>>setenv diskless 1
+>>setenv netaddr 192.168.9.2
+>>setenv OSLoader /unix
+>>setenv SystemPartition bootp():diskless/sda1
+>>setenv OSLoadPartition bootp():diskless/sda1
+```
+
 <b>C3 configuration</b><br>
 /etc/bootparams on Reanimator:
 
 ```
 # C3. RBPi/VirtualBox working as bootp server and using a separated NFS NAS as storage
+# This path must be a NFS share defined on the NAS configuration
 IRIS2   root=NAS_IP:/path/diskless
+```
+Diskless workstation Command Monitor configuration:<br>
+
+```
+>>setenv verbose on
+>>setenv diskless 1
+>>setenv netaddr 192.168.9.2
+>>setenv OSLoader /unix
+>>setenv SystemPartition bootp():diskless
+>>setenv OSLoadPartition bootp():diskless
+```
+Don't <b>forget</b> to copy the <b>unix</b> file from diskless directory on the NAS to /home/irix/i on Reanimator. If you have several kernels, use a directory structure like:<br>
+<ul>
+  <li>6.5.22</li>
+  <li>6.5.30</li>
+  <li>...</li>
+</ul>
+And modify the configuration on Command Monitor, depending on the kernel used:
+
+```
+>>setenv SystemPartition bootp():diskless/6.5.22
+>>setenv OSLoadPartition bootp():diskless/6.5.22
 ```
 
 <h3>5. Possible use cases:</h3>
