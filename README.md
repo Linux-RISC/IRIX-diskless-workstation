@@ -48,7 +48,7 @@ Run as root (/diskless must exist):<br>
 # mount /dev/dsk/dks0d1s0 /diskless
 ```
 
-<h3>3. Copying and restoring diskless.tar to Reanimator</h3>
+<h3>3. Copying and restoring diskless.tar on Reanimator</h3>
 <br>
 Example using configuration C1 and scp to copy Octane2-->RBPi:
 
