@@ -105,8 +105,8 @@ $ sudo tar xvf diskless.tar
 $ sudo chmod 777 diskless
 ```
 
-<h3>4. Ideas to explore</h3>
-4.1 Boot from network and use a local disk for swap, data or both<br>
+<h3>4. Possible use cases:</h3>
+4.1 <b>Virtual</b> rescue disk in case of IRIX boot fail or disk failure<br>
 4.2 Multiple IRIX versions on diskless directory to boot different IRIX versions:<br>
 <ul>
   <li>5.3/unix</li>
@@ -138,9 +138,6 @@ Even for a specific machine:
 >>setenv OSLoadPartition bootp():diskless/Octane2
 ```
 
-4.3 Another possible use cases:<br>
-<ul>
-  <li><b>virtual</b> rescue disk in case of IRIX boot fail or disk failure</li>
-  <li>test IRIX versions and software on multiple machines</li>
-  <li>portable farm of sgi machines</li>
-</ul>
+4.3 Boot from network and use a local disk for swap, data or both<br>
+4.4 Test software on multiple machines without reinstalling<br>
+4.5 Portable farm of sgi machines<br>
