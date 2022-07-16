@@ -56,6 +56,7 @@ Example using configuration C1 and scp to copy Octane2-->RBPi:
 # tar cvf /diskless.tar /diskless
 # scp /diskless.tar pi@192.168.9.100:/home/irix/i
 ```
+
 Restoring on Reanimator:
 
 ```
@@ -88,18 +89,18 @@ Example using configuration C3, creating the file diskless.tar on a NAS shared r
 # umount /mnt
 ```
 
-Restore on the NAS using local tools, in case of a GNU/Linux box:
-
-```
-$ sudo rm -r diskless
-$ sudo tar xvf diskless.tar
-$ sudo chmod 777 diskless
-```
-
 In my case, I used sgug's tar for compression, but Nekoware's tar or sgi Freeware's tar should work too:
 
 ```
 # mount NAS_IP:/path /mnt
 # /usr/sgug/bin/tar czvf /mnt/diskless.tar /diskless
 # umount /mnt
+```
+
+Restore on the NAS using local tools, in case of a GNU/Linux box:
+
+```
+$ sudo rm -r diskless
+$ sudo tar xvf diskless.tar
+$ sudo chmod 777 diskless
 ```
