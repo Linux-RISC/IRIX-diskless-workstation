@@ -57,6 +57,8 @@ In my case, I used sgug's tar for compression, but Nekoware's tar or sgi Freewar
 ```
 
 <h3>3. Copying and restoring diskless.tar to Reanimator</h3>
+<br>
+Example using configuration C1 and scp to copy Octane2-->RBPi:
 
 ```
 # tar cvf /diskless.tar /diskless
