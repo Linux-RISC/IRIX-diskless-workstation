@@ -3,14 +3,16 @@ Last update: 2022/07/16<br>
 <br>
 The purpose of this guide is to show how to boot an IRIX diskless workstation using Reanimator http://irix.mersisl.com/<br>
 <br>
-Note: for a classic diskless workstation suppport according to https://irix7.com/techpubs/007-0855-080.pdf and with limited functionality, please visit <a href="classic-IRIX-diskless-workstation.md" target="_blank">classic-IRIX-diskless-workstation</a>.<br>
+Notes:<br>
+- For a classic diskless workstation suppport according to https://irix7.com/techpubs/007-0855-080.pdf and with limited functionality, please visit <a href="classic-IRIX-diskless-workstation.md" target="_blank">classic-IRIX-diskless-workstation</a>.<br>
+- This a <b>unofficial</b> guide, it ignores https://irix7.com/techpubs/007-0855-080.pdf but picks up some ideas from it.<br>
 <br>
 <h2>Requirements</h2>
 <ul>
   <li>1. IRIX/Linux administration and network administration skills.</li>
   <li>2. A sgi computer with a functional IRIX installation on the <b>primary</b> hard disk. I will use an Octane2.</li>
   <li>3. A <b>secondary</b> hard disk with a functional IRIX installation. This disk will work as "rescue disk" and must have enough free space to tar the entire primary hard disk.</li>
-  <li>4. Raspberry Pi+Reanimator to work as <b>diskless server</b>, providing <b>bootp and NFS server</b> services, NFS will serve the IRIX files. Reanimator on VirtualBox should work too. I will use a Raspberry Pi.</li>
+  <li>4. Raspberry Pi+Reanimator providing <b>bootp and NFS server</b> services, NFS will serve the IRIX files. Reanimator on VirtualBox should work too. I will use a Raspberry Pi.</li>
   <li>5. An optional but recommended NAS to improve performance.</li>
 </ul>
 <br>
