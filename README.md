@@ -125,7 +125,7 @@ This is an example for using Octane2 as diskless workstation:<br>
 # C1. RBPi/VirtualBox(change IP to 192.168.9.101) working as bootp server and NFS server
 IRIS2   root=192.168.9.100:/home/irix/i/diskless
 ```
-Diskless workstation Command Monitor configuration:<br>
+Command Monitor configuration on diskless workstation:<br>
 
 ```
 >>setenv verbose on
@@ -143,7 +143,7 @@ Diskless workstation Command Monitor configuration:<br>
 # C2. (RBPi only) bootp+NFS+external hard disk connected to an USB port on RBPi
 IRIS2   root=192.168.9.100:/home/irix/i/diskless/sda1
 ```
-Diskless workstation Command Monitor configuration:<br>
+Command Monitor configuration on diskless workstation:<br>
 
 ```
 >>setenv verbose on
@@ -162,7 +162,7 @@ Diskless workstation Command Monitor configuration:<br>
 # This path must be a NFS share defined on the NAS configuration
 IRIS2   root=NAS_IP:/path/diskless
 ```
-Diskless workstation Command Monitor configuration:<br>
+Command Monitor configuration on diskless workstation:<br>
 
 ```
 >>setenv verbose on
