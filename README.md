@@ -29,7 +29,8 @@ According to my experience, copying the files with rsync over network is much sl
 <h3>1. Boot from secondary hard disk</h3>
 Example: secondary hard disk is SCSI ID 2.<br>
 <br>
-Run in Command Monitor:<br>
+Run in Command Monitor:
+
 ```
 >>setenv SystemPartition dksc(0,2,8)
 >>setenv OSLoadPartition dksc(0,2,0)
@@ -41,7 +42,8 @@ Assuptions:<br>
 - primary hard disk is SCSI ID 1.<br>
 - both disks are partitioned as rootdrive.<br> 
 <br>
-Run as root (/diskless must exist):<br>
+Run as root (/diskless must exist):
+
 ```
 # mount /dev/dsk/dks0d1s0 /diskless
 ```
@@ -70,6 +72,7 @@ Example using configuration C2 and NFS to copy Octane2-->RBPi, the usb drive <b>
 # umount /mnt
 ```
 Restoring on Reanimator:
+
 ```
 pi@rbpi:/home/irix/i/sda1 $ sudo rm -r diskless
 pi@rbpi:/home/irix/i/sda1 $ sudo tar xvf diskless.tar
@@ -77,6 +80,7 @@ pi@rbpi:/home/irix/i/sda1 $ sudo chmod 777 diskless
 ```
 
 Example using configuration C3, creating the file diskless.tar on a NAS shared resource. This is the <b>fastest method</b> according to my experience:
+
 ```
 # mount NAS_IP:/path /mnt
 # tar cvf /mnt/diskless.tar /diskless
@@ -90,7 +94,8 @@ In my case, I used sgug's tar for compression, but Nekoware's tar or sgi Freewar
 # umount /mnt
 ```
 
-Of course, you can tar on local hard disk and trasfer the file to the NAS using NFS, scp, Samba, ... 
+Of course, you can tar on local hard disk and trasfer the file to the NAS using NFS, scp, Samba, ... :
+
 ```
 # tar cvf /diskless.tar /diskless
 # mount NAS_IP:/path /mnt
@@ -99,6 +104,7 @@ Of course, you can tar on local hard disk and trasfer the file to the NAS using 
 ```
 
 Restore on the NAS using local tools, in case of a GNU/Linux box:
+
 ```
 $ sudo rm -r diskless
 $ sudo tar xvf diskless.tar
@@ -120,6 +126,7 @@ Note that the "diskless" share must be the root directory, after unpacking diskl
   <li>...</li>
 </ul>
 Select the IRIX version to boot modifying Command Monitor variables:
+
 ```
 >>setenv verbose on
 >>setenv diskless 1
@@ -130,6 +137,7 @@ Select the IRIX version to boot modifying Command Monitor variables:
 ```
 
 Even for a specific machine or software:
+
 ```
 >>setenv verbose on
 >>setenv diskless 1
