@@ -106,9 +106,39 @@ $ sudo chmod 777 diskless
 ```
 
 <h3>4. Ideas to explore</h3>
-<br>
-- boot from network and use a local disk for swap, data or both<br>
-- possible use cases:<br>
+4.1 Boot from network and use a local disk for swap, data or both<br>
+4.2 Multiple IRIX versions on diskless directory to boot different IRIX versions:<br>
+<ul>
+  <li>5.3/unix</li>
+  <li>6.5.22/unix</li>
+  <li>6.5.30/unix</li>
+  <li>Indy/unix</li>
+  <li>Octane2/unix</li>
+  <li>...</li>
+</ul>
+Select the IRIX version to boot modifying Command Monitor variables:
+
+```
+>>setenv verbose on
+>>setenv diskless 1
+>>setenv netaddr 192.168.9.2
+>>setenv OSLoader /unix
+>>setenv SystemPartition bootp():diskless/5.3
+>>setenv OSLoadPartition bootp():diskless/5.3
+```
+
+Even for a specific machine:
+
+```
+>>setenv verbose on
+>>setenv diskless 1
+>>setenv netaddr 192.168.9.2
+>>setenv OSLoader /unix
+>>setenv SystemPartition bootp():diskless/Octane2
+>>setenv OSLoadPartition bootp():diskless/Octane2
+```
+
+4.3 Another possible use cases:<br>
 <ul>
   <li>rescue disk in case of IRIX boot fail</li>
   <li>test IRIX versions and software on multiple machines</li>
