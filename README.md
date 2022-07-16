@@ -116,43 +116,28 @@ Note that the "diskless" share must be the root directory, after unpacking diskl
 
 <h3>4. Configuring Reanimator and diskless workstation</h3>
 Reanimator provides <b>preconfigured</b> /etc/bootparams and /etc/exports. Edit them using Reanimator's menus according to your configuration.<br>
-This is an example for using Octane2 as diskless workstation:
-
-<b>C1 configuration</b>
+This is an example for using Octane2 as diskless workstation:<br>
+<br>
+<b>C1 configuration</b><br>
 /etc/bootparams on Reanimator:
 
 ```
 # C1. RBPi/VirtualBox(change IP to 192.168.9.101) working as bootp server and NFS server
 IRIS2   root=192.168.9.100:/home/irix/i/diskless
 ```
-/etc/bootparams on Reanimator:
-
-```
-IRIS2   root=192.168.9.100:/home/irix/i/diskless
-```
-<b>C2 configuration</b>
+<b>C2 configuration</b><br>
 /etc/bootparams on Reanimator:
 
 ```
 # C2. (RBPi only) bootp+NFS+external hard disk connected to an USB port on RBPi
 IRIS2   root=192.168.9.100:/home/irix/i/diskless/sda1
 ```
-/etc/bootparams on Reanimator:
-
-```
-IRIS2   root=192.168.9.100:/home/irix/i/diskless
-```
-<b>C3 configuration</b>
-/etc/bootparams on Reanimator:
-
-```
-IRIS2   root=NAS_IP:/path/diskless
-```
+<b>C3 configuration</b><br>
 /etc/bootparams on Reanimator:
 
 ```
 # C3. RBPi/VirtualBox working as bootp server and using a separated NFS NAS as storage
-IRIS2   root=192.168.9.100:/home/irix/i/diskless
+IRIS2   root=NAS_IP:/path/diskless
 ```
 
 <h3>5. Possible use cases:</h3>
