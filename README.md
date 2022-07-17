@@ -52,6 +52,8 @@ Run as root (/diskless must exist):
 
 <h3>3. Copying and restoring diskless.tar on Reanimator</h3>
 <br>
+You can trasfer the file to the NAS using NFS, scp, Samba, ... some examples are provided.<br>
+<br>
 Example using configuration C1 and scp to copy Octane2-->RBPi:
 
 ```
@@ -96,7 +98,7 @@ In my case, I used sgug's tar for compression, but Nekoware's tar or sgi Freewar
 # umount /mnt
 ```
 
-Of course, you can use tar on the secondary hard disk and trasfer the file to the NAS using NFS, scp, Samba, ... :
+Of course, you can use tar on the secondary hard disk and trasfer the file to the NAS:
 
 ```
 # tar cvf /diskless.tar /diskless
