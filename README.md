@@ -234,17 +234,6 @@ Select the IRIX version to boot modifying Command Monitor variables:
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.2
 >>setenv OSLoader /unix
->>setenv SystemPartition bootp():diskless/5.3
->>setenv OSLoadPartition bootp():diskless/5.3
-```
-
-Even for a specific machine or software:
-
-```
->>setenv verbose on
->>setenv diskless 1
->>setenv netaddr 192.168.9.2
->>setenv OSLoader /unix
 >>setenv SystemPartition bootp():diskless/Indy_5.3_LightWave3
 >>setenv OSLoadPartition bootp():diskless/Indy_5.3_LightWave3
 ```
