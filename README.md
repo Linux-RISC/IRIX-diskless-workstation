@@ -223,7 +223,7 @@ To set default configuration, run in Command Monitor:<br>
 ```
 <br>
 <h3>5. Real examples</h3>
-<b>Configuration for only one diskless client</b>
+<b>Configuration for only one diskless client</b><br>
 /etc/bootparams on Reanimator:<br>
 
 ```
