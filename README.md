@@ -136,7 +136,6 @@ IRIS2   root=192.168.9.100:/home/irix/i/diskless
 Command Monitor configuration on diskless workstation:<br>
 
 ```
->>setenv verbose on
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.2
 >>setenv OSLoader /unix
@@ -159,7 +158,6 @@ IRIS2   root=192.168.9.100:/home/irix/i/sda1/diskless
 Command Monitor configuration on diskless workstation:<br>
 
 ```
->>setenv verbose on
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.2
 >>setenv OSLoader /unix
@@ -183,7 +181,6 @@ IRIS2   root=NAS_IP:/path/diskless
 Command Monitor configuration on diskless workstation:<br>
 
 ```
->>setenv verbose on
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.2
 >>setenv OSLoader /unix
@@ -206,7 +203,6 @@ And modify the configuration on Command Monitor, depending on the kernel used:
 If you are an experienced user, you can copy the kernels to /home/irix/i/diskless on Reanimator using different names (for example 6.5.22 and 6.5.30) and modify OSLoader variable:<br>
 
 ```
->>setenv verbose on
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.2
 >>setenv OSLoader /6.5.22
@@ -234,12 +230,11 @@ IRIS2   root=192.168.9.13:/media/sdb1/NAS/diskless
 ```
 /media/sdb1/NAS     192.168.9.*(rw,no_root_squash,no_subtree_check)
 ```
-IRIX / on /media/sdb1/NAS/diskless
+IRIX / on /media/sdb1/NAS/diskless<br>
 <br>
 Octane2:<br>
 
 ```
->>setenv verbose on
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.2
 >>setenv OSLoader /unix
@@ -266,7 +261,6 @@ Content of directory "diskless" on NAS:
 Select the IRIX version to boot modifying Command Monitor variables:
 
 ```
->>setenv verbose on
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.2
 >>setenv OSLoader /unix
