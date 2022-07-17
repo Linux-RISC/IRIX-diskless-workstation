@@ -189,7 +189,7 @@ Command Monitor configuration on diskless workstation:<br>
 >>setenv SystemPartition bootp():diskless
 >>setenv OSLoadPartition bootp():diskless
 ```
-Don't <b>forget</b> to copy the <b>unix</b> file from "diskless" directory on the NAS to /home/irix/i/diskless on Reanimator. If you have several kernels, use a directory structure on Reanimator like:<br>
+Don't <b>forget</b> to copy the <b>unix</b> file from "diskless" directory on the NAS to /home/irix/i/diskless on Reanimator. If you have several kernels, use a directory structure on "diskless" directory like:<br>
 <ul>
   <li>6.5.22/unix</li>
   <li>6.5.30/unix</li>
@@ -202,7 +202,7 @@ And modify the configuration on Command Monitor, depending on the kernel used:
 >>setenv OSLoadPartition bootp():diskless/6.5.22
 ```
 
-If you know what you're doing, you can copy the kernels to /home/irix/i/diskless on Reanimator using different names (for example 6.5.22 and 6.5.30) and modify OSLoader variable:<br>
+If you are an experienced user, you can copy the kernels to /home/irix/i/diskless on Reanimator using different names (for example 6.5.22 and 6.5.30) and modify OSLoader variable:<br>
 
 ```
 >>setenv verbose on
