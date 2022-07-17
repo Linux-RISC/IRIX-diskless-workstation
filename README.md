@@ -127,6 +127,11 @@ This is an example for using Octane2 as diskless workstation:<br>
 # C1. RBPi/VirtualBox(change IP to 192.168.9.101) working as bootp server and NFS server
 IRIS2   root=192.168.9.100:/home/irix/i/diskless
 ```
+/etc/exports on Reanimator:
+
+```
+/home/irix/i/diskless                   *(rw,no_root_squash,no_subtree_check)
+```
 Command Monitor configuration on diskless workstation:<br>
 
 ```
@@ -143,7 +148,12 @@ Command Monitor configuration on diskless workstation:<br>
 
 ```
 # C2. (RBPi only) bootp+NFS+external hard disk connected to an USB port on RBPi
-IRIS2   root=192.168.9.100:/home/irix/i/diskless/sda1
+IRIS2   root=192.168.9.100:/home/irix/i/sda1/diskless
+```
+/etc/exports on Reanimator:
+
+```
+/home/irix/i/sda1/diskless                   *(rw,no_root_squash,no_subtree_check)
 ```
 Command Monitor configuration on diskless workstation:<br>
 
@@ -152,8 +162,8 @@ Command Monitor configuration on diskless workstation:<br>
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.2
 >>setenv OSLoader /unix
->>setenv SystemPartition bootp():diskless/sda1
->>setenv OSLoadPartition bootp():diskless/sda1
+>>setenv SystemPartition bootp():sda1/diskless
+>>setenv OSLoadPartition bootp():sda1/diskless
 ```
 
 <b>C3 configuration</b><br>
@@ -163,6 +173,11 @@ Command Monitor configuration on diskless workstation:<br>
 # C3. RBPi/VirtualBox working as bootp server and using a separated NFS NAS as storage
 # This path must be a NFS share defined on the NAS configuration
 IRIS2   root=NAS_IP:/path/diskless
+```
+/etc/exports on Reanimator:
+
+```
+/home/irix/i/diskless                   *(rw,no_root_squash,no_subtree_check)
 ```
 Command Monitor configuration on diskless workstation:<br>
 
@@ -197,7 +212,9 @@ If you know what you're doing, you can copy the kernels to /home/irix/i/diskless
 >>setenv SystemPartition bootp():diskless
 >>setenv OSLoadPartition bootp():diskless
 ```
-
+<br>
+The diskless workstation will boot without virtual memory, "Virtual Swap Space" can be added using Swap Manager.<br>
+<br>
 <h3>5. Possible use cases:</h3>
 1. <b>Virtual</b> rescue disk in case of IRIX boot fail or disk failure, instead using a physical disk<br>
 2. Multiple IRIX versions on diskless directory to boot different IRIX versions for a specific machine/software:<br>
