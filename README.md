@@ -51,7 +51,6 @@ Run as root (/diskless must exist):
 ```
 
 <h3>3. Copying and restoring diskless.tar on Reanimator</h3>
-<br>
 You can trasfer the file to the NAS using NFS, scp, Samba, ... some examples are provided.<br>
 <br>
 Example using configuration C1 and scp to copy Octane2-->RBPi:
