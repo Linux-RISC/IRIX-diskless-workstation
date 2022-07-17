@@ -234,6 +234,8 @@ IRIS2   root=192.168.9.13:/media/sdb1/NAS/diskless
 ```
 /media/sdb1/NAS     192.168.9.*(rw,no_root_squash,no_subtree_check)
 ```
+IRIX / on /media/sdb1/NAS/diskless
+<br>
 Octane2:<br>
 
 ```
