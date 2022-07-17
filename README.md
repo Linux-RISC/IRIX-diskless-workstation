@@ -227,7 +227,7 @@ To set default configuration, run in Command Monitor:<br>
 ```
 IRIS2   root=192.168.9.13:/media/sdb1/NAS/diskless
 ```
-<b>NAS</b>
+<b>NAS</b><br>
 /etc/exports: note that <b>it is not necessary</b> to share /media/sdb1/NAS/diskless directory via NFS, just share /media/sdb1/NAS<br>
 
 ```
