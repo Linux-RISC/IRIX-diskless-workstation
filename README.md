@@ -247,19 +247,19 @@ IRIX / on /media/sdb1/NAS/diskless<br>
 <br>
 <b>*** Configuration for multiple diskless client - option 1 ***</b><br>
 <b>Reanimator</b><br>
-- "unix" file on /home/irix/i/diskless/Octane2
+- "unix" file on /home/irix/i/diskless/6.5.30
 - /etc/bootparams:
 
 ```
-IRIS2   root=192.168.9.13:/media/sdb1/NAS/diskless/Octane2
+IRIS2   root=192.168.9.13:/media/sdb1/NAS/diskless/6.5.30
 ```
 <b>NAS</b><br>
-/etc/exports: note that <b>it is not necessary</b> to share /media/sdb1/NAS/diskless/Octane2 directory via NFS, just share /media/sdb1/NAS<br>
+/etc/exports: note that <b>it is not necessary</b> to share /media/sdb1/NAS/diskless/6.5.30 directory via NFS, just share /media/sdb1/NAS<br>
 
 ```
 /media/sdb1/NAS     192.168.9.*(rw,no_root_squash,no_subtree_check)
 ```
-IRIX / on /media/sdb1/NAS/diskless/Octane2<br>
+IRIX / on /media/sdb1/NAS/diskless/6.5.30<br>
 <br>
 <b>Octane2</b><br>
 
@@ -267,8 +267,8 @@ IRIX / on /media/sdb1/NAS/diskless/Octane2<br>
 >>setenv diskless 1
 >>setenv netaddr 192.168.9.2
 >>setenv OSLoader /unix
->>setenv SystemPartition bootp():diskless/Octane2
->>setenv OSLoadPartition bootp():diskless/Octane2
+>>setenv SystemPartition bootp():diskless/6.5.30
+>>setenv OSLoadPartition bootp():diskless/6.5.30
 ```
 <br>
 <br>
@@ -278,15 +278,15 @@ IRIX / on /media/sdb1/NAS/diskless/Octane2<br>
 - /etc/bootparams:
 
 ```
-IRIS2   root=192.168.9.13:/media/sdb1/NAS/diskless/Octane2
+IRIS2   root=192.168.9.13:/media/sdb1/NAS/diskless/6.5.30
 ```
 <b>NAS</b><br>
-/etc/exports: note that <b>it is not necessary</b> to share /media/sdb1/NAS/diskless/Octane2 directory via NFS, just share /media/sdb1/NAS<br>
+/etc/exports: note that <b>it is not necessary</b> to share /media/sdb1/NAS/diskless/6.5.30 directory via NFS, just share /media/sdb1/NAS<br>
 
 ```
 /media/sdb1/NAS     192.168.9.*(rw,no_root_squash,no_subtree_check)
 ```
-IRIX / on /media/sdb1/NAS/diskless/Octane2<br>
+IRIX / on /media/sdb1/NAS/diskless/6.5.30<br>
 <br>
 <b>Octane2</b><br>
 
