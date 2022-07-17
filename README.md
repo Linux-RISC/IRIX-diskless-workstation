@@ -246,7 +246,7 @@ Select the IRIX version to boot modifying Command Monitor variables:
 4. Portable farm of sgi machines<br>
 
 <h3>6. Possible improvements:</h3>
-- Repository containing a collection of .tgz files with different versions, machines and software<br>
+- Online repository containing a collection of .tgz files with different versions, machines and software<br>
 - Use disk images (how, using dd?) to avoid thousands of files in a directory and mount those .img files on the destination server<br>
 - Is there a way to copy the primary disk without using a secondary disk? Yes!, using a preconfigured IRIX to boot<br>
 - Boot from network and use a local disk for swap, data or both<br>
