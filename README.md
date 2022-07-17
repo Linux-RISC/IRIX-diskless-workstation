@@ -215,6 +215,12 @@ If you are an experienced user, you can copy the kernels to /home/irix/i/diskles
 <br>
 The diskless workstation will boot without virtual memory, "Virtual Swap Space" can be added using Swap Manager.<br>
 <br>
+To set default configuration, run in Command Monitor:<br>
+
+```
+>>resetenv
+```
+<br>
 <h3>5. Possible use cases:</h3>
 1. <b>Virtual</b> rescue disk:<br>
 <ul>
