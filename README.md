@@ -220,12 +220,15 @@ To set default configuration, run in Command Monitor:<br>
 <br>
 <h3>5. Real examples</h3>
 <b>Configuration for only one diskless client</b><br>
-/etc/bootparams on Reanimator:<br>
+Reanimator:<br>
+- "unix" file on /home/irix/i/diskless
+- /etc/bootparams:
 
 ```
 IRIS2   root=192.168.9.13:/media/sdb1/NAS/diskless
 ```
-/etc/exports on NAS: note that <b>it is not necessary</b> to share /media/sdb1/NAS/diskless directory via NFS, just share /media/sdb1/NAS<br>
+NAS
+/etc/exports: note that <b>it is not necessary</b> to share /media/sdb1/NAS/diskless directory via NFS, just share /media/sdb1/NAS<br>
 
 ```
 /media/sdb1/NAS     192.168.9.*(rw,no_root_squash,no_subtree_check)
