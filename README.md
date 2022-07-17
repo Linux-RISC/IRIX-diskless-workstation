@@ -222,7 +222,30 @@ To set default configuration, run in Command Monitor:<br>
 >>resetenv
 ```
 <br>
-<h3>5. Possible use cases:</h3>
+<br>
+<h3>5. Real examples</h3>
+/etc/bootparams on Reanimator:<br>
+
+```
+IRIS2   root=192.168.9.13:/media/sdb1/NAS/diskless
+```
+/etc/exports on NAS:<br>
+
+```
+/media/sdb1/NAS                                         192.168.9.*(rw,no_root_squash,no_subtree_check)
+```
+Octane2:<br>
+
+```
+>>setenv verbose on
+>>setenv diskless 1
+>>setenv netaddr 192.168.9.2
+>>setenv OSLoader /unix
+>>setenv SystemPartition bootp():diskless
+>>setenv OSLoadPartition bootp():diskless
+```
+<br>
+<h3>6. Possible use cases:</h3>
 1. <b>Virtual</b> rescue disk:<br>
 <ul>
   <li>in case of IRIX boot fail or disk failure, instead using a physical disk</li>
@@ -252,7 +275,7 @@ Select the IRIX version to boot modifying Command Monitor variables:
 3. Test software on multiple machines without reinstalling<br>
 4. Portable farm of sgi machines<br>
 
-<h3>6. Possible improvements:</h3>
+<h3>7. Possible improvements:</h3>
 - Online repository containing a collection of .tgz files with different versions, machines and software<br>
 - Use disk images (how, using dd?) to avoid thousands of files in a directory and mount those .img files on the NFS server<br>
 - Is there a way to copy the primary disk without using a secondary disk? Yes!, using a preconfigured IRIX to boot as diskless workstation<br>
