@@ -738,7 +738,7 @@ diskless/client/IRIS/etc/hosts <b>modified</b> file:<br>
 224.0.2.2       sun-rpc.mcast.net
 192.168.9.2     IRIS2
 ```
-Edit on Reanimator diskless/client/IRIS/etc/fstab and diskless/client/IRIS2/etc/fstab and another clients to boot from Reanimator or a NAS.<br>
+Edit on Reanimator diskless/client/IRIS/etc/fstab and diskless/client/IRIS2/etc/fstab and other clients to boot from Reanimator or a NAS.<br>
 Original file on Octane2:<br>
 
 ```
