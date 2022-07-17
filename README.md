@@ -221,7 +221,7 @@ The diskless workstation will boot without virtual memory, "Virtual Swap Space" 
   <li>in case of IRIX boot fail or disk failure, instead using a physical disk</li>
   <li>Automated network backup</li>
   <li>...</li>
-</ul>2. Multiple IRIX versions on diskless directory to boot different IRIX versions for a specific machine/software:<br>
+</ul>2. Multiple IRIX versions on diskless directory to boot different IRIX versions for a specific machine/software, for example:<br>
 Content of directory "diskless" on NAS:
 <ul>
   <li>6.5.22</li>
