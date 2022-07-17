@@ -16,9 +16,9 @@ Note: this guide is written according to https://irix7.com/techpubs/007-0855-080
 </ul>
 <br>
 I have tested three configurations:<br>
-C1. RBPi/VirtualBox working as bootp server and NFS server. This is the easiest configuration to test a diskless workstation, if using RBPi keep in mind that the SD card will reduce its expected life time, due to the excess of write cycles.<br>
-C2. (RBPi only) To avoid the SD problem and increase the throughput, you can connect an external hard disk to an USB port on RBPi and use it as storage instead the SD card.<br>
-C3. RBPi/VirtualBox working as bootp server and using a separated NFS NAS as storage (NFS 4.x disabled). I have used as NAS (Network-attached storage https://en.wikipedia.org/wiki/Network-attached_storage) a think client with Debian GNU/Linux and NFS, you don't need to use a professional solution.<br>
+<b>C1</b>. RBPi/VirtualBox working as bootp server and NFS server. This is the easiest configuration to test a diskless workstation, if using RBPi keep in mind that the SD card will reduce its expected life time, due to the excess of write cycles.<br>
+<b>C2</b>. (RBPi only) To avoid the SD problem and increase the throughput, you can connect an external hard disk to an USB port on RBPi and use it as storage instead the SD card.<br>
+<b>C3</b>. RBPi/VirtualBox working as bootp server and using a separated NFS NAS as storage (NFS 4.x disabled). I have used as NAS (Network-attached storage https://en.wikipedia.org/wiki/Network-attached_storage) a think client with Debian GNU/Linux and NFS, you don't need to use a professional solution.<br>
 <br>
 I assume that you are using a file system that is compatible with GNU/Linux file permissions, such as ext4.<br>
 <br>
