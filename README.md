@@ -7,6 +7,48 @@ Notes:<br>
 - For a classic diskless workstation suppport according to https://irix7.com/techpubs/007-0855-080.pdf and with limited functionality, please visit <a href="classic-IRIX-diskless-workstation.md" target="_blank">classic-IRIX-diskless-workstation</a>.<br>
 - This a <b>unofficial</b> guide, it ignores https://irix7.com/techpubs/007-0855-080.pdf but picks up some ideas from it.<br>
 - Sample videos: https://www.youtube.com/watch?v=S-wQ2EL3DRI&list=PL7fOFTpu7rt2beS_RgPIGp53fYubGyLYC<br>
+Tested systems:<br>
+<table>
+  <tr>
+    <th>File</th>
+    <th>IRIX version</th>
+    <th>sgi model</th>
+    <th>does it work?</th>
+  </tr>
+  <tr>
+    <td>IWD_Indy_5.3.tgz</td>
+    <td>5.3</td>
+    <td>Indy</td>
+    <td>NO. Frozen</td>
+  </tr>
+    <td>IWD_6.2.tgz</td>
+    <td>6.2</td>
+    <td>Indy</td>
+    <td>NO. Frozen</td>
+  </tr>
+    <td>IWD_6.5.0.tgz</td>
+    <td>6.5.0</td>
+    <td>Indy</td>
+    <td>NO. Frozen</td>
+   </tr>
+    <td>IWD_6.5.0.tgz</td>
+    <td>6.5.0</td>
+    <td>Octane2</td>
+    <td>NO. "Can't boot 32 bit ELF"</td>
+  </tr>
+   </tr>
+    <td>IWD_6.5.22.tgz</td>
+    <td>6.5.22</td>
+    <td>Indy</td>
+    <td>Yes</td>
+  </tr>
+   </tr>
+    <td>IDW_Octane2_6.5.30.tgz</td>
+    <td>6.5.30</td>
+    <td>Octane2</td>
+    <td>Yes</td>
+  </tr>
+</table>
 <br>
 <h2>Requirements</h2>
 <ul>
