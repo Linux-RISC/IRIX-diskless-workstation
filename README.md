@@ -6,6 +6,7 @@ The purpose of this guide is to show how to boot an IRIX diskless workstation us
 Notes:<br>
 - For a classic diskless workstation suppport according to https://irix7.com/techpubs/007-0855-080.pdf and with limited functionality, please visit <a href="classic-IRIX-diskless-workstation.md" target="_blank">classic-IRIX-diskless-workstation</a>.<br>
 - This a <b>unofficial</b> guide, it ignores https://irix7.com/techpubs/007-0855-080.pdf but picks up some ideas from it.<br>
+- Sample videos: https://www.youtube.com/watch?v=S-wQ2EL3DRI&list=PL7fOFTpu7rt2beS_RgPIGp53fYubGyLYC<br>
 <br>
 <h2>Requirements</h2>
 <ul>
