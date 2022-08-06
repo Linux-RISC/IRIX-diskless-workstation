@@ -19,7 +19,7 @@ Tested systems:<br>
     <td>IWD_Indy_5.3.tgz</td>
     <td>5.3</td>
     <td>Indy</td>
-    <td>NO. Kernel error</td>
+    <td>NO. PANIC: KERNEL FAULT</td>
   </tr>
     <td>IWD_6.2.tgz</td>
     <td>6.2</td>
