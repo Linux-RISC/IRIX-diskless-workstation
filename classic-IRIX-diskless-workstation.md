@@ -923,7 +923,7 @@ Results summary:<br>
   </tr>
 </table>
 <br>
-<h3>13. Rebooting from disk 1:</h3>
+<h3>13. Rebooting IRIX from disk 1:</h3>
 To boot from disk 1, run in Command Monitor:
 
 ```
