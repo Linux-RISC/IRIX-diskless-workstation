@@ -922,3 +922,13 @@ Results summary:<br>
     <td>Linux-RISC</td>
   </tr>
 </table>
+<br>
+<h3>13. Rebooting from disk 1:</h3>
+To boot from disk 1, run in Command Monitor:
+
+```
+>>setenv SystemPartition dksc(0,1,8)
+>>setenv OSLoadPartition dksc(0,1,0)
+>>setenv OSLoader sash
+>>setenv OSLoadFilename unix
+```
