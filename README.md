@@ -81,6 +81,8 @@ Run in Command Monitor:
 ```
 >>setenv SystemPartition dksc(0,2,8)
 >>setenv OSLoadPartition dksc(0,2,0)
+>>setenv OSLoader sash
+>>setenv OSLoadFilename unix
 ```
 Return to main menu and boot IRIX.<br>
 <br>
