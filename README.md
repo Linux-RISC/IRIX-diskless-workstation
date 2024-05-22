@@ -380,3 +380,13 @@ Select the IRIX version to boot modifying Command Monitor variables:
 - Is there a way to copy the primary disk without using a secondary disk? Yes!, using a preconfigured IRIX to boot as diskless workstation, check https://mega.nz/folder/7jJGlSSS#d25XyA8RhKJyoU2uSrlasw/folder/buxA3IjA for files with prefix IDW_*<br>
 - Boot from network and use a local disk for swap, data or both<br>
 - Share IRIX directories between machines (using Unix soft links) with the same IRIX version to save disk space, the concept is the same than "shared trees" of sgi diskless workstation manual
+<br>
+<h3>8. Rebooting from disk 1:</h3>
+To boot from disk 1, run in Command Monitor:
+
+```
+>>setenv SystemPartition dksc(0,1,8)
+>>setenv OSLoadPartition dksc(0,1,0)
+>>setenv OSLoader sash
+>>setenv OSLoadFilename unix
+```
