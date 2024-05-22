@@ -381,7 +381,7 @@ Select the IRIX version to boot modifying Command Monitor variables:
 - Boot from network and use a local disk for swap, data or both<br>
 - Share IRIX directories between machines (using Unix soft links) with the same IRIX version to save disk space, the concept is the same than "shared trees" of sgi diskless workstation manual
 <br>
-<h3>8. Rebooting from disk 1:</h3>
+<h3>8. Rebooting IRIX from disk 1:</h3>
 To boot from disk 1, run in Command Monitor:
 
 ```
