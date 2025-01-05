@@ -1,6 +1,6 @@
 <a href="https://www.buymeacoffee.com/rbpiuserf" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
-Last update: 2024/05/22<br>
+Last update: 2025/01/05<br>
 # IRIX diskless workstation using Reanimator
 <br>
 The purpose of this guide is to show how to boot an IRIX diskless workstation using Reanimator https://github.com/Linux-RISC/Reanimator<br>
@@ -18,28 +18,28 @@ Tested systems:<br>
     <th>does it work?</th>
   </tr>
   <tr>
-    <td>IWD_Indy_5.3.tgz</td>
+    <td>IDW_Indy_5.3.tgz</td>
     <td>5.3</td>
     <td>Indy</td>
     <td>NO. PANIC: KERNEL FAULT</td>
   </tr>
-    <td>IWD_6.2.tgz</td>
+    <td>IDW_6.2.tgz</td>
     <td>6.2</td>
     <td>Indy</td>
     <td>NO. Frozen</td>
   </tr>
-    <td>IWD_6.5.0.tgz</td>
+    <td>IDW_6.5.0.tgz</td>
     <td>6.5.0</td>
     <td>Indy</td>
     <td>NO. Frozen</td>
    </tr>
-    <td>IWD_6.5.0.tgz</td>
+    <td>IDW_6.5.0.tgz</td>
     <td>6.5.0</td>
     <td>Octane2</td>
     <td>NO. "Can't boot 32 bit ELF"</td>
   </tr>
    </tr>
-    <td>IWD_6.5.22.tgz</td>
+    <td>IDW_6.5.22.tgz</td>
     <td>6.5.22</td>
     <td>Indy</td>
     <td>Yes</td>
